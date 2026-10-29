@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 21063,
-    "sha256": "316c4c583771037ac5438059494099804bfe496cb539c81efe5d830e6e276ba3"
+    "bytes": 21156,
+    "sha256": "1db081bc8ad0f9183e7ad5abf0ec9c5e7960abf949f7dc563e7eb5c5a0b3ee3d"
   },
   {
     "path": "configs/modules/input_frontend_pilot.yaml",
@@ -30,14 +30,19 @@
     "sha256": "95cb40ee9f5f82e74f928836a38c5f177ba7d0995769b3e843eafc80de9b4aa4"
   },
   {
+    "path": "configs/modules/shared_eight_e2e.yaml",
+    "bytes": 383,
+    "sha256": "9993bee9b6dc7d495874fdc2fe1ae90ffce1ed59c2f89e2d20c5ad4ab777ef7e"
+  },
+  {
     "path": "configs/modules/shared_eight_study.yaml",
     "bytes": 374,
     "sha256": "fae1d36b1a61cac6e590f1db59db2aa044565c2125a88d8cdef7d373faabaac0"
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 3675,
-    "sha256": "58633734fbdaa9fb8d88dae357128590ec35b9313b13f0dde7a1ad543458d721"
+    "bytes": 4356,
+    "sha256": "a1aeaa2140efa7a487c5eadcb3e8eb4ba498cc60ac0c5318c0184a7f085ee60c"
   },
   {
     "path": "docs/CODEBASE_GUIDE.md",
@@ -58,6 +63,11 @@
     "path": "docs/PHASE_MODULE_DESIGN.md",
     "bytes": 5259,
     "sha256": "715b51c1094ebea74d68e76b336f2881cd36f36d5085026ffa8186e63e590c3c"
+  },
+  {
+    "path": "docs/SHARED_EIGHT_E2E.md",
+    "bytes": 3463,
+    "sha256": "e5eb0684d96423540e53bb14a134c1bc904771fa21d27d80450fe78d56e64081"
   },
   {
     "path": "docs/SHARED_EIGHT_STUDY.md",
@@ -85,9 +95,14 @@
     "sha256": "4b153e31eed6b39639a3c1850751727f3fb7e4309b792d9e37f028662ee7d937"
   },
   {
+    "path": "scripts/audit_shared_eight_e2e.py",
+    "bytes": 4347,
+    "sha256": "616e47f1f6b0698046a43bdeeb421c3efb8ee7b4a5799669bc8d9b94707ce70c"
+  },
+  {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 2892,
-    "sha256": "3f44dfb8597b4783b17c3b7a149af61ec351d7f941e645e65c3ae38f5376d1d6"
+    "bytes": 3093,
+    "sha256": "4754b9b0113d1cf4454ce11257ce44f0949d4afbe475214bcb888f93781fd001"
   },
   {
     "path": "scripts/phase_module.py",
@@ -95,9 +110,24 @@
     "sha256": "64180c05caee26d98d173f629eb0513e1aad294ecb204f87a6e2ff369de546f5"
   },
   {
+    "path": "scripts/report_shared_eight_e2e.py",
+    "bytes": 10823,
+    "sha256": "009c0535fc29f307f95582dd3335167fbd625b9d442172c38ce9c0694d0bb67b"
+  },
+  {
     "path": "scripts/summarize_shared_eight.py",
     "bytes": 8801,
     "sha256": "28179ac228ca7a6bd8ebcb91322eaf772dc468607021757caa1969f63949daab"
+  },
+  {
+    "path": "scripts/summarize_shared_eight_e2e.py",
+    "bytes": 9395,
+    "sha256": "5081ddc6ebf8b2e847e8421f722ea6bd8750062ad1603d21a33c19989bb048a4"
+  },
+  {
+    "path": "scripts/train_shared_eight_e2e.py",
+    "bytes": 14774,
+    "sha256": "7b22f475dddfdd3e39e0906ca4ccfb3c18cff6c5650a489432d92da36dd58b94"
   },
   {
     "path": "scripts/validate_input_frontend.py",
@@ -598,6 +628,11 @@
     "path": "tests/phase_module/test_shared_eight.py",
     "bytes": 1626,
     "sha256": "6e9ae1a9d6fbce09fac357989ca46a2d08b7af130802bc9aa300fa8db4cba057"
+  },
+  {
+    "path": "tests/phase_module/test_shared_eight_e2e.py",
+    "bytes": 1406,
+    "sha256": "b72864e8f52000e6516aa2f4c262b2b9ef4c878c5421dd9db0e2c9775881965b"
   },
   {
     "path": "third_party/current_reference_recovery_v2/dual_reference_pll.py",

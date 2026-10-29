@@ -6,6 +6,8 @@
 
 > 当前版本包含**统一输入前端候选、三个独立模型文件和三个专用加载器**。已完成双数据集HYDRA输入试验，以及三骨干统一8维、五折、单种子的冻结骨干接入验证；8维接入尚未建立统一收益，辅助10维分支仍为独立候选，均未作为默认方法。历史C0成绩不作为新前端的效果证据。
 
+端到端验证：[实验协议与执行说明](docs/SHARED_EIGHT_E2E.md)（进行中）。
+
 最近变更：[统一8维三骨干验证](docs/SHARED_EIGHT_STUDY.md) · [变更记录](docs/CHANGELOG.md) · [独立模型与加载器](docs/INDEPENDENT_MODELS.md)。
 
 [![CPU tests](https://github.com/2020hao/ARC_YsqPLL/actions/workflows/phase-module.yml/badge.svg)](https://github.com/2020hao/ARC_YsqPLL/actions/workflows/phase-module.yml)
