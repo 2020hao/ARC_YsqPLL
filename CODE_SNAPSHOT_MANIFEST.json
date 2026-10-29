@@ -16,8 +16,13 @@
   },
   {
     "path": "README.md",
-    "bytes": 23092,
-    "sha256": "5c517d76a4a8c475451c4fe17dd83a098274770c359038f59fecc9faad5f57ad"
+    "bytes": 25523,
+    "sha256": "08668f465fdcab245d5d4aa0f1ef986990cc7a1abeeb506e99b8a0e8a40f9ee7"
+  },
+  {
+    "path": "configs/modules/dynamic_restore.yaml",
+    "bytes": 373,
+    "sha256": "0d52ba13bad60638598db74757c446909d6783f5ab564a8d299793d1a4639e8f"
   },
   {
     "path": "configs/modules/input_frontend_pilot.yaml",
@@ -41,13 +46,18 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 4893,
-    "sha256": "d8c5bf372962b5e543e123d43b315928f68601181ebb40277a2582144ac9807f"
+    "bytes": 5971,
+    "sha256": "5c3753f9e05750e321683e6d40d42789e1dc3dbb1f17233e4e46b02b51246dbe"
   },
   {
     "path": "docs/CODEBASE_GUIDE.md",
     "bytes": 3419,
     "sha256": "cf43398e38e37869f5409ff5e1d1320c041dffce0ce84f3bdb0d3cbc4fe2e9dc"
+  },
+  {
+    "path": "docs/DYNAMIC_CORRECTION_RESTORE.md",
+    "bytes": 4404,
+    "sha256": "e9ba61ae3d20500826d14a883d4a5ca1518a868936c412e1894443a8d0b52788"
   },
   {
     "path": "docs/GIT_WORKFLOW.md",
@@ -101,8 +111,13 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 3093,
-    "sha256": "4754b9b0113d1cf4454ce11257ce44f0949d4afbe475214bcb888f93781fd001"
+    "bytes": 3263,
+    "sha256": "7eeca30be833a385e3b49af15c5fb30790c3a67d637b4682c03b0e216e912a5f"
+  },
+  {
+    "path": "scripts/export_dynamic_modules.py",
+    "bytes": 2612,
+    "sha256": "38af661adc7310b4224c8d765c1ae7deca027f51fedfd0fa83a1cbb73b9024f6"
   },
   {
     "path": "scripts/phase_module.py",
@@ -113,6 +128,11 @@
     "path": "scripts/report_shared_eight_e2e.py",
     "bytes": 11059,
     "sha256": "446ea196b5e6491caf695c12eb52ffb0e61acb6be064be0dd21d857018acb662"
+  },
+  {
+    "path": "scripts/summarize_dynamic_restore.py",
+    "bytes": 9491,
+    "sha256": "3bb621d0266ca82b4720b5cefa554de2dee6dc45122f22ced3271bb9625c6921"
   },
   {
     "path": "scripts/summarize_shared_eight.py",
@@ -128,6 +148,11 @@
     "path": "scripts/train_shared_eight_e2e.py",
     "bytes": 14774,
     "sha256": "7b22f475dddfdd3e39e0906ca4ccfb3c18cff6c5650a489432d92da36dd58b94"
+  },
+  {
+    "path": "scripts/validate_dynamic_restore.py",
+    "bytes": 10294,
+    "sha256": "4071c4c640d10b123d2ff3148d3264e1b19346f6ee198be2febbcc6336c719ef"
   },
   {
     "path": "scripts/validate_input_frontend.py",
@@ -300,9 +325,19 @@
     "sha256": "e4c7bcce58e259137c24f350ceee56c3052eb72d603c02f77101e0ddafdd157f"
   },
   {
+    "path": "src/arc_model/methods/dynamic_correction.py",
+    "bytes": 5272,
+    "sha256": "757c6df9978bb25a989603681ad66ad873e7744f6d6577ad96aae2631815f25f"
+  },
+  {
     "path": "src/arc_model/methods/dynamic_mask_ablation.py",
     "bytes": 1214,
     "sha256": "3b77ae58ab5b3a3446df05404e153cee2d59557cedd0ebe4eef15d45c3dcdc45"
+  },
+  {
+    "path": "src/arc_model/methods/dynamic_score_module.py",
+    "bytes": 1488,
+    "sha256": "8ed7cd6b4c370cb74b0213070d015b0e7fc4d1bc6183623698b3d877a8d42e4e"
   },
   {
     "path": "src/arc_model/methods/head_fusion_validation.py",
@@ -603,6 +638,16 @@
     "path": "tests/phase_module/conftest.py",
     "bytes": 130,
     "sha256": "1e46b3a3df3fd709454e7b5d26542c6ba90b4481034f99452f1a5985d3e98b7e"
+  },
+  {
+    "path": "tests/phase_module/test_dynamic_correction.py",
+    "bytes": 1577,
+    "sha256": "01f8ded4471d5868ce723b2be029e29bb01bcd89d08ee5ce026272c4fc12baf2"
+  },
+  {
+    "path": "tests/phase_module/test_dynamic_score_module.py",
+    "bytes": 725,
+    "sha256": "5e05257314c6f89d6019f0cde30db054b7aed579e1dadee51598dc43e2acdfd1"
   },
   {
     "path": "tests/phase_module/test_features.py",

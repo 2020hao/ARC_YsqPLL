@@ -1,0 +1,11 @@
+specialized_study: dynamic_restore_20261029
+datasets:
+  new5m: {cohort: continuous5m, channel_zero_based: 0, distance_m: 5}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3}
+models: [ArcFENet, HYDRA, ArcFusionNet]
+seeds: [0, 1, 2]
+folds: 5
+arms: [legacy_refit, uniform36, dynamic32]
+pool_datasets: false
+gpu_physical: [1, 2, 3]
+output: outputs/dynamic_restore_20261029
