@@ -475,6 +475,11 @@
     "sha256": "7d217eb7cae695fd6150129e2df772c031a530bd3bc36a719d9d0dc69215bd36"
   },
   {
+    "path": "tests/phase_module/__init__.py",
+    "bytes": 76,
+    "sha256": "2ab8b2ed58e024dfe5b79831fa0b003a934a994ed0ca44ec721ec8cb9b0da225"
+  },
+  {
     "path": "tests/phase_module/conftest.py",
     "bytes": 130,
     "sha256": "1e46b3a3df3fd709454e7b5d26542c6ba90b4481034f99452f1a5985d3e98b7e"
