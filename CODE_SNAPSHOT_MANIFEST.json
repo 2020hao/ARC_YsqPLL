@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 25788,
-    "sha256": "2249d8139ba611e27daad1ee93a7b3cce1e63bc9ce25d00459fc5bb52a9a81fb"
+    "bytes": 34322,
+    "sha256": "8e28567a38175fd22a0569d3abf0809bf1d029a753206bc098cbfd578cd4187e"
   },
   {
     "path": "configs/modules/dynamic_restore.yaml",
@@ -28,6 +28,11 @@
     "path": "configs/modules/input_frontend_pilot.yaml",
     "bytes": 274,
     "sha256": "10dd2f9bffd91ac6f065397b88e9b64512ac6522e17df1152c047f5940fa8a5d"
+  },
+  {
+    "path": "configs/modules/paper_baseline_completion.yaml",
+    "bytes": 330,
+    "sha256": "36ded0b8545bff7c09f195e7f878263aac6d26892925d40e65480875e6b28880"
   },
   {
     "path": "configs/modules/phase_representation.yaml",
@@ -46,18 +51,33 @@
   },
   {
     "path": "docs/BASELINE_DEFINITION.md",
-    "bytes": 3037,
-    "sha256": "ab23a33086e6fbacff2ecd34a5af9f3460bb8315d810393de1aca92361047a4d"
+    "bytes": 5697,
+    "sha256": "58aafcc45aae3c9798e428a4ca0239cdf354ac8a47557f932bb3825b71a9959b"
+  },
+  {
+    "path": "docs/BRANCH_VS_REPLACEMENT.md",
+    "bytes": 7013,
+    "sha256": "a46292ace9f68b3ef0684b9c0f68f3485a67e18bb6ee62427f9e7804c9f5df28"
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 6613,
-    "sha256": "9892d43c2d510455139b3e1f47bc7a46d8e1dad4bf52ddebb6ce8bc85c9a88f0"
+    "bytes": 8529,
+    "sha256": "33331444871585de1bde5d2d07443fe549b07f18f9ba0023242c0f6ad8aa9dcd"
+  },
+  {
+    "path": "docs/CLASSIFICATION_METRICS.md",
+    "bytes": 6428,
+    "sha256": "ca5706d7d77b7c6a2bdf33e56b5c865daccf951c164336a06c2e236a2e1a7250"
   },
   {
     "path": "docs/CODEBASE_GUIDE.md",
     "bytes": 3419,
     "sha256": "cf43398e38e37869f5409ff5e1d1320c041dffce0ce84f3bdb0d3cbc4fe2e9dc"
+  },
+  {
+    "path": "docs/DATASETS.md",
+    "bytes": 8914,
+    "sha256": "8f50e2e5ea34defffc056771d7beab6f3b63e2b9e39946fbbb887e746552318e"
   },
   {
     "path": "docs/DYNAMIC_CORRECTION_RESTORE.md",
@@ -110,14 +130,29 @@
     "sha256": "4b153e31eed6b39639a3c1850751727f3fb7e4309b792d9e37f028662ee7d937"
   },
   {
+    "path": "scripts/audit_current_datasets.py",
+    "bytes": 3706,
+    "sha256": "86fa8df0f44361c28144f69f95b872c1a29ae63eb5e24f18d6d978decbd9c767"
+  },
+  {
+    "path": "scripts/audit_paper_baseline_forward.py",
+    "bytes": 1974,
+    "sha256": "31d204f9b94e2add7b4db16bb5d5f8996b2d340ff345f573c0fb07f5d759e9d6"
+  },
+  {
     "path": "scripts/audit_shared_eight_e2e.py",
     "bytes": 4347,
     "sha256": "616e47f1f6b0698046a43bdeeb421c3efb8ee7b4a5799669bc8d9b94707ce70c"
   },
   {
+    "path": "scripts/complete_paper_baselines.py",
+    "bytes": 11035,
+    "sha256": "40f81cd68685cab2afeeebe54746bef7be5e45b194abdf8043d4cfccbf22cd60"
+  },
+  {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 3298,
-    "sha256": "a38b3f27ad9a86cc318370bf715526573de286b046a983bbef1ef83b4286b82e"
+    "bytes": 3620,
+    "sha256": "543c477ad8f7cd5a98e0b45249e73de0aece296f71e580412ba08d893ffa8816"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
@@ -130,6 +165,11 @@
     "sha256": "64180c05caee26d98d173f629eb0513e1aad294ecb204f87a6e2ff369de546f5"
   },
   {
+    "path": "scripts/report_classification_metrics.py",
+    "bytes": 7840,
+    "sha256": "615c471c9d266ba57aa7b15515709b6332299a0e5555c6c76268258c1b9c23df"
+  },
+  {
     "path": "scripts/report_shared_eight_e2e.py",
     "bytes": 11059,
     "sha256": "446ea196b5e6491caf695c12eb52ffb0e61acb6be064be0dd21d857018acb662"
@@ -138,6 +178,11 @@
     "path": "scripts/summarize_dynamic_restore.py",
     "bytes": 9491,
     "sha256": "3bb621d0266ca82b4720b5cefa554de2dee6dc45122f22ced3271bb9625c6921"
+  },
+  {
+    "path": "scripts/summarize_paper_baselines.py",
+    "bytes": 6929,
+    "sha256": "4f3c9440ba74f5d6ef07192e0cab01f8e7b8c42faf579f144bfe0d0ddf15932a"
   },
   {
     "path": "scripts/summarize_shared_eight.py",
@@ -233,6 +278,11 @@
     "path": "src/arc_model/evaluation/aggregation.py",
     "bytes": 1124,
     "sha256": "d448e9705f190ef6c3e0c67a2b048193907a7f8efdf5b25f403edaaf27d586de"
+  },
+  {
+    "path": "src/arc_model/evaluation/cycle_metrics.py",
+    "bytes": 1632,
+    "sha256": "5f2f76e5c039e0bfaf72dbfe46a738a8ddd0d0f1e19ca035a04c4c2431d39a0f"
   },
   {
     "path": "src/arc_model/evaluation/metrics.py",
@@ -495,6 +545,11 @@
     "sha256": "5d94aa73bddbce2bdad3935c135b4980e471444de7e8d36756e5d6d523e44136"
   },
   {
+    "path": "src/arc_model/models/standalone/hydra_paper.py",
+    "bytes": 2865,
+    "sha256": "4eed8a3927e0333b61c33ed73ef42a65a2161a73883e1d1d6e9cfdbd354e5ce4"
+  },
+  {
     "path": "src/arc_model/preprocessing/__init__.py",
     "bytes": 29,
     "sha256": "da4ba29f123fac1cdbb1013762b83c799019496df143ccade4dca3ae43e48314"
@@ -645,6 +700,11 @@
     "sha256": "1e46b3a3df3fd709454e7b5d26542c6ba90b4481034f99452f1a5985d3e98b7e"
   },
   {
+    "path": "tests/phase_module/test_cycle_metrics.py",
+    "bytes": 803,
+    "sha256": "ea79167b80c5bd1ec730e89b57c7cb56fe46f92684514335f125d5aa26c32e70"
+  },
+  {
     "path": "tests/phase_module/test_dynamic_correction.py",
     "bytes": 1577,
     "sha256": "01f8ded4471d5868ce723b2be029e29bb01bcd89d08ee5ce026272c4fc12baf2"
@@ -658,6 +718,11 @@
     "path": "tests/phase_module/test_features.py",
     "bytes": 2610,
     "sha256": "29f97c4ac44e9cd5a64ce1718c328e078f939a18874e2ca533908370d114a676"
+  },
+  {
+    "path": "tests/phase_module/test_hydra_paper.py",
+    "bytes": 828,
+    "sha256": "f89b8c8c970b98aff470b594119680956f50b6b97203c03999dabb98498a13ae"
   },
   {
     "path": "tests/phase_module/test_independent_models_loaders.py",

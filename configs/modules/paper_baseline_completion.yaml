@@ -1,0 +1,8 @@
+specialized_study: paper_baseline_completion_20261029
+datasets:
+  new5m: {cohort: continuous5m, channel_zero_based: 0, distance_m: 5}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3}
+models: [ArcFENet_reconstructed, HYDRA_paper]
+pool_datasets: false
+gpu_physical: [1, 2, 3]
+output: outputs/paper_baseline_completion_20261029
