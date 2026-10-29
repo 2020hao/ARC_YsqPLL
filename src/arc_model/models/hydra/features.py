@@ -2,7 +2,7 @@
 
 import numpy as np
 import torch
-from arc_model.vendor.hydra_class import Hydra
+from arc_model.models.standalone.hydra import Hydra
 
 
 def transform_windows(waves, seed: int, batch_size: int = 128):

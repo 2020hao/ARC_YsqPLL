@@ -2,7 +2,7 @@
 
 import numpy as np
 import torch
-from arc_model.vendor.hydra_class import SparseScaler
+from arc_model.models.standalone.hydra import SparseScaler
 
 
 class Features:

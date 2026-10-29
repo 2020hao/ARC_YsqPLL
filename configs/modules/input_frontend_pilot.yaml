@@ -1,0 +1,7 @@
+specialized_study: input_frontend_pilot_20261029
+datasets:
+  new5m: {cohort: continuous5m, channel_zero_based: 0, distance_m: 5}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3}
+pool_datasets: false
+output: outputs/input_frontend_pilot_20261029
+gpu_physical: [1, 2, 3]

@@ -47,3 +47,13 @@ separate per dataset. Physical GPU0 must remain unused by project training.
 GitHub contains reusable code, selected implementation docs, tests and config
 examples. Raw recordings, per-record labels, model weights, drafts, all metrics
 and the private pre-refactor baseline stay local. See `GIT_WORKFLOW.md`.
+# 2026-10-29 独立模型入口
+
+模型结构现在分别保存在`models/standalone/arc_fenet.py`、
+`models/standalone/arc_fusion.py`和`models/standalone/hydra.py`。
+三个文件不导入项目中的公共网络块，也不相互引用。
+
+模型专用加载器分别为`data/arc_fenet_loader.py`、
+`data/arc_fusion_loader.py`和`data/hydra_loader.py`。
+它们不继承通用加载器。原始信号读取和相位估计继续属于前端。
+详见[独立模型与加载器](INDEPENDENT_MODELS.md)及[变更记录](CHANGELOG.md)。

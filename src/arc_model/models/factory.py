@@ -1,7 +1,7 @@
 """Explicit neural-model registry. HYDRA has a separate feature/classifier API."""
 
-from .arc_fenet.network import FENet
-from .arc_fusion.network import FusionNet
+from .standalone.arc_fenet import FENet
+from .standalone.arc_fusion import FusionNet
 
 
 def make_model(name: str, extra: int = 0):
