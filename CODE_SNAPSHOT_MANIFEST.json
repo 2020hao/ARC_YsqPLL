@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 25523,
-    "sha256": "08668f465fdcab245d5d4aa0f1ef986990cc7a1abeeb506e99b8a0e8a40f9ee7"
+    "bytes": 25788,
+    "sha256": "2249d8139ba611e27daad1ee93a7b3cce1e63bc9ce25d00459fc5bb52a9a81fb"
   },
   {
     "path": "configs/modules/dynamic_restore.yaml",
@@ -45,9 +45,14 @@
     "sha256": "fae1d36b1a61cac6e590f1db59db2aa044565c2125a88d8cdef7d373faabaac0"
   },
   {
+    "path": "docs/BASELINE_DEFINITION.md",
+    "bytes": 3037,
+    "sha256": "ab23a33086e6fbacff2ecd34a5af9f3460bb8315d810393de1aca92361047a4d"
+  },
+  {
     "path": "docs/CHANGELOG.md",
-    "bytes": 5971,
-    "sha256": "5c3753f9e05750e321683e6d40d42789e1dc3dbb1f17233e4e46b02b51246dbe"
+    "bytes": 6613,
+    "sha256": "9892d43c2d510455139b3e1f47bc7a46d8e1dad4bf52ddebb6ce8bc85c9a88f0"
   },
   {
     "path": "docs/CODEBASE_GUIDE.md",
@@ -56,8 +61,8 @@
   },
   {
     "path": "docs/DYNAMIC_CORRECTION_RESTORE.md",
-    "bytes": 4404,
-    "sha256": "e9ba61ae3d20500826d14a883d4a5ca1518a868936c412e1894443a8d0b52788"
+    "bytes": 4575,
+    "sha256": "d626b7a489384e6444a9e6cdf7ccf4fc5701a33bac66a90b9982aefc3067b204"
   },
   {
     "path": "docs/GIT_WORKFLOW.md",
@@ -111,8 +116,8 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 3263,
-    "sha256": "7eeca30be833a385e3b49af15c5fb30790c3a67d637b4682c03b0e216e912a5f"
+    "bytes": 3298,
+    "sha256": "a38b3f27ad9a86cc318370bf715526573de286b046a983bbef1ef83b4286b82e"
   },
   {
     "path": "scripts/export_dynamic_modules.py",

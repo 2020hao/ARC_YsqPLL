@@ -25,6 +25,7 @@ PATTERNS = [
     "docs/SHARED_EIGHT_STUDY.md",
     "docs/SHARED_EIGHT_E2E.md",
     "docs/DYNAMIC_CORRECTION_RESTORE.md",
+    "docs/BASELINE_DEFINITION.md",
     "scripts/phase_module.py",
     "scripts/export_code_snapshot.py",
     "scripts/_bootstrap.py",
