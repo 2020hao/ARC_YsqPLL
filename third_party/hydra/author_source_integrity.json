@@ -1,0 +1,65 @@
+[
+  {
+    "file": "latexTable.m",
+    "bytes": 10348,
+    "sha256": "3737bb4e14524fa38e5ff61a5cf7f8a262ede3923dfb8fd9ce05aaa11e8199dd",
+    "zip_crc32": 1964240898,
+    "crc_verified": true
+  },
+  {
+    "file": "hydra_features.py",
+    "bytes": 1307,
+    "sha256": "38fbb41329b69817fe495f5a879470d2278415cb4f06552948b0a1d5e1202e32",
+    "zip_crc32": 3975371112,
+    "crc_verified": true
+  },
+  {
+    "file": "trainClassifier_multiclass.m",
+    "bytes": 2216,
+    "sha256": "04d0daf5968b9774955040c0e5a3ec2f98cadc7996cb3df74ce49e0daef1a09b",
+    "zip_crc32": 2079499351,
+    "crc_verified": true
+  },
+  {
+    "file": "paretoFront.m",
+    "bytes": 492,
+    "sha256": "614b61babd85cf2dc5179bb25df07e7159e4911d4694bc2785c05197ef30301c",
+    "zip_crc32": 2297737787,
+    "crc_verified": true
+  },
+  {
+    "file": "main.m",
+    "bytes": 9631,
+    "sha256": "160827b9c6c5d092380151a18d170925a529e0d56eb7f707b9a4d77ef41b6557",
+    "zip_crc32": 3183838440,
+    "crc_verified": true
+  },
+  {
+    "file": "README.txt",
+    "bytes": 1091,
+    "sha256": "caa34dafcf73028b061d783d38eb7e8d9e15bcdf32eb87af6ff41cbf7305fa46",
+    "zip_crc32": 974757213,
+    "crc_verified": true
+  },
+  {
+    "file": "visualize.m",
+    "bytes": 10696,
+    "sha256": "326d670e736dfcd7a64d0e05e45eb2f8ee54c21e49d4de5037c8004badcbd088",
+    "zip_crc32": 4069239359,
+    "crc_verified": true
+  },
+  {
+    "file": "hydra_class.py",
+    "bytes": 3699,
+    "sha256": "7d217eb7cae695fd6150129e2df772c031a530bd3bc36a719d9d0dc69215bd36",
+    "zip_crc32": 16926139,
+    "crc_verified": true
+  },
+  {
+    "file": "plotsettings.m",
+    "bytes": 382,
+    "sha256": "76e378be5586827c7c99cf39a2f32c856e9f64c1d0077a5e7718b025e7db691c",
+    "zip_crc32": 309087837,
+    "crc_verified": true
+  }
+]

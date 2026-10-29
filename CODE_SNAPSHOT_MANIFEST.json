@@ -1,0 +1,547 @@
+[
+  {
+    "path": ".gitattributes",
+    "bytes": 52,
+    "sha256": "2e274c94200ffe2a86444a722c2fabd0a6e60e548eaeb2b22cdbe8a256361bab"
+  },
+  {
+    "path": ".github/workflows/phase-module.yml",
+    "bytes": 508,
+    "sha256": "86c6d3487445fd17080e780586e8b4d350ace4825f4d7aeaae801375679bf65a"
+  },
+  {
+    "path": ".gitignore",
+    "bytes": 480,
+    "sha256": "d8e01299e932a9feb6e86bca886710005889a2df171aca81aa08f27fae9bd4bf"
+  },
+  {
+    "path": "README.md",
+    "bytes": 4952,
+    "sha256": "7fee6289bca60835b41c14c116c812669b0be864557411df4e857ff762b392cc"
+  },
+  {
+    "path": "configs/modules/phase_representation.yaml",
+    "bytes": 927,
+    "sha256": "95cb40ee9f5f82e74f928836a38c5f177ba7d0995769b3e843eafc80de9b4aa4"
+  },
+  {
+    "path": "docs/CODEBASE_GUIDE.md",
+    "bytes": 2881,
+    "sha256": "05f81d81bc4e43a87ad934aee6b9473c4a4d7457e2a7cff73b04d9a5421b4ad2"
+  },
+  {
+    "path": "docs/GIT_WORKFLOW.md",
+    "bytes": 1453,
+    "sha256": "1c4b0eb65f48388cdeddfc2d2f123c0460a90e8a299282b17445f9233a58cebc"
+  },
+  {
+    "path": "docs/PHASE_MODULE_DESIGN.md",
+    "bytes": 4880,
+    "sha256": "0e2ae531349efb3bf4fbd3bc6d9d11278d588172426efa59f65636cc9cb4927d"
+  },
+  {
+    "path": "docs/THIRD_PARTY_NOTICES.md",
+    "bytes": 1319,
+    "sha256": "abad86c35fba7bf4967fddf71c7018308f32b5156c96ec8d2788893775fedb81"
+  },
+  {
+    "path": "pyproject.toml",
+    "bytes": 1190,
+    "sha256": "2d2615ada4be91737a2eabf9b2c04689877905e1ee835dd8f0256022778f5a7e"
+  },
+  {
+    "path": "requirements-verified.txt",
+    "bytes": 252,
+    "sha256": "e7bbc08e7adbf6a9cf3d07c5df922f77ad34050a97edd1b8d680833f594a0167"
+  },
+  {
+    "path": "scripts/export_code_snapshot.py",
+    "bytes": 2647,
+    "sha256": "005645965f7d53406ae4c9015d57417d07dd40634926133b1ddd5fbc48b1083b"
+  },
+  {
+    "path": "scripts/phase_module.py",
+    "bytes": 280,
+    "sha256": "64180c05caee26d98d173f629eb0513e1aad294ecb204f87a6e2ff369de546f5"
+  },
+  {
+    "path": "src/arc_model/__init__.py",
+    "bytes": 25,
+    "sha256": "0b48706d8054de1415e258cdf738d8eb84ee604c91f9874bf9a4187077de9a14"
+  },
+  {
+    "path": "src/arc_model/configuration.py",
+    "bytes": 2220,
+    "sha256": "261943335c84f19d374cfea4aa367e2f919c60eeb7e1a63c76f8966854ba612a"
+  },
+  {
+    "path": "src/arc_model/data/__init__.py",
+    "bytes": 20,
+    "sha256": "1cf780f894516905d992967c5e04704496b60b82d3515c2280b868ea5d6be504"
+  },
+  {
+    "path": "src/arc_model/data/current_recording.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/data/dataset.py",
+    "bytes": 4706,
+    "sha256": "1353ef6987ac295d0c9ad3cf536b917f4a9b5b0409f0f31318a755b01eaa1a21"
+  },
+  {
+    "path": "src/arc_model/data/migration.py",
+    "bytes": 4599,
+    "sha256": "6610ccdd697384c8cf20d3d5423a1f4aad2ba2084654ef144de0f8c9988c4842"
+  },
+  {
+    "path": "src/arc_model/data/raw.py",
+    "bytes": 1384,
+    "sha256": "3becd55408da1ec6f93cd50dd4c9ffbe02d933c9e3921d9901efb3febb0e850d"
+  },
+  {
+    "path": "src/arc_model/data/rebuild.py",
+    "bytes": 3107,
+    "sha256": "ad1ce334957836c31dcde39f56e5a22929a8079afb5bc3fdb3afdb4260f5edea"
+  },
+  {
+    "path": "src/arc_model/evaluation/__init__.py",
+    "bytes": 26,
+    "sha256": "c1a2533fa13650d91bc6ca4cc6f3f582f7cb7659f2048ebb9b4f2a6078d3a6b3"
+  },
+  {
+    "path": "src/arc_model/evaluation/aggregation.py",
+    "bytes": 1124,
+    "sha256": "d448e9705f190ef6c3e0c67a2b048193907a7f8efdf5b25f403edaaf27d586de"
+  },
+  {
+    "path": "src/arc_model/evaluation/metrics.py",
+    "bytes": 766,
+    "sha256": "ddef1fe164b4f03cbc1e2f25a6cc34526d43ac5e43a9f53694a45ed8a31435cf"
+  },
+  {
+    "path": "src/arc_model/evaluation/multilevel.py",
+    "bytes": 7365,
+    "sha256": "a124a3251084f9fcfa6e0d106aa306ba45e705ca7f1f4613cc90418af6160dfa"
+  },
+  {
+    "path": "src/arc_model/evaluation/report.py",
+    "bytes": 2509,
+    "sha256": "ebd3807faa263e855c164b4cf6112f88b28f2d647bfef0ff738544b8988db9a6"
+  },
+  {
+    "path": "src/arc_model/evaluation/verification.py",
+    "bytes": 2702,
+    "sha256": "2680b8d51acd619334ad56ea30204177e3acf712b7d7154bcb7a26b15ed28da5"
+  },
+  {
+    "path": "src/arc_model/experiments/__init__.py",
+    "bytes": 221,
+    "sha256": "5e2cd582467c52820e7f817ce1414fbd0de6aa968025aec21841e1b6332bbc8b"
+  },
+  {
+    "path": "src/arc_model/experiments/catalog.py",
+    "bytes": 1780,
+    "sha256": "fcaa8bb129fefbada409e12dfb58de0644a306c098b737e61d12b7efc89d4b72"
+  },
+  {
+    "path": "src/arc_model/experiments/phase_cli.py",
+    "bytes": 7540,
+    "sha256": "a4951df0852d4d4372611a1fa47866a1f0592e84f19e9cb73c497dd1bae52abf"
+  },
+  {
+    "path": "src/arc_model/experiments/runner.py",
+    "bytes": 1609,
+    "sha256": "0980b49be093e07d3f9bb03263fe67fb964573e57a4dbb5fa4f83662cf6da0ca"
+  },
+  {
+    "path": "src/arc_model/features/__init__.py",
+    "bytes": 24,
+    "sha256": "94e782794c425ef3d622c16da649613f9343be1b126be6795bbe6c859b6a1991"
+  },
+  {
+    "path": "src/arc_model/features/descriptors.py",
+    "bytes": 1619,
+    "sha256": "8dd60643541d79aea8e17e5a0d957289da88a70b7d1184310c42403044c9411d"
+  },
+  {
+    "path": "src/arc_model/features/enhancement.py",
+    "bytes": 858,
+    "sha256": "e6f1b0d458dcf4952bbb95dfcb0d3688ade87c2c55d4c1a047d4b03cecae5154"
+  },
+  {
+    "path": "src/arc_model/features/physical.py",
+    "bytes": 947,
+    "sha256": "30a545e586321afb528a74dbfaa0a42b674e7872759740299e2c1a5aca56f050"
+  },
+  {
+    "path": "src/arc_model/features/schema.py",
+    "bytes": 993,
+    "sha256": "76e60b7ab7a749075f5da018f30e0c94fb379c7686ef8a649a304cd60f9ea8cb"
+  },
+  {
+    "path": "src/arc_model/features/selected.py",
+    "bytes": 2408,
+    "sha256": "05356b8c45e3e914b6f3ff1f81645e898c47e43c0e7e4136406d8ce9e8bc61dc"
+  },
+  {
+    "path": "src/arc_model/features/stability_residual.py",
+    "bytes": 12322,
+    "sha256": "341d1f2f4bde457d9a257119f867663f12c0080f32ef92798499c185bdeb3221"
+  },
+  {
+    "path": "src/arc_model/inference/__init__.py",
+    "bytes": 25,
+    "sha256": "ea3110a89cfe37321ca60ec68cec0cf1bbb2514cc531259ddc98862e3d168b1d"
+  },
+  {
+    "path": "src/arc_model/inference/predictor.py",
+    "bytes": 3177,
+    "sha256": "d8aba3e9ffe36624c3717c8bede918974d9e6cca124cbb3f580dea7ffbf413bb"
+  },
+  {
+    "path": "src/arc_model/methods/__init__.py",
+    "bytes": 311,
+    "sha256": "786c5e4212bb243d52bfaaec2ea2c8eaa5b51387a741f508ec8b3d212327a55d"
+  },
+  {
+    "path": "src/arc_model/methods/cycle_dynamics.py",
+    "bytes": 4997,
+    "sha256": "e4c7bcce58e259137c24f350ceee56c3052eb72d603c02f77101e0ddafdd157f"
+  },
+  {
+    "path": "src/arc_model/methods/dynamic_mask_ablation.py",
+    "bytes": 1214,
+    "sha256": "3b77ae58ab5b3a3446df05404e153cee2d59557cedd0ebe4eef15d45c3dcdc45"
+  },
+  {
+    "path": "src/arc_model/methods/head_fusion_validation.py",
+    "bytes": 2881,
+    "sha256": "cc5545653e91d988ce7ca29764b79c0c45d5e3c3b6cfdb5ee5ffdfb735d61ddd"
+  },
+  {
+    "path": "src/arc_model/methods/local_phase_dynamics.py",
+    "bytes": 3808,
+    "sha256": "83af73c73afae02eeef71b03d057dec96d193e6e1b42fac1fc789b93f5266a74"
+  },
+  {
+    "path": "src/arc_model/methods/phase_representation/__init__.py",
+    "bytes": 238,
+    "sha256": "172c1f5eb756592b3fe0ea052bc93fc2eb39cb0066ea4408caabac7f1cfd33b6"
+  },
+  {
+    "path": "src/arc_model/methods/phase_representation/contracts.py",
+    "bytes": 959,
+    "sha256": "0915617bc65ae667e914f7531d1cc171336ccc84a8db9f31a51a681b8f5506eb"
+  },
+  {
+    "path": "src/arc_model/methods/phase_representation/features.py",
+    "bytes": 3746,
+    "sha256": "f5b5786d81c1575aafdc785caafb9ff4d3e7e89f9b5b2477025093db0ae88243"
+  },
+  {
+    "path": "src/arc_model/methods/protected_phase_branch.py",
+    "bytes": 3107,
+    "sha256": "5196fa10119b25c1fc08d4930e399d6d1ff61c51ff1205ff7cf46088359a7e60"
+  },
+  {
+    "path": "src/arc_model/methods/reference_assisted.py",
+    "bytes": 4190,
+    "sha256": "44322a2c436bd7d408065ec270e71aff8ff619ea7640ab0ecc7fe211e1a65f80"
+  },
+  {
+    "path": "src/arc_model/methods/selective_phase.py",
+    "bytes": 6456,
+    "sha256": "ea3a824a8b8135d956870dddaec73ece74c761764956eb12b95cc6bafc51c2d0"
+  },
+  {
+    "path": "src/arc_model/methods/state_phase_adapter.py",
+    "bytes": 1781,
+    "sha256": "2e7f5bf6b2696e23f6bbab7f7e4351e5a25e967804463a09c30ad203d1a58203"
+  },
+  {
+    "path": "src/arc_model/models/__init__.py",
+    "bytes": 22,
+    "sha256": "45e2219be0df612cb193f07c4a8e8e40dfef5f3ccf7f2a8a0acbe6625372c8c0"
+  },
+  {
+    "path": "src/arc_model/models/arc_fenet/__init__.py",
+    "bytes": 25,
+    "sha256": "21c4cf07a13160c15a2f76b2bae85af70fe69b14f2daa9d5fcbce93c855985f3"
+  },
+  {
+    "path": "src/arc_model/models/arc_fenet/backbone.py",
+    "bytes": 1163,
+    "sha256": "e0d3bfd388f5de55d0be080905b02b3c556e3072b20b37b985adad867fe0c46f"
+  },
+  {
+    "path": "src/arc_model/models/arc_fenet/layers.py",
+    "bytes": 1347,
+    "sha256": "627e40b8f4088f2a02ba2cfb7228da1b7832e2f19b6af3eb09ced3bb79d2075e"
+  },
+  {
+    "path": "src/arc_model/models/arc_fenet/network.py",
+    "bytes": 484,
+    "sha256": "4efbdec2743be1fc9d4652a4ab6bf9cbcc9d198502009978fb8114a4d310cd08"
+  },
+  {
+    "path": "src/arc_model/models/arc_fusion/__init__.py",
+    "bytes": 26,
+    "sha256": "66d7f53f871d61a2bdf0a31c9f09579a6b4084e7cd1a4b1ac4853929369d31bb"
+  },
+  {
+    "path": "src/arc_model/models/arc_fusion/blocks.py",
+    "bytes": 674,
+    "sha256": "26842f54d985ef54b63f8464457086a2b1222c318a412661af3551eea814ab33"
+  },
+  {
+    "path": "src/arc_model/models/arc_fusion/network.py",
+    "bytes": 2245,
+    "sha256": "e48b79b98871f4c88744da9a058290260f922dd1c170a0cf8346a7080e05e7cf"
+  },
+  {
+    "path": "src/arc_model/models/factory.py",
+    "bytes": 589,
+    "sha256": "4a77d0c894fb3977fbe591f3848ea2f8a2609c54147e8eba8e55238769460145"
+  },
+  {
+    "path": "src/arc_model/models/hydra/__init__.py",
+    "bytes": 21,
+    "sha256": "35b0f198d9fb6e6e83df8ba2d54b265e94af9ef1f0c033c658da3c0cc189c26a"
+  },
+  {
+    "path": "src/arc_model/models/hydra/classifier.py",
+    "bytes": 804,
+    "sha256": "1a16ec332cd9665a61ea3c2899e094c358d49ca5f47321dbfe1ee457844acef4"
+  },
+  {
+    "path": "src/arc_model/models/hydra/features.py",
+    "bytes": 635,
+    "sha256": "7c7370ad3ebd256ed468598de35a485981501c07452ef6c2c1a4ba01632fa5cf"
+  },
+  {
+    "path": "src/arc_model/models/hydra/preprocessing.py",
+    "bytes": 1285,
+    "sha256": "08068d81d5d3cf0b7877b0e67cafb0b5dfca864b53fa748901aa989774a328ae"
+  },
+  {
+    "path": "src/arc_model/models/hydra/selection.py",
+    "bytes": 1543,
+    "sha256": "8c1f2443f5f99ea6bb819223a7133e4b5eea3e12248f16ce4f91401616706801"
+  },
+  {
+    "path": "src/arc_model/models/phase_adapter.py",
+    "bytes": 4141,
+    "sha256": "d81105d283b9db867fe6a8b8e32432f9a2b855e7084626e4633a010fb36cf66a"
+  },
+  {
+    "path": "src/arc_model/preprocessing/__init__.py",
+    "bytes": 29,
+    "sha256": "da4ba29f123fac1cdbb1013762b83c799019496df143ccade4dca3ae43e48314"
+  },
+  {
+    "path": "src/arc_model/preprocessing/causal_reference_segments.py",
+    "bytes": 303,
+    "sha256": "976174c87ce9fa15180cd9ae17708b8055446469642987f8a0a34aab0fa1efe8"
+  },
+  {
+    "path": "src/arc_model/preprocessing/causal_window_selection.py",
+    "bytes": 1537,
+    "sha256": "cc0161311480eb5f18d9ad2f8529920f377a8e8bd4f37d2dec504e4d493c3de7"
+  },
+  {
+    "path": "src/arc_model/preprocessing/constants.py",
+    "bytes": 403,
+    "sha256": "beb9462243a401b9a0129510533d7c98e1b97524f757b97f56f6835305cd4701"
+  },
+  {
+    "path": "src/arc_model/preprocessing/phase_reference.py",
+    "bytes": 2369,
+    "sha256": "dde9d407373a821000338909f04bc55b75e163867c373b2651f284e52cc786b5"
+  },
+  {
+    "path": "src/arc_model/preprocessing/phase_windows.py",
+    "bytes": 5740,
+    "sha256": "994df4641ee78d7c7b171720289dfcae999ef4688d20ce17506cbbb586af6379"
+  },
+  {
+    "path": "src/arc_model/preprocessing/pll.py",
+    "bytes": 2268,
+    "sha256": "7d83469bae13e74a4c5ff9261a162354222c157aa1a80595944424e04a9277b5"
+  },
+  {
+    "path": "src/arc_model/preprocessing/rcr_fundamental_consensus.py",
+    "bytes": 12627,
+    "sha256": "fecb5cb1c575e7a88042fbc9b9820dac9edcdf99b9cf7b40b89560f937ffbdfc"
+  },
+  {
+    "path": "src/arc_model/preprocessing/rcr_reference.py",
+    "bytes": 2293,
+    "sha256": "f9d2c1ab721632240b9698f59a89f6e05719a21856486b25598fbc81992ecf39"
+  },
+  {
+    "path": "src/arc_model/preprocessing/shared_reference.py",
+    "bytes": 6813,
+    "sha256": "4b0a3fa4abadc4987747f0b6e930cc9e3fb15abb6fd2788d2deece4c6f1927c6"
+  },
+  {
+    "path": "src/arc_model/preprocessing/shared_reference_held.py",
+    "bytes": 6914,
+    "sha256": "229133ccc8c2bb4ee36f3d23ec79a1da634df91febebc558fe093597622be83a"
+  },
+  {
+    "path": "src/arc_model/preprocessing/signals.py",
+    "bytes": 1941,
+    "sha256": "6d2628a6a700ae0210e2d124646ecd68b11e3148aac929ecbe8b095b2a0ac12e"
+  },
+  {
+    "path": "src/arc_model/preprocessing/streaming.py",
+    "bytes": 4639,
+    "sha256": "d87b580bdb3d12eacb6eb4a0556dc6602e80bb0fbafa2b0564cd954224f43767"
+  },
+  {
+    "path": "src/arc_model/preprocessing/windows.py",
+    "bytes": 2742,
+    "sha256": "ed558ffabf534970413ea312d0c560a0d4aa408b32863dd4dfa24dcc12233352"
+  },
+  {
+    "path": "src/arc_model/representations/__init__.py",
+    "bytes": 31,
+    "sha256": "6f5390aa27ff059c9eadf42a82b434c821c9a97f18e484efc64c3d405a51a8d0"
+  },
+  {
+    "path": "src/arc_model/representations/mbwvd.py",
+    "bytes": 2605,
+    "sha256": "ee332b133c6a3b800470340d3e9fb885737f8cb0c6b2ad4996be32288f7850c2"
+  },
+  {
+    "path": "src/arc_model/representations/mbwvd_torch.py",
+    "bytes": 2980,
+    "sha256": "d06e4ba28546376671835b8cbbd96e7cd62c466beff0ff00829c32d6dea38252"
+  },
+  {
+    "path": "src/arc_model/training/__init__.py",
+    "bytes": 24,
+    "sha256": "0d9e4244509ec231ff7e5428716856d7e5bc5a68b89448a4a7284f2df3102298"
+  },
+  {
+    "path": "src/arc_model/training/common.py",
+    "bytes": 1478,
+    "sha256": "0d7b2c873a84cf88569526eabb956f877b1092e184a6a49e086fe003dabfc4c6"
+  },
+  {
+    "path": "src/arc_model/training/hydra.py",
+    "bytes": 2439,
+    "sha256": "bdfc0d0a1706680c85b799434f35fcf01e92502186f68e2af445451c7c2546b0"
+  },
+  {
+    "path": "src/arc_model/training/neural.py",
+    "bytes": 3857,
+    "sha256": "dc680ee73fb792311aec66a70e874fe0afe869a39fa7203b3c81263d29d80eea"
+  },
+  {
+    "path": "src/arc_model/training/phase_features.py",
+    "bytes": 1948,
+    "sha256": "e485bbc9d8decefadb392bceeff6a01a19a53be1729ea3af0726a4f1d50cd3fd"
+  },
+  {
+    "path": "src/arc_model/training/pipeline.py",
+    "bytes": 1802,
+    "sha256": "b9c32720b00183c35d0667b159a4280ccea3ae479f8348ee06a6dbd52ff44b22"
+  },
+  {
+    "path": "src/arc_model/training/preprocessing.py",
+    "bytes": 2676,
+    "sha256": "2c990daefc4dc982b2e872c02e24b32285f4921566c3b572360a1939a9f73240"
+  },
+  {
+    "path": "src/arc_model/utils/__init__.py",
+    "bytes": 21,
+    "sha256": "a503f9561bda32ede95844f57f0b327c5fa5b532075fab6cd2979870c831101e"
+  },
+  {
+    "path": "src/arc_model/utils/io.py",
+    "bytes": 900,
+    "sha256": "febe404cbef476b99940044cc3b0ed182dada89b1aaecec963e894cb90f18181"
+  },
+  {
+    "path": "src/arc_model/vendor/__init__.py",
+    "bytes": 22,
+    "sha256": "d22f7d61511d7f364590dffa933958312fa5621da926d44c5c842dd36614d8a8"
+  },
+  {
+    "path": "src/arc_model/vendor/hydra_class.py",
+    "bytes": 3699,
+    "sha256": "7d217eb7cae695fd6150129e2df772c031a530bd3bc36a719d9d0dc69215bd36"
+  },
+  {
+    "path": "tests/phase_module/conftest.py",
+    "bytes": 130,
+    "sha256": "1e46b3a3df3fd709454e7b5d26542c6ba90b4481034f99452f1a5985d3e98b7e"
+  },
+  {
+    "path": "tests/phase_module/test_features.py",
+    "bytes": 2610,
+    "sha256": "29f97c4ac44e9cd5a64ce1718c328e078f939a18874e2ca533908370d114a676"
+  },
+  {
+    "path": "tests/phase_module/test_phase_model_adapter.py",
+    "bytes": 1494,
+    "sha256": "76a5a4f368b1aa1d7bad53aff981777c64123f75f9db5d090a05d36b1329a610"
+  },
+  {
+    "path": "tests/phase_module/test_raw_and_causality.py",
+    "bytes": 1704,
+    "sha256": "a184c56af2c91d68335df89f80d282d5a87c4ddc7f2d7f857517159561019503"
+  },
+  {
+    "path": "third_party/current_reference_recovery_v2/dual_reference_pll.py",
+    "bytes": 11802,
+    "sha256": "04865dc77ebcfc32f2ebb8b552d9cd3d78ae1816ac896374890d7f413c81f3df"
+  },
+  {
+    "path": "third_party/current_reference_recovery_v2/partition_current.py",
+    "bytes": 1225,
+    "sha256": "2df8f078f8801b6781c7f9bf815e1f1283bf8abbcbbcadbf17621269a8cdb799"
+  },
+  {
+    "path": "third_party/current_reference_recovery_v2/pll_spec.json",
+    "bytes": 4493,
+    "sha256": "58d3e5056609cadfd7da702ec6e7534cd62124dcd7276f1c2399c2138da25657"
+  },
+  {
+    "path": "third_party/current_reference_recovery_v2/reference_recovery_recommended.py",
+    "bytes": 681,
+    "sha256": "082da7a71fac913fc5cac4d4317d9ef57d4557e13fdd64407a7c6f3369608b70"
+  },
+  {
+    "path": "third_party/current_reference_recovery_v2/reference_recovery_v2.py",
+    "bytes": 12240,
+    "sha256": "f350486a1ceacc4d91420948865ea4075d9a9fe720f3ff2665da2083001a06e2"
+  },
+  {
+    "path": "third_party/current_reference_recovery_v2/run_pll_export_example.py",
+    "bytes": 5406,
+    "sha256": "50610e5363d12ad1e6952ce61a1df1851772563586ed3c62beae122ff75742db"
+  },
+  {
+    "path": "third_party/hydra/README.txt",
+    "bytes": 1091,
+    "sha256": "caa34dafcf73028b061d783d38eb7e8d9e15bcdf32eb87af6ff41cbf7305fa46"
+  },
+  {
+    "path": "third_party/hydra/author_source_integrity.json",
+    "bytes": 1743,
+    "sha256": "f997f86511c18e86609ccf0b41d3a278e824bd482a677ac4fe84889fe4108744"
+  },
+  {
+    "path": "third_party/hydra/hydra_class.py",
+    "bytes": 3699,
+    "sha256": "7d217eb7cae695fd6150129e2df772c031a530bd3bc36a719d9d0dc69215bd36"
+  },
+  {
+    "path": "third_party/hydra/hydra_features.py",
+    "bytes": 1307,
+    "sha256": "38fbb41329b69817fe495f5a879470d2278415cb4f06552948b0a1d5e1202e32"
+  }
+]

@@ -1,0 +1,28 @@
+name: current_synchronous_phase_representation
+status: candidate_implementation_not_detection_validated
+reference:
+  default: rcr
+  choices: [fixed20, sogi, rcr, cft]
+  reference_sample_rate_hz: 5000
+  meaning: current_reference_not_measured_grid_voltage_phase
+features:
+  bands_hz: [[10000, 100000], [100000, 400000]]
+  phase_bins: 20
+  half_width_degrees: 18
+  dimension: 10
+  numerical_energy_floor: 1.0e-20
+  choices: [phase, phase_free, shifted]
+  history: none_in_first_candidate
+fusion:
+  position: before_classifier
+  embedding_dim: 16
+  classifier: linear_on_concatenated_representations
+  initialization: copy_baseline_classifier_and_zero_extra_columns
+  disabled: exact_baseline_forward
+  quality: explicit_masks_no_new_learned_gate
+experiments:
+  datasets: [continuous5m, zenodo5501527]
+  physical_gpus: [1, 2, 3]
+  pooling_datasets: false
+  selection: training_groups_only
+  run_full_training_automatically: false
