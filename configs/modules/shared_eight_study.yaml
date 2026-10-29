@@ -1,0 +1,9 @@
+specialized_study: shared_eight_study_20261029
+datasets:
+  new5m: {cohort: continuous5m, channel_zero_based: 0, distance_m: 5}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3}
+models: [ArcFENet, HYDRA, ArcFusionNet]
+pool_datasets: false
+feature_policy: same_eight_columns_for_every_model_no_selection
+gpu_physical: [1, 2, 3]
+output: outputs/shared_eight_study_20261029

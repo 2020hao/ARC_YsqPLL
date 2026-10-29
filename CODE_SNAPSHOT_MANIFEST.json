@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 18889,
-    "sha256": "53fb66e0eb3a38ed50e31f8bcc3508ddb525d4884b2157191542b045a5401352"
+    "bytes": 21063,
+    "sha256": "316c4c583771037ac5438059494099804bfe496cb539c81efe5d830e6e276ba3"
   },
   {
     "path": "configs/modules/input_frontend_pilot.yaml",
@@ -30,9 +30,14 @@
     "sha256": "95cb40ee9f5f82e74f928836a38c5f177ba7d0995769b3e843eafc80de9b4aa4"
   },
   {
+    "path": "configs/modules/shared_eight_study.yaml",
+    "bytes": 374,
+    "sha256": "fae1d36b1a61cac6e590f1db59db2aa044565c2125a88d8cdef7d373faabaac0"
+  },
+  {
     "path": "docs/CHANGELOG.md",
-    "bytes": 2454,
-    "sha256": "e9ff6e96c42fd2e9b56e27bd44173acfb5275c55a7b3f9014dd8f12c4988b26f"
+    "bytes": 3675,
+    "sha256": "58633734fbdaa9fb8d88dae357128590ec35b9313b13f0dde7a1ad543458d721"
   },
   {
     "path": "docs/CODEBASE_GUIDE.md",
@@ -53,6 +58,11 @@
     "path": "docs/PHASE_MODULE_DESIGN.md",
     "bytes": 5259,
     "sha256": "715b51c1094ebea74d68e76b336f2881cd36f36d5085026ffa8186e63e590c3c"
+  },
+  {
+    "path": "docs/SHARED_EIGHT_STUDY.md",
+    "bytes": 4358,
+    "sha256": "2487a541b1c2367951f7cd9a485829ec484ca64a69a07115549616a5af2a5fd1"
   },
   {
     "path": "docs/THIRD_PARTY_NOTICES.md",
@@ -76,8 +86,8 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 2777,
-    "sha256": "e63118ba2169ef0317ee8eb3c51646584c949572e35429b1ee9371320ba8dbee"
+    "bytes": 2892,
+    "sha256": "3f44dfb8597b4783b17c3b7a149af61ec351d7f941e645e65c3ae38f5376d1d6"
   },
   {
     "path": "scripts/phase_module.py",
@@ -85,9 +95,19 @@
     "sha256": "64180c05caee26d98d173f629eb0513e1aad294ecb204f87a6e2ff369de546f5"
   },
   {
+    "path": "scripts/summarize_shared_eight.py",
+    "bytes": 8801,
+    "sha256": "28179ac228ca7a6bd8ebcb91322eaf772dc468607021757caa1969f63949daab"
+  },
+  {
     "path": "scripts/validate_input_frontend.py",
     "bytes": 9779,
     "sha256": "8d28c76d141b2e8434af3ac19b0fe718b2ca7897fac3acddb39a9f520ef9e60f"
+  },
+  {
+    "path": "scripts/validate_shared_eight.py",
+    "bytes": 13570,
+    "sha256": "d6590aee33140b66152206d8dd4e396432360daa369413c42610360dbb7db220"
   },
   {
     "path": "src/arc_model/__init__.py",
@@ -283,6 +303,11 @@
     "path": "src/arc_model/methods/phase_representation/input_frontend.py",
     "bytes": 1629,
     "sha256": "83adb2a1736d2a0ec794228eaa7fa96216d6767b7e1a866cc8f3c196796d8555"
+  },
+  {
+    "path": "src/arc_model/methods/phase_representation/shared_features.py",
+    "bytes": 2359,
+    "sha256": "c5b29bdf36dc966adde0049294fc3da0c0f1b91f4afc8f2f962cc4408d7f2faf"
   },
   {
     "path": "src/arc_model/methods/protected_phase_branch.py",
@@ -568,6 +593,11 @@
     "path": "tests/phase_module/test_raw_and_causality.py",
     "bytes": 1704,
     "sha256": "a184c56af2c91d68335df89f80d282d5a87c4ddc7f2d7f857517159561019503"
+  },
+  {
+    "path": "tests/phase_module/test_shared_eight.py",
+    "bytes": 1626,
+    "sha256": "6e9ae1a9d6fbce09fac357989ca46a2d08b7af130802bc9aa300fa8db4cba057"
   },
   {
     "path": "third_party/current_reference_recovery_v2/dual_reference_pll.py",
