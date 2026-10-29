@@ -1,0 +1,16 @@
+specialized_study: hydra_alternating_protocol_20261029
+datasets:
+  new5m: {cohort: continuous5m, channel_zero_based: 0, distance_m: 5}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3}
+model: HYDRA_paper_FD
+author_mat_reference: separate_not_pooled
+window_ms: 20
+sampling_rate_hz: 50000
+split: original_window_ordinal_even_train_odd_test
+training_holdout: 0.2
+repeats: [1, 2, 3, 4, 5]
+lambda_l1: 0.001
+pool_datasets: false
+gpu_physical_allowed: [1, 2, 3]
+classifier_device: CPU_HiGHS
+output: outputs/hydra_alternating_protocol_20261029
