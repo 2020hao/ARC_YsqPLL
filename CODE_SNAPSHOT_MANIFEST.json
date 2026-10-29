@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 21156,
-    "sha256": "1db081bc8ad0f9183e7ad5abf0ec9c5e7960abf949f7dc563e7eb5c5a0b3ee3d"
+    "bytes": 23092,
+    "sha256": "5c517d76a4a8c475451c4fe17dd83a098274770c359038f59fecc9faad5f57ad"
   },
   {
     "path": "configs/modules/input_frontend_pilot.yaml",
@@ -41,8 +41,8 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 4356,
-    "sha256": "a1aeaa2140efa7a487c5eadcb3e8eb4ba498cc60ac0c5318c0184a7f085ee60c"
+    "bytes": 4893,
+    "sha256": "d8c5bf372962b5e543e123d43b315928f68601181ebb40277a2582144ac9807f"
   },
   {
     "path": "docs/CODEBASE_GUIDE.md",
@@ -66,8 +66,8 @@
   },
   {
     "path": "docs/SHARED_EIGHT_E2E.md",
-    "bytes": 3463,
-    "sha256": "e5eb0684d96423540e53bb14a134c1bc904771fa21d27d80450fe78d56e64081"
+    "bytes": 6120,
+    "sha256": "7c1ee515bb8cc300998e1bd5bbc9b0560575d58ed4a8681e08e008323313051a"
   },
   {
     "path": "docs/SHARED_EIGHT_STUDY.md",
@@ -111,8 +111,8 @@
   },
   {
     "path": "scripts/report_shared_eight_e2e.py",
-    "bytes": 10823,
-    "sha256": "009c0535fc29f307f95582dd3335167fbd625b9d442172c38ce9c0694d0bb67b"
+    "bytes": 11059,
+    "sha256": "446ea196b5e6491caf695c12eb52ffb0e61acb6be064be0dd21d857018acb662"
   },
   {
     "path": "scripts/summarize_shared_eight.py",
