@@ -16,13 +16,18 @@
   },
   {
     "path": "README.md",
-    "bytes": 36591,
-    "sha256": "52ad764324608b424fe43c14219fd1d379c88ae8d688ba3371036b88c729fe7b"
+    "bytes": 40456,
+    "sha256": "1b31d9ddc79c47888c1299c1dcab8b4c2a858eef74516fef370adee02275b9aa"
   },
   {
     "path": "configs/modules/dynamic_restore.yaml",
     "bytes": 373,
     "sha256": "0d52ba13bad60638598db74757c446909d6783f5ab564a8d299793d1a4639e8f"
+  },
+  {
+    "path": "configs/modules/grouped_baseline_standard.yaml",
+    "bytes": 430,
+    "sha256": "5dffa995b04a5652bc6d480a601e39ca52e220c117174f321a4f608acc32423e"
   },
   {
     "path": "configs/modules/hydra_alternating.yaml",
@@ -56,8 +61,13 @@
   },
   {
     "path": "docs/BASELINE_DEFINITION.md",
-    "bytes": 6295,
-    "sha256": "abbcc9bcdafc05f7418a206dc650d96cd4f4d681c327dafd8abb160d69af78a7"
+    "bytes": 6728,
+    "sha256": "b9b0769f847676fee1d34d78c047f7904cde787170a2e74ec8afa302389f409d"
+  },
+  {
+    "path": "docs/BASELINE_FIDELITY_v2.json",
+    "bytes": 4404,
+    "sha256": "817227c938cdf0c73ff010e594a7000740a6bcbd1ac98d195215b08750dd15a6"
   },
   {
     "path": "docs/BRANCH_VS_REPLACEMENT.md",
@@ -66,13 +76,13 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 9779,
-    "sha256": "3db218b05f3fe0efe9bcc538d06f9214432decd4dac8cd49c05134f1321872a3"
+    "bytes": 11311,
+    "sha256": "64db76a47378f7333492e3a10ba43c368ebd449c8f311d546cc3b5657ba829c6"
   },
   {
     "path": "docs/CLASSIFICATION_METRICS.md",
-    "bytes": 6428,
-    "sha256": "ca5706d7d77b7c6a2bdf33e56b5c865daccf951c164336a06c2e236a2e1a7250"
+    "bytes": 6715,
+    "sha256": "146056e8267c691bc3dec0d0361d0827e92eb6b8180169a9954ce184657fdc05"
   },
   {
     "path": "docs/CODEBASE_GUIDE.md",
@@ -93,6 +103,11 @@
     "path": "docs/GIT_WORKFLOW.md",
     "bytes": 1453,
     "sha256": "1c4b0eb65f48388cdeddfc2d2f123c0460a90e8a299282b17445f9233a58cebc"
+  },
+  {
+    "path": "docs/GROUPED_BASELINE_STANDARD.md",
+    "bytes": 13395,
+    "sha256": "f9fe9e1805914a046108ef7555b06f1c2f6159b0ab5251fa69732ffeec0b4b85"
   },
   {
     "path": "docs/HYDRA_ALTERNATING.md",
@@ -145,6 +160,16 @@
     "sha256": "86fa8df0f44361c28144f69f95b872c1a29ae63eb5e24f18d6d978decbd9c767"
   },
   {
+    "path": "scripts/audit_fenet_numerics.py",
+    "bytes": 4630,
+    "sha256": "6eb15050d9eb4adfebc9b0e9991a94395d384e71e200ef959c219c10c0dee441"
+  },
+  {
+    "path": "scripts/audit_grouped_baseline_forward.py",
+    "bytes": 3694,
+    "sha256": "cfcb812f91bcd905748eabeda4eb77e5c1aaf31cde0da0dc025c79a14315de33"
+  },
+  {
     "path": "scripts/audit_paper_baseline_forward.py",
     "bytes": 1974,
     "sha256": "31d204f9b94e2add7b4db16bb5d5f8996b2d340ff345f573c0fb07f5d759e9d6"
@@ -161,13 +186,18 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 3741,
-    "sha256": "8f9787bb587621c37fd152262d784cd5b8f5c83cbe096c2d7939eb0ef81cf7e9"
+    "bytes": 4040,
+    "sha256": "ddf3b7d24546bee98fdb6b73c50ad0afadaf7efe694becc5ba11120e19437413"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
     "bytes": 2612,
     "sha256": "38af661adc7310b4224c8d765c1ae7deca027f51fedfd0fa83a1cbb73b9024f6"
+  },
+  {
+    "path": "scripts/freeze_grouped_baselines.py",
+    "bytes": 9293,
+    "sha256": "916da64cd1248d14c53bb4db8bb658646b04c7ec65845373dacd2a628c322535"
   },
   {
     "path": "scripts/phase_module.py",
@@ -178,6 +208,11 @@
     "path": "scripts/report_classification_metrics.py",
     "bytes": 7840,
     "sha256": "615c471c9d266ba57aa7b15515709b6332299a0e5555c6c76268258c1b9c23df"
+  },
+  {
+    "path": "scripts/report_grouped_baselines.py",
+    "bytes": 4188,
+    "sha256": "b2db9c478f6af30564e86a1246c49e4f8e80a7e59610010350003d4e8674042d"
   },
   {
     "path": "scripts/report_hydra_alternating.py",
@@ -193,6 +228,11 @@
     "path": "scripts/summarize_dynamic_restore.py",
     "bytes": 9491,
     "sha256": "3bb621d0266ca82b4720b5cefa554de2dee6dc45122f22ced3271bb9625c6921"
+  },
+  {
+    "path": "scripts/summarize_grouped_baselines.py",
+    "bytes": 8113,
+    "sha256": "8eba2558c296804cd0f7d42a7cb1da7f1362fb20aec4baf65688aee35763f86d"
   },
   {
     "path": "scripts/summarize_paper_baselines.py",

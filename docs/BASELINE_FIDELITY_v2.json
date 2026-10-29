@@ -1,0 +1,47 @@
+{
+  "version": "grouped-baselines-20261029-v2",
+  "scope": "current continuous5m and Zenodo5501527; grouped window-level classification",
+  "legacy_fidelity_file": "docs/fidelity.json is historical and does not describe the new HYDRA SVM baseline",
+  "ArcFENet_reconstructed": {
+    "baseline_id": "B_FENET_fixed20_v1",
+    "paper_doi": "10.1109/TIM.2026.3704190",
+    "source": "paper reconstruction; no located author source claimed",
+    "preserved": ["250kHz/5000points/20ms", "VMD K3 with initial50/22000/101000Hz", "MBWVD100x100", "native HFDC/DDC and 16/32/64/128 CNN", "20epochs Adam .001 batch128 wd1e-5"],
+    "local_choices": ["alpha2000 tau0 tol1e-7 max500", "HFDC/DDC sum16channels each", "per-image minmax jet RGB", "causal112.5kHz anti-alias"],
+    "quality_issues": ["500-iteration stopping not converged in about68.9% self/34.5% public retained windows", "500vs2000 training-only normalized image cosine median .9953/self and1.0/public; minimum .8502/.9535", "112kHz FIR edge attenuated about4.59dB"],
+    "approved_use": "conditional local reconstruction comparator with numerical limitations disclosed",
+    "not_approved_claim": "fully equivalent author preprocessing or original-dataset reproduction"
+  },
+  "HYDRA_paper_FD": {
+    "baseline_id": "B_HYDRA_FD_fixed20_v1",
+    "paper_doi": "10.1109/OJIES.2025.3582482",
+    "author_release": "https://doi.org/10.5281/zenodo.15279701",
+    "preserved": ["rectified50kHz/1000points/20ms", "k8 g8 m5 stride1 divisor1 seed0", "1024random features", "author SparseScaler training-only", "mean hinge plus .001 L1, free intercept"],
+    "local_choices": ["causal20kHz anti-alias", "HiGHS rather than MATLAB SpaRSA", "grouped5fold evaluation rather than alternating author protocol"],
+    "replication_evidence": {"author_MAT_accuracy_percent": 99.3103448275862, "author_archived_percent": 99.6252, "current_public_alternating_percent": 99.70457902511078},
+    "approved_use": "paper-configuration baseline with solver/resampling/evaluation adaptations disclosed",
+    "not_approved_claim": "bitwise MATLAB reproduction or original sparsity/deployment-cost equivalence"
+  },
+  "ArcFusionNet_current": {
+    "baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+    "paper_doi": "10.1016/j.aei.2026.104680",
+    "source": "paper Fig7 structure adaptation; no located author source claimed",
+    "preserved": ["12.5kHz/250points/20ms", "current plus first/second derivatives", "training-only RF top32 FFT", "temporal residual/conv/residual kernels100/50/20 widths32/32/64", "spectral two5tap convolutions per block widths16/32/64", "two encoders per branch and spectral-query temporal-key/value attention", "70epochs AdamW1e-4 to1e-6 batch64"],
+    "local_choices": ["current input replaces unavailable voltage-aligned healthy differential input", "d64/heads4/FF128/dropout.1", "3x250 temporal spatial tokens", "spectral pool3 stride2 padding1", "numpy gradient", "RF200 depth8 minleaf8 balanced", "cosine rate and wd.01", "BF16 autocast FP32 parameters/loss"],
+    "missing_original_method": ["synchronized supply voltage alignment", "dynamic healthy differential baseline", "dCAM synthetic target arcs and fine tuning", "KDKR compressed student/deployment"],
+    "parameters": {"local": 918258, "paper_teacher_approx": 904500, "relative_difference_percent": 1.5210613598673373},
+    "cohort_correction": "six exact-index folds reused;24refits remove one extra training window in each affected fold; old artifacts unchanged",
+    "approved_use": "current-only architecture-adapted comparator under common grouped protocol",
+    "not_approved_claim": "full original ArcFusionNet method or superiority over its complete voltage/differential/synthesis framework"
+  },
+  "future_comparison_contract": {
+    "cohort": {"continuous5m": 38374, "zenodo5501527": 1361},
+    "outer_folds": 5,
+    "window_unit": "cycle/20ms window; no file-score averaging",
+    "grouping": {"self": "47 target/background conditions, all source records kept together", "public": "13 appliance/record groups"},
+    "no_research_modules_in_baseline": ["RCR", "C0", "extra native HF/history correction", "confidence score fusion"],
+    "no_test_tuning": true,
+    "alternating_results": "author-protocol check only, never replace grouped main result",
+    "new_HYDRA_plus_old_C0": "not a validated combination; retrain and evaluate on the new baseline before claiming gains"
+  }
+}

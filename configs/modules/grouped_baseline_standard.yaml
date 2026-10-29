@@ -1,0 +1,12 @@
+specialized_study: grouped_baseline_standard_20261029
+datasets:
+  new5m: {cohort: continuous5m, channel_zero_based: 0, distance_m: 5}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3}
+models: [ArcFENet_reconstructed, HYDRA_paper_FD, ArcFusionNet_current]
+folds: 5
+fusion_seeds: [0, 1, 2]
+new_fusion_fits: 24
+exact_index_reuses: 6
+pool_datasets: false
+gpu_physical: [1, 2, 3]
+output: outputs/grouped_baseline_standard_20261029
