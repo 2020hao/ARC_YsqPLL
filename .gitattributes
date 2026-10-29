@@ -1,3 +1,6 @@
 * text=auto eol=lf
 *.py text eol=lf
 *.m text eol=lf
+# Preserve imported author sources byte-for-byte, including original newlines.
+third_party/** -text
+src/arc_model/vendor/** -text

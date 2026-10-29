@@ -1,8 +1,8 @@
 [
   {
     "path": ".gitattributes",
-    "bytes": 52,
-    "sha256": "2e274c94200ffe2a86444a722c2fabd0a6e60e548eaeb2b22cdbe8a256361bab"
+    "bytes": 182,
+    "sha256": "e0f8fd39cb9ea98570f6c0faa084c0a283210804d6fbda0840e337f52fd03f7a"
   },
   {
     "path": ".github/workflows/phase-module.yml",
