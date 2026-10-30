@@ -1,0 +1,17 @@
+{
+  "release": "baselines_v1_20261030",
+  "baseline_lock_sha256": "6ab3506f143288208ecd0c63f8eeb4b5431cef1033776d07cd32faf407e3f99a",
+  "baseline_packages": 3,
+  "active_model_config": "configs/models.yaml",
+  "protected_baseline_nodes": [
+    "ArcFENet_Baseline",
+    "HYDRA_Baseline",
+    "ArcFusionNet_Current_Baseline"
+  ],
+  "candidate_nodes_mutable": true,
+  "fidelity_confirmation": {
+    "arc_fenet": "conditional_pending",
+    "hydra": "author_configuration_supported",
+    "arc_fusion": "current_only_not_complete_author_method"
+  }
+}

@@ -6,8 +6,8 @@
   },
   {
     "path": ".github/workflows/phase-module.yml",
-    "bytes": 508,
-    "sha256": "86c6d3487445fd17080e780586e8b4d350ace4825f4d7aeaae801375679bf65a"
+    "bytes": 625,
+    "sha256": "b05aaecd57f110e324d332aae0248e533183bc202fc0029ce3f38bdddd6e169f"
   },
   {
     "path": ".gitignore",
@@ -16,8 +16,23 @@
   },
   {
     "path": "README.md",
-    "bytes": 40456,
-    "sha256": "1b31d9ddc79c47888c1299c1dcab8b4c2a858eef74516fef370adee02275b9aa"
+    "bytes": 42579,
+    "sha256": "91feeada6881d1493c9e92b02c84fd0d5ef7b37e30c70230996354916ad7a7f7"
+  },
+  {
+    "path": "configs/datasets.yaml",
+    "bytes": 3160,
+    "sha256": "e39f2715d31631ace4f623f22e3187ff937abd66f23d23f45fe100575766ebb9"
+  },
+  {
+    "path": "configs/experiment_config.yaml",
+    "bytes": 823,
+    "sha256": "49c6136a1d4f3824524758b12b6522e5ee97bfafc2304ee8641961380016c96a"
+  },
+  {
+    "path": "configs/models.yaml",
+    "bytes": 15585,
+    "sha256": "362e5aeab9374c9aba25087bb755b395d61b470bc97b3cdab5e8bb6d30981cf9"
   },
   {
     "path": "configs/modules/dynamic_restore.yaml",
@@ -60,6 +75,11 @@
     "sha256": "fae1d36b1a61cac6e590f1db59db2aa044565c2125a88d8cdef7d373faabaac0"
   },
   {
+    "path": "docs/AUTHOR_ASSET_AVAILABILITY_20261030.md",
+    "bytes": 1539,
+    "sha256": "6ab5b8188e049d7b7bceb50a5b32a80ac74381c467716c611b31aa96c7cce8a2"
+  },
+  {
     "path": "docs/BASELINE_DEFINITION.md",
     "bytes": 6728,
     "sha256": "b9b0769f847676fee1d34d78c047f7904cde787170a2e74ec8afa302389f409d"
@@ -76,8 +96,8 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 11311,
-    "sha256": "64db76a47378f7333492e3a10ba43c368ebd449c8f311d546cc3b5657ba829c6"
+    "bytes": 12437,
+    "sha256": "033c1537a213b91b08be5fd60464aebc97441c79a2f2f3eed2abeb32efa7b8ff"
   },
   {
     "path": "docs/CLASSIFICATION_METRICS.md",
@@ -120,6 +140,11 @@
     "sha256": "644935f04f04d0ff77450065ae98d0553b48e136e7f5ad04d54dea2eba0524a4"
   },
   {
+    "path": "docs/NINE_MODELS_AND_CONFIG.md",
+    "bytes": 5491,
+    "sha256": "0b4d78cf932175ecb25bad02b9da589d1c4067996dc2b8a27ad4419f14850143"
+  },
+  {
     "path": "docs/PHASE_MODULE_DESIGN.md",
     "bytes": 5259,
     "sha256": "715b51c1094ebea74d68e76b336f2881cd36f36d5085026ffa8186e63e590c3c"
@@ -141,8 +166,23 @@
   },
   {
     "path": "pyproject.toml",
-    "bytes": 1190,
-    "sha256": "2d2615ada4be91737a2eabf9b2c04689877905e1ee835dd8f0256022778f5a7e"
+    "bytes": 1245,
+    "sha256": "1b655be42126735adf860871a5073884646b0aff630a5de96554133d6c6c2469"
+  },
+  {
+    "path": "releases/baselines_v1_20261030/SEALED.json",
+    "bytes": 545,
+    "sha256": "bd0c7f5258edffa8080453280b3edba921bb9f7195bc73071da549de7ef53d13"
+  },
+  {
+    "path": "releases/baselines_v1_20261030/baseline.lock.json",
+    "bytes": 8296,
+    "sha256": "6ab3506f143288208ecd0c63f8eeb4b5431cef1033776d07cd32faf407e3f99a"
+  },
+  {
+    "path": "releases/baselines_v1_20261030/baseline.lock.sha256",
+    "bytes": 65,
+    "sha256": "f14ffd41605c9ff394aeaaec364dfcb1441e8a857274d806e2a88f1fc2a35a28"
   },
   {
     "path": "requirements-verified.txt",
@@ -170,6 +210,11 @@
     "sha256": "cfcb812f91bcd905748eabeda4eb77e5c1aaf31cde0da0dc025c79a14315de33"
   },
   {
+    "path": "scripts/audit_nine_model_baselines.py",
+    "bytes": 5014,
+    "sha256": "59cfcb53953b6a05e04c85d4053ca45d61f3ff95a0f511106025f5cbbd4b2a81"
+  },
+  {
     "path": "scripts/audit_paper_baseline_forward.py",
     "bytes": 1974,
     "sha256": "31d204f9b94e2add7b4db16bb5d5f8996b2d340ff345f573c0fb07f5d759e9d6"
@@ -180,14 +225,19 @@
     "sha256": "616e47f1f6b0698046a43bdeeb421c3efb8ee7b4a5799669bc8d9b94707ce70c"
   },
   {
+    "path": "scripts/check_baseline_release.py",
+    "bytes": 1890,
+    "sha256": "c18fbf489b1a99fd7ceb583a9ccc6bd2d1cc277c3d01dee2d53b45b8e1e639c5"
+  },
+  {
     "path": "scripts/complete_paper_baselines.py",
     "bytes": 11035,
     "sha256": "40f81cd68685cab2afeeebe54746bef7be5e45b194abdf8043d4cfccbf22cd60"
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 4040,
-    "sha256": "ddf3b7d24546bee98fdb6b73c50ad0afadaf7efe694becc5ba11120e19437413"
+    "bytes": 4598,
+    "sha256": "65131ebc85e6386a53ac879a7ad586093d29af84f9340f08560c7c9ab2f2c59c"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
@@ -223,6 +273,11 @@
     "path": "scripts/report_shared_eight_e2e.py",
     "bytes": 11059,
     "sha256": "446ea196b5e6491caf695c12eb52ffb0e61acb6be064be0dd21d857018acb662"
+  },
+  {
+    "path": "scripts/seal_baseline_release.py",
+    "bytes": 2709,
+    "sha256": "a45c46ddcca15272b847f59391169d0d40c9868d5015bc6c3250e1e1a9d2e6c7"
   },
   {
     "path": "scripts/summarize_dynamic_restore.py",
@@ -418,6 +473,711 @@
     "path": "src/arc_model/features/stability_residual.py",
     "bytes": 12322,
     "sha256": "341d1f2f4bde457d9a257119f867663f12c0080f32ef92798499c185bdeb3221"
+  },
+  {
+    "path": "src/arc_model/implementations/__init__.py",
+    "bytes": 80,
+    "sha256": "4dff245f342ea03b8f1b8fcfaf94309641ae648cb1103971c4bb569bd208062b"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/README.md",
+    "bytes": 1145,
+    "sha256": "46e24e340b1ffef9dcfdcc3fb26f857de30b64600f709cb5ef3100fd596b3d69"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/backbone_training.py",
+    "bytes": 4338,
+    "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/configuration.py",
+    "bytes": 1967,
+    "sha256": "3449eb2018cd8a686982704fcae39f656445fc0358472330dd587e9d05f02acc"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/data_loader.py",
+    "bytes": 5609,
+    "sha256": "eae21ea9c9c69fe680c211e184c79161092f4b26941891c9140673882c3c9942"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/mbwvd.py",
+    "bytes": 2605,
+    "sha256": "ee332b133c6a3b800470340d3e9fb885737f8cb0c6b2ad4996be32288f7850c2"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/mbwvd_torch.py",
+    "bytes": 3824,
+    "sha256": "89bdb17737eab1dbc76aff71a49d495001ddd4e891f42e821e1facda6255d86e"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/model.py",
+    "bytes": 116,
+    "sha256": "a8e4215d4467b5c6e0ee3bd16cc71ad66154583cb87210684d97912164701a0d"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/network.py",
+    "bytes": 3246,
+    "sha256": "16862f6879129735c8867715fa9f2ce1db63a5a5b0012bb9edc8045afdba54aa"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/performance.json",
+    "bytes": 2924,
+    "sha256": "02c477e95e679dc4352e9b3b64877390f57afb1bf5589f0ee69987c48068b846"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/preprocessing.py",
+    "bytes": 669,
+    "sha256": "16d8b1f9529323b561e0b716ca57e3728b1b2b17a70c19ffde539c5ace209da4"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/provenance.json",
+    "bytes": 499,
+    "sha256": "a49cd0c93c2b6e60853c1030fe4e3fe2eeccf5f3ae3f48c47774db85d8826a54"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fenet/training.py",
+    "bytes": 102,
+    "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/README.md",
+    "bytes": 1160,
+    "sha256": "da2d91dd0b7dd089951d4e7392ff0d5aa8438196930d515ee2a73c267bb68239"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/backbone_training.py",
+    "bytes": 4338,
+    "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/configuration.py",
+    "bytes": 1980,
+    "sha256": "c20685910a73fab4e9175b3b1b6d0557dea9b4f8af7f76c07f5a2f6766407618"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/data_loader.py",
+    "bytes": 6713,
+    "sha256": "d8aa218c5baacd81f7cad725ebe36959f7d194faf388c08a86d8b99b610397c6"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/model.py",
+    "bytes": 116,
+    "sha256": "a8e4215d4467b5c6e0ee3bd16cc71ad66154583cb87210684d97912164701a0d"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/network.py",
+    "bytes": 3406,
+    "sha256": "3fce953700a946617766aaaea3e582e83a79e60ed9686e7dc913aecb3acc985b"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/performance.json",
+    "bytes": 2952,
+    "sha256": "5c7d4736548de3774e5f37dce43d701dd26ddfdc472958871a4803d4921559c3"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/preprocessing.py",
+    "bytes": 1192,
+    "sha256": "d5a8bcb6c5a5c50ab1afe766c3a9cb7d5783c79c80928a2366f4cd49795f511f"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/provenance.json",
+    "bytes": 509,
+    "sha256": "5578d7e6c598d47ffce3f3973beeacc10a5cff760ad2c38137ba55cb45b6dedd"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_arc_fusion/training.py",
+    "bytes": 102,
+    "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/README.md",
+    "bytes": 1031,
+    "sha256": "1a8db4d6d7af093fa46b4a2051029f17d688ca77588d3a05a6204bc372d609fb"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/backbone_training.py",
+    "bytes": 1704,
+    "sha256": "07145aa4cee15feeea5ecc958fe522135f9b258b07d41cb9988e65a5f15d04af"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/configuration.py",
+    "bytes": 1960,
+    "sha256": "d7d9f95a0576a8df80605262e75ba6b4d5099590bc990dbe4aa784cd4daeb4c6"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/data_loader.py",
+    "bytes": 5866,
+    "sha256": "cb54056c209ee6f7926f5d45e0f1ebeada7c61c853cd904f99e60e167239e5fc"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/features.py",
+    "bytes": 3245,
+    "sha256": "8159b9b6e33370f3925fa6a3af6239207c3d4288586f93ae1b6490478d33d024"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/model.py",
+    "bytes": 116,
+    "sha256": "a8e4215d4467b5c6e0ee3bd16cc71ad66154583cb87210684d97912164701a0d"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/network.py",
+    "bytes": 2237,
+    "sha256": "27a5c388caa9853df94d56fe729dcc320f7e716cbfa1fd0468c8aa927d146049"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/performance.json",
+    "bytes": 2525,
+    "sha256": "50a3892273f55f628c4b678f59a6a7e67269087f604737455f527f1ed71ffb72"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/provenance.json",
+    "bytes": 515,
+    "sha256": "a091cef03ef51f19307b713021e26ba4b0465a3e4cf49e55e60e8de8151a6423"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/training.py",
+    "bytes": 102,
+    "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+  },
+  {
+    "path": "src/arc_model/implementations/baseline_hydra/transform.py",
+    "bytes": 3997,
+    "sha256": "b8b1c79ea2b44ab21a67f03f4f24bd5b0ce226fb1589189b7620563e58687a3b"
+  },
+  {
+    "path": "src/arc_model/implementations/catalog.json",
+    "bytes": 2945,
+    "sha256": "033e44ad42d9d504d354e3c0da98fdfbe3a29c87f0a94ec90482d2618c855995"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/README.md",
+    "bytes": 1325,
+    "sha256": "111710d01a00ce25c1488b12c915c804bff5f1d535af6df5802cda3674b3217d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/backbone_training.py",
+    "bytes": 4338,
+    "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/configuration.py",
+    "bytes": 665,
+    "sha256": "7d3739428bcf7e422d99e8d44b72974108ebf977e0d9659bb0acbf51c0ae5c71"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/cycle_dynamics.py",
+    "bytes": 4997,
+    "sha256": "e4c7bcce58e259137c24f350ceee56c3052eb72d603c02f77101e0ddafdd157f"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/data_loader.py",
+    "bytes": 5609,
+    "sha256": "eae21ea9c9c69fe680c211e184c79161092f4b26941891c9140673882c3c9942"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/dynamic_correction.py",
+    "bytes": 6220,
+    "sha256": "a29b473f756f7fbf9c600003f30789b3efac76dddad0d5177b60effa73fb8bc5"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/enhancement.py",
+    "bytes": 1406,
+    "sha256": "09a1578555773bef8d4cd47dce30bebf97ad8b16bc8329459100af79d82ff538"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/mbwvd.py",
+    "bytes": 2605,
+    "sha256": "ee332b133c6a3b800470340d3e9fb885737f8cb0c6b2ad4996be32288f7850c2"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/mbwvd_torch.py",
+    "bytes": 3824,
+    "sha256": "89bdb17737eab1dbc76aff71a49d495001ddd4e891f42e821e1facda6255d86e"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/model.py",
+    "bytes": 1315,
+    "sha256": "f15eb7fe64767b2e3d50e3abdae943f67f59ba05392066e8308479eb651c497a"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/network.py",
+    "bytes": 3246,
+    "sha256": "16862f6879129735c8867715fa9f2ce1db63a5a5b0012bb9edc8045afdba54aa"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/performance.json",
+    "bytes": 122,
+    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/preprocessing.py",
+    "bytes": 250,
+    "sha256": "3b3c5813583426a8255df34b1cc3f8a2b5824e17bb87affec4e776e26403c8ef"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/provenance.json",
+    "bytes": 580,
+    "sha256": "f7b5e2708908eafe14d7f6384d06f6fd113540306009d4938acdd1e51b11705c"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/training.py",
+    "bytes": 2661,
+    "sha256": "7e268dc4881618d2fbb7dac8eebceacb8777314aff4bb4c14796e58e40d0f70d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/README.md",
+    "bytes": 1340,
+    "sha256": "1fbc9dff7d8cd5cf4c1ad248ea32e9abc2f899cbc4cc44012b13ad24bc36eb84"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/backbone_training.py",
+    "bytes": 4338,
+    "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/configuration.py",
+    "bytes": 678,
+    "sha256": "9c27a4981f50963505589bcc4864b445b5aff3e68c1ca6ba3fffacb530d98679"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/cycle_dynamics.py",
+    "bytes": 4997,
+    "sha256": "e4c7bcce58e259137c24f350ceee56c3052eb72d603c02f77101e0ddafdd157f"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/data_loader.py",
+    "bytes": 6713,
+    "sha256": "d8aa218c5baacd81f7cad725ebe36959f7d194faf388c08a86d8b99b610397c6"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/dynamic_correction.py",
+    "bytes": 6220,
+    "sha256": "a29b473f756f7fbf9c600003f30789b3efac76dddad0d5177b60effa73fb8bc5"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/enhancement.py",
+    "bytes": 1406,
+    "sha256": "09a1578555773bef8d4cd47dce30bebf97ad8b16bc8329459100af79d82ff538"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/model.py",
+    "bytes": 1324,
+    "sha256": "d8173c01ef7961a629b989b48e7b41275773f0ec52c64a76bdf40bc7f9abbb94"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/network.py",
+    "bytes": 3406,
+    "sha256": "3fce953700a946617766aaaea3e582e83a79e60ed9686e7dc913aecb3acc985b"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/performance.json",
+    "bytes": 122,
+    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/preprocessing.py",
+    "bytes": 1192,
+    "sha256": "d5a8bcb6c5a5c50ab1afe766c3a9cb7d5783c79c80928a2366f4cd49795f511f"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/provenance.json",
+    "bytes": 590,
+    "sha256": "2b4788199d0d3f6b7dc2b674a597aada00aac14b3c150c16b40db46e513f5da3"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/training.py",
+    "bytes": 2661,
+    "sha256": "7e268dc4881618d2fbb7dac8eebceacb8777314aff4bb4c14796e58e40d0f70d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/README.md",
+    "bytes": 1211,
+    "sha256": "613ae650ad59a51b5f5fad4e82022fa061b48e06f27d778ccb61f4d63a64449a"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/backbone_training.py",
+    "bytes": 1704,
+    "sha256": "07145aa4cee15feeea5ecc958fe522135f9b258b07d41cb9988e65a5f15d04af"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/configuration.py",
+    "bytes": 658,
+    "sha256": "a8758184e8fa0a35ad0754a3d185827077fefcf0d781c47d0d5314be98d62f86"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/cycle_dynamics.py",
+    "bytes": 4997,
+    "sha256": "e4c7bcce58e259137c24f350ceee56c3052eb72d603c02f77101e0ddafdd157f"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/data_loader.py",
+    "bytes": 5866,
+    "sha256": "cb54056c209ee6f7926f5d45e0f1ebeada7c61c853cd904f99e60e167239e5fc"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/dynamic_correction.py",
+    "bytes": 6220,
+    "sha256": "a29b473f756f7fbf9c600003f30789b3efac76dddad0d5177b60effa73fb8bc5"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/enhancement.py",
+    "bytes": 1406,
+    "sha256": "09a1578555773bef8d4cd47dce30bebf97ad8b16bc8329459100af79d82ff538"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/features.py",
+    "bytes": 3245,
+    "sha256": "8159b9b6e33370f3925fa6a3af6239207c3d4288586f93ae1b6490478d33d024"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/model.py",
+    "bytes": 1754,
+    "sha256": "d610af8079efd500035bb642e9b9ad39199f5a47519333e8e2ffeaed38cecb11"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/network.py",
+    "bytes": 2237,
+    "sha256": "27a5c388caa9853df94d56fe729dcc320f7e716cbfa1fd0468c8aa927d146049"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/performance.json",
+    "bytes": 122,
+    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/provenance.json",
+    "bytes": 596,
+    "sha256": "9d0da8a2e5c4cf6fa43ff8b29ed2fd86188e501acca5ed9388627aa0b03dadd9"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/training.py",
+    "bytes": 2661,
+    "sha256": "7e268dc4881618d2fbb7dac8eebceacb8777314aff4bb4c14796e58e40d0f70d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/transform.py",
+    "bytes": 3997,
+    "sha256": "b8b1c79ea2b44ab21a67f03f4f24bd5b0ce226fb1589189b7620563e58687a3b"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/README.md",
+    "bytes": 1465,
+    "sha256": "6713ba4645738208c3a6a865ca5631c6eaf011bc4ebc97ff451854afc6d6f25c"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/backbone_training.py",
+    "bytes": 4338,
+    "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/configuration.py",
+    "bytes": 663,
+    "sha256": "e2d83c7a7b81a0ecb44572e6f101441f4f2794a7dbdd3415a07843076598b44f"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/data_loader.py",
+    "bytes": 5609,
+    "sha256": "eae21ea9c9c69fe680c211e184c79161092f4b26941891c9140673882c3c9942"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/frontend.py",
+    "bytes": 1824,
+    "sha256": "35bafb368e3cf4518bbc302776b33e089167ab6515d1190073abf2b1b7be2e7c"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/mbwvd.py",
+    "bytes": 2605,
+    "sha256": "ee332b133c6a3b800470340d3e9fb885737f8cb0c6b2ad4996be32288f7850c2"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/mbwvd_torch.py",
+    "bytes": 3824,
+    "sha256": "89bdb17737eab1dbc76aff71a49d495001ddd4e891f42e821e1facda6255d86e"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/model.py",
+    "bytes": 1226,
+    "sha256": "2e85e4591da9a4ca734316f507c37789634ed06e065b6497fab04e9e702dfadd"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/network.py",
+    "bytes": 3246,
+    "sha256": "16862f6879129735c8867715fa9f2ce1db63a5a5b0012bb9edc8045afdba54aa"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/performance.json",
+    "bytes": 122,
+    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/preprocessing.py",
+    "bytes": 669,
+    "sha256": "16d8b1f9529323b561e0b716ca57e3728b1b2b17a70c19ffde539c5ace209da4"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/provenance.json",
+    "bytes": 580,
+    "sha256": "f7b5e2708908eafe14d7f6384d06f6fd113540306009d4938acdd1e51b11705c"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fenet/training.py",
+    "bytes": 102,
+    "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/README.md",
+    "bytes": 1480,
+    "sha256": "c0813526eaae962dba00538982544b105dd49b37acf7ab28e580c47b126f9d2e"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/backbone_training.py",
+    "bytes": 4338,
+    "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/configuration.py",
+    "bytes": 676,
+    "sha256": "15ec90125b2d525d630a05c930f6c3b5aac7f62db6683b255851fd0a50f51b48"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/data_loader.py",
+    "bytes": 6713,
+    "sha256": "d8aa218c5baacd81f7cad725ebe36959f7d194faf388c08a86d8b99b610397c6"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/frontend.py",
+    "bytes": 1825,
+    "sha256": "cb11739633ada7c34705ba1b76c11781e2423ef20b8609de5b8911122607ac96"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/model.py",
+    "bytes": 1226,
+    "sha256": "2e85e4591da9a4ca734316f507c37789634ed06e065b6497fab04e9e702dfadd"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/network.py",
+    "bytes": 3406,
+    "sha256": "3fce953700a946617766aaaea3e582e83a79e60ed9686e7dc913aecb3acc985b"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/performance.json",
+    "bytes": 122,
+    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/preprocessing.py",
+    "bytes": 1192,
+    "sha256": "d5a8bcb6c5a5c50ab1afe766c3a9cb7d5783c79c80928a2366f4cd49795f511f"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/provenance.json",
+    "bytes": 590,
+    "sha256": "2b4788199d0d3f6b7dc2b674a597aada00aac14b3c150c16b40db46e513f5da3"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_arc_fusion/training.py",
+    "bytes": 102,
+    "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/README.md",
+    "bytes": 1351,
+    "sha256": "659790004aa728ed58b524b8084abb972ebfdd2f2f3725d31d97eab6eb5cfe79"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/__init__.py",
+    "bytes": 96,
+    "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/backbone_training.py",
+    "bytes": 1704,
+    "sha256": "07145aa4cee15feeea5ecc958fe522135f9b258b07d41cb9988e65a5f15d04af"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/configuration.py",
+    "bytes": 656,
+    "sha256": "f655018b13fb42feed85b3aa304c483e5bec41d8a4d68ca70f7c199dbd6c9a1a"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/data_loader.py",
+    "bytes": 5866,
+    "sha256": "cb54056c209ee6f7926f5d45e0f1ebeada7c61c853cd904f99e60e167239e5fc"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/evaluation.py",
+    "bytes": 1886,
+    "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/features.py",
+    "bytes": 3245,
+    "sha256": "8159b9b6e33370f3925fa6a3af6239207c3d4288586f93ae1b6490478d33d024"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/frontend.py",
+    "bytes": 1820,
+    "sha256": "9914fe58abe013288ca8ed9a504587c778bd364502a0c58c47c4f2c44dbc594c"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/model.py",
+    "bytes": 951,
+    "sha256": "395d03fa98ffcdeb7fb7a4725f45bb3f08c7f9f70db6360290674512bcb07ccd"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/network.py",
+    "bytes": 2237,
+    "sha256": "27a5c388caa9853df94d56fe729dcc320f7e716cbfa1fd0468c8aa927d146049"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/performance.json",
+    "bytes": 122,
+    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/provenance.json",
+    "bytes": 596,
+    "sha256": "9d0da8a2e5c4cf6fa43ff8b29ed2fd86188e501acca5ed9388627aa0b03dadd9"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/raw_reader.py",
+    "bytes": 2311,
+    "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/training.py",
+    "bytes": 102,
+    "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+  },
+  {
+    "path": "src/arc_model/implementations/plugin_hydra/transform.py",
+    "bytes": 3997,
+    "sha256": "b8b1c79ea2b44ab21a67f03f4f24bd5b0ce226fb1589189b7620563e58687a3b"
+  },
+  {
+    "path": "src/arc_model/implementations/registry.py",
+    "bytes": 8195,
+    "sha256": "f60cfb6cd13af871bed738879ee272a2e45417fe9d508bcf956c3a74ee467fad"
   },
   {
     "path": "src/arc_model/inference/__init__.py",
@@ -793,6 +1553,11 @@
     "path": "tests/phase_module/test_independent_models_loaders.py",
     "bytes": 4331,
     "sha256": "ca35d3610471ea71072a288351f22bf0f846569496c544de7c3b738cc7360336"
+  },
+  {
+    "path": "tests/phase_module/test_nine_model_packages.py",
+    "bytes": 8368,
+    "sha256": "b7c68ef14e49ff7565bf1e2aeeae7907878ad07b3e12dde150497a1061efbdfb"
   },
   {
     "path": "tests/phase_module/test_phase_model_adapter.py",

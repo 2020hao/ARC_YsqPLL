@@ -1,0 +1,187 @@
+{
+  "release": "baselines_v1_20261030",
+  "status": "code_and_reported_metrics_locked",
+  "paper_fidelity_confirmation": {
+    "arc_fenet": "conditional_pending",
+    "hydra": "author_configuration_supported",
+    "arc_fusion": "current_only_not_complete_author_method"
+  },
+  "revision_policy": "Never overwrite this release; fixes need an explicit new version and paired baseline/enhanced reevaluation",
+  "files": [
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/README.md",
+      "sha256": "46e24e340b1ffef9dcfdcc3fb26f857de30b64600f709cb5ef3100fd596b3d69"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/__init__.py",
+      "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/backbone_training.py",
+      "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/configuration.py",
+      "sha256": "3449eb2018cd8a686982704fcae39f656445fc0358472330dd587e9d05f02acc"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/data_loader.py",
+      "sha256": "eae21ea9c9c69fe680c211e184c79161092f4b26941891c9140673882c3c9942"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/evaluation.py",
+      "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/mbwvd.py",
+      "sha256": "ee332b133c6a3b800470340d3e9fb885737f8cb0c6b2ad4996be32288f7850c2"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/mbwvd_torch.py",
+      "sha256": "89bdb17737eab1dbc76aff71a49d495001ddd4e891f42e821e1facda6255d86e"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/model.py",
+      "sha256": "a8e4215d4467b5c6e0ee3bd16cc71ad66154583cb87210684d97912164701a0d"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/network.py",
+      "sha256": "16862f6879129735c8867715fa9f2ce1db63a5a5b0012bb9edc8045afdba54aa"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/performance.json",
+      "sha256": "02c477e95e679dc4352e9b3b64877390f57afb1bf5589f0ee69987c48068b846"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/preprocessing.py",
+      "sha256": "16d8b1f9529323b561e0b716ca57e3728b1b2b17a70c19ffde539c5ace209da4"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/provenance.json",
+      "sha256": "a49cd0c93c2b6e60853c1030fe4e3fe2eeccf5f3ae3f48c47774db85d8826a54"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/raw_reader.py",
+      "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fenet/training.py",
+      "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/README.md",
+      "sha256": "1a8db4d6d7af093fa46b4a2051029f17d688ca77588d3a05a6204bc372d609fb"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/__init__.py",
+      "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/backbone_training.py",
+      "sha256": "07145aa4cee15feeea5ecc958fe522135f9b258b07d41cb9988e65a5f15d04af"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/configuration.py",
+      "sha256": "d7d9f95a0576a8df80605262e75ba6b4d5099590bc990dbe4aa784cd4daeb4c6"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/data_loader.py",
+      "sha256": "cb54056c209ee6f7926f5d45e0f1ebeada7c61c853cd904f99e60e167239e5fc"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/evaluation.py",
+      "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/features.py",
+      "sha256": "8159b9b6e33370f3925fa6a3af6239207c3d4288586f93ae1b6490478d33d024"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/model.py",
+      "sha256": "a8e4215d4467b5c6e0ee3bd16cc71ad66154583cb87210684d97912164701a0d"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/network.py",
+      "sha256": "27a5c388caa9853df94d56fe729dcc320f7e716cbfa1fd0468c8aa927d146049"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/performance.json",
+      "sha256": "50a3892273f55f628c4b678f59a6a7e67269087f604737455f527f1ed71ffb72"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/provenance.json",
+      "sha256": "a091cef03ef51f19307b713021e26ba4b0465a3e4cf49e55e60e8de8151a6423"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/raw_reader.py",
+      "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/training.py",
+      "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_hydra/transform.py",
+      "sha256": "b8b1c79ea2b44ab21a67f03f4f24bd5b0ce226fb1589189b7620563e58687a3b"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/README.md",
+      "sha256": "da2d91dd0b7dd089951d4e7392ff0d5aa8438196930d515ee2a73c267bb68239"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/__init__.py",
+      "sha256": "4a3c368df34dbd4a86588384ab25f8fca6713455f22992095f726c2af77236df"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/backbone_training.py",
+      "sha256": "94636471c6f20ffe2abfa6020090d90908121b2bfed6db40c967841d57e3f08b"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/configuration.py",
+      "sha256": "c20685910a73fab4e9175b3b1b6d0557dea9b4f8af7f76c07f5a2f6766407618"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/data_loader.py",
+      "sha256": "d8aa218c5baacd81f7cad725ebe36959f7d194faf388c08a86d8b99b610397c6"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/evaluation.py",
+      "sha256": "4f4d8a6789818ca128f6f32115040eee0b654429e88d362283bbeb2237d45781"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/model.py",
+      "sha256": "a8e4215d4467b5c6e0ee3bd16cc71ad66154583cb87210684d97912164701a0d"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/network.py",
+      "sha256": "3fce953700a946617766aaaea3e582e83a79e60ed9686e7dc913aecb3acc985b"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/performance.json",
+      "sha256": "5c7d4736548de3774e5f37dce43d701dd26ddfdc472958871a4803d4921559c3"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/preprocessing.py",
+      "sha256": "d5a8bcb6c5a5c50ab1afe766c3a9cb7d5783c79c80928a2366f4cd49795f511f"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/provenance.json",
+      "sha256": "5578d7e6c598d47ffce3f3973beeacc10a5cff760ad2c38137ba55cb45b6dedd"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/raw_reader.py",
+      "sha256": "2c30ec726490d9f33785a6cacdfeb43d95107d914bf752ba7f90adcd2b092f8d"
+    },
+    {
+      "path": "src/arc_model/implementations/baseline_arc_fusion/training.py",
+      "sha256": "b613ac523383b0a5f6b85e28b07cd99b05960cd0aa14a4baef369efbcb44ebc5"
+    }
+  ],
+  "baseline_yaml_nodes": {
+    "ArcFENet_Baseline": "d795c080602debaf9e39a5f28040f93710e235098287f2ec979361b6014dbfa6",
+    "HYDRA_Baseline": "351a95e389445b93c97569ca7b88a09b75c6d54cb3fa6a0421b56f86b199a141",
+    "ArcFusionNet_Current_Baseline": "6f702b7e72374f72ab4bffe7603a5afc7952489332971b54c97501280bfd6f29"
+  },
+  "metrics_source": "outputs/grouped_baseline_standard_20261029/main_results.csv",
+  "refactor_verification": "outputs/nine_model_refactor_20261030; baseline metrics are not rerun or edited by this seal"
+}

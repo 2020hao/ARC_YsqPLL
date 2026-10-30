@@ -1,0 +1,89 @@
+{
+  "status": "locked_current_grouped_reference",
+  "scores": [
+    {
+      "mean": {
+        "dataset": "continuous5m",
+        "baseline_id": "B_HYDRA_FD_fixed20_v1",
+        "model": "HYDRA_paper",
+        "BAcc_condition": 0.8722888549570931,
+        "BAcc_pooled": 0.87347699095497,
+        "Accuracy": 0.8728826809819148,
+        "Precision": 0.8926181459770711,
+        "Recall": 0.8597052210841869,
+        "Specificity": 0.887248760825753,
+        "F1": 0.87585259085819,
+        "Macro_F1": 0.8728098921826191,
+        "FPR": 0.112751239174247,
+        "FNR": 0.1402947789158131,
+        "ROC_AUC": 0.9374234779550176,
+        "AP": 0.956275761518134,
+        "MCC": 0.7462663464766744,
+        "seeds": 1,
+        "N": 38374,
+        "groups": 47
+      },
+      "seed_sd": {
+        "dataset": "continuous5m",
+        "baseline_id": "B_HYDRA_FD_fixed20_v1",
+        "model": "HYDRA_paper",
+        "BAcc_condition": null,
+        "BAcc_pooled": null,
+        "Accuracy": null,
+        "Precision": null,
+        "Recall": null,
+        "Specificity": null,
+        "F1": null,
+        "Macro_F1": null,
+        "FPR": null,
+        "FNR": null,
+        "ROC_AUC": null,
+        "AP": null,
+        "MCC": null
+      }
+    },
+    {
+      "mean": {
+        "dataset": "zenodo5501527",
+        "baseline_id": "B_HYDRA_FD_fixed20_v1",
+        "model": "HYDRA_paper",
+        "BAcc_condition": 0.9166496209738688,
+        "BAcc_pooled": 0.9054321613853368,
+        "Accuracy": 0.8971344599559148,
+        "Precision": 0.8251533742331288,
+        "Recall": 0.953900709219858,
+        "Specificity": 0.8569636135508155,
+        "F1": 0.8848684210526315,
+        "Macro_F1": 0.8959534668344167,
+        "FPR": 0.1430363864491844,
+        "FNR": 0.0460992907801418,
+        "ROC_AUC": 0.9709749325929684,
+        "AP": 0.957656589667636,
+        "MCC": 0.7995948523473903,
+        "seeds": 1,
+        "N": 1361,
+        "groups": 13
+      },
+      "seed_sd": {
+        "dataset": "zenodo5501527",
+        "baseline_id": "B_HYDRA_FD_fixed20_v1",
+        "model": "HYDRA_paper",
+        "BAcc_condition": null,
+        "BAcc_pooled": null,
+        "Accuracy": null,
+        "Precision": null,
+        "Recall": null,
+        "Specificity": null,
+        "F1": null,
+        "Macro_F1": null,
+        "FPR": null,
+        "FNR": null,
+        "ROC_AUC": null,
+        "AP": null,
+        "MCC": null
+      }
+    }
+  ],
+  "no_legacy_score_inheritance": true,
+  "source": "grouped_baseline_standard_20261029/main_results.csv"
+}

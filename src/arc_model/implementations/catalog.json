@@ -1,0 +1,86 @@
+{
+  "release": "baselines_v1_20261030",
+  "models": [
+    {
+      "key": "baseline_arc_fenet",
+      "package": "arc_model.implementations.baseline_arc_fenet",
+      "role": "baseline",
+      "backbone": "arc_fenet",
+      "parent_baseline_id": "B_FENET_fixed20_v1",
+      "performance_status": "locked_current_grouped_reference",
+      "config_key": "ArcFENet_Baseline"
+    },
+    {
+      "key": "baseline_hydra",
+      "package": "arc_model.implementations.baseline_hydra",
+      "role": "baseline",
+      "backbone": "hydra",
+      "parent_baseline_id": "B_HYDRA_FD_fixed20_v1",
+      "performance_status": "locked_current_grouped_reference",
+      "config_key": "HYDRA_Baseline"
+    },
+    {
+      "key": "baseline_arc_fusion",
+      "package": "arc_model.implementations.baseline_arc_fusion",
+      "role": "baseline",
+      "backbone": "arc_fusion",
+      "parent_baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+      "performance_status": "locked_current_grouped_reference",
+      "config_key": "ArcFusionNet_Current_Baseline"
+    },
+    {
+      "key": "dual_arc_fenet",
+      "package": "arc_model.implementations.dual_arc_fenet",
+      "role": "dual",
+      "backbone": "arc_fenet",
+      "parent_baseline_id": "B_FENET_fixed20_v1",
+      "performance_status": "not_validated_on_locked_parent",
+      "config_key": "ArcFENet_DualBranch"
+    },
+    {
+      "key": "dual_hydra",
+      "package": "arc_model.implementations.dual_hydra",
+      "role": "dual",
+      "backbone": "hydra",
+      "parent_baseline_id": "B_HYDRA_FD_fixed20_v1",
+      "performance_status": "not_validated_on_locked_parent",
+      "config_key": "HYDRA_DualBranch"
+    },
+    {
+      "key": "dual_arc_fusion",
+      "package": "arc_model.implementations.dual_arc_fusion",
+      "role": "dual",
+      "backbone": "arc_fusion",
+      "parent_baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+      "performance_status": "not_validated_on_locked_parent",
+      "config_key": "ArcFusionNet_Current_DualBranch"
+    },
+    {
+      "key": "plugin_arc_fenet",
+      "package": "arc_model.implementations.plugin_arc_fenet",
+      "role": "plugin",
+      "backbone": "arc_fenet",
+      "parent_baseline_id": "B_FENET_fixed20_v1",
+      "performance_status": "not_validated_on_locked_parent",
+      "config_key": "ArcFENet_Plugin"
+    },
+    {
+      "key": "plugin_hydra",
+      "package": "arc_model.implementations.plugin_hydra",
+      "role": "plugin",
+      "backbone": "hydra",
+      "parent_baseline_id": "B_HYDRA_FD_fixed20_v1",
+      "performance_status": "not_validated_on_locked_parent",
+      "config_key": "HYDRA_Plugin"
+    },
+    {
+      "key": "plugin_arc_fusion",
+      "package": "arc_model.implementations.plugin_arc_fusion",
+      "role": "plugin",
+      "backbone": "arc_fusion",
+      "parent_baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+      "performance_status": "not_validated_on_locked_parent",
+      "config_key": "ArcFusionNet_Current_Plugin"
+    }
+  ]
+}

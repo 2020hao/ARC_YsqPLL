@@ -12,6 +12,9 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
       - run: python -m pip install -e '.[dev]'
+      - run: python scripts/check_baseline_release.py
       - run: python -m pytest tests/phase_module -q
+      - run: arc-models validate
+      - run: arc-models smoke
       - run: arc-phase design
       - run: arc-phase model-smoke

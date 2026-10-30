@@ -1,0 +1,53 @@
+# Current reviewed cohorts; paths may relocate, identities/protocol stay fixed.
+continuous5m:
+  raw_root: /data/hzy/datasets/server210
+  native_sample_rate_hz: 2000000
+  current_channel: NET9770_114 CH0
+  reviewed_windows: 38374
+  labels:
+    normal: 0
+    arc: 1
+  prepared_roots:
+    fixed20: outputs/rcr_three_backbones_20261028/data/continuous5m/fixed20
+    current_self_sync: outputs/rcr_fundamental_consensus_20261028/detector/data/continuous5m/recovery
+  split_file: outputs/rcr_fundamental_consensus_20261028/detector/data/continuous5m/recovery/splits.json
+  split_sha256: 1589d6f8e520231aa34d337c85291a92552227048e2b843fdea8c783b1e4006a
+  reviewed_indices: outputs/dynamic_restore_20261029/continuous5m_indices.npy
+  reviewed_sha256: e01b188e05d25dbbce844e2c6bf51f7887c1fea7acbe8a95558f599f9c1f4658
+  author_hydra_features: outputs/paper_baseline_completion_20261029/data/continuous5m/author_hydra.npy
+  phase_aligned_author_hydra_features: null
+  dynamic36: outputs/rcr_fundamental_consensus_20261028/detector/data/continuous5m/recovery/dynamic.npy
+  prepared_metadata_sha256:
+    fixed20: e564ab8b1f650d1245c4592d8901f56f1087d0c4abc81e788736c4390e08b138
+    current_self_sync: 7c46597d1c385a9214528c25af8471b424d28ed9efb2c4f01fe332ec8b14fa84
+  baseline_input_sha256:
+    temporal.npy: 86d5288e15947849fe580fc8811f0012d73c88dc4ec7568f7f901f5634635a45
+    spectrum.npy: d4f3b63852d36e62ff1186211bf82915579174b71e362e42db977550189b2b63
+    rgb.npy: b8bf60a9cbe825488a08b85c861ae4a688c3ee39d64c8ee9c4aa1c7329dfe9c6
+    author_hydra.npy: 2f4aa2f7e18f35617fed2e7c624a2dde8ddb6e63cabb15b12991df5030a94eaa
+zenodo5501527:
+  raw_root: /data/hzy/experiments/ARC_model/data/public/zenodo5501527
+  native_sample_rate_hz: 1000000
+  current_channel: C3
+  reviewed_windows: 1361
+  labels:
+    normal: 0
+    arc: 1
+  prepared_roots:
+    fixed20: outputs/rcr_three_backbones_20261028/data/zenodo5501527/fixed20
+    current_self_sync: outputs/rcr_fundamental_consensus_20261028/detector/data/zenodo5501527/recovery
+  split_file: outputs/rcr_fundamental_consensus_20261028/detector/data/zenodo5501527/recovery/splits.json
+  split_sha256: 47e3500283a4058cfb3bd302a058d4362b1cfeeb69da677039befea5a35671e3
+  reviewed_indices: outputs/dynamic_restore_20261029/zenodo5501527_indices.npy
+  reviewed_sha256: c9d3f3b2afadc40be8fc6c38010f56aa0cee59e44385fa005619f53bad5284f7
+  author_hydra_features: outputs/paper_baseline_completion_20261029/data/zenodo5501527/author_hydra.npy
+  phase_aligned_author_hydra_features: null
+  dynamic36: outputs/rcr_fundamental_consensus_20261028/detector/data/zenodo5501527/recovery/dynamic.npy
+  prepared_metadata_sha256:
+    fixed20: 3e85416e7ce33f2af8abdb3c1d96b737427eda2626bdb9317fc056aef9bb1c6d
+    current_self_sync: ffdfcdc628f586f72506824a07682592ffeb64c5b5979d65b92df6b3da63f40c
+  baseline_input_sha256:
+    temporal.npy: db7f0aac181d338f3b6158b2a4697f6b463e3b5468cc2d6abe02753dc27ce38b
+    spectrum.npy: 3d0caa46e16f1abc5d0266917a0a0c77657b6b7baf8824120fbcf27ee03b42c6
+    rgb.npy: 75562f1bdc4be8627245819c3cfb161cfb9c75e74fe91a965ce11bdae639e2d0
+    author_hydra.npy: fe1f73e650217c53b06cfdb288dbedf859b02ccd0714f2eaded8c77097e2b1bd

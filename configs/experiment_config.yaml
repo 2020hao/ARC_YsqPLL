@@ -1,0 +1,35 @@
+# PILT-style scheduling separated from model definitions. No training is launched by reading this file.
+selected_experiments:
+- registry_validation
+experiment:
+  datasets:
+  - continuous5m
+  - zenodo5501527
+  models:
+  - ArcFENet_Baseline
+  - HYDRA_Baseline
+  - ArcFusionNet_Current_Baseline
+  - ArcFENet_DualBranch
+  - HYDRA_DualBranch
+  - ArcFusionNet_Current_DualBranch
+  - ArcFENet_Plugin
+  - HYDRA_Plugin
+  - ArcFusionNet_Current_Plugin
+  result_scope: nine_model_experiments
+execution:
+  default_action: validate_only
+  auto_train: false
+  max_parallel: 3
+  gpu:
+    ids:
+    - 1
+    - 2
+    - 3
+    reserved_ids:
+    - 0
+  overwrite_frozen_baselines: false
+config_files:
+  models: configs/models.yaml
+  datasets: configs/datasets.yaml
+baseline_release: baselines_v1_20261030
+record_unvalidated_variant_scores: false

@@ -1,0 +1,89 @@
+{
+  "status": "locked_current_grouped_reference",
+  "scores": [
+    {
+      "mean": {
+        "dataset": "continuous5m",
+        "baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+        "model": "ArcFusionNet_current",
+        "BAcc_condition": 0.8820529884613038,
+        "BAcc_pooled": 0.8866705631941322,
+        "Accuracy": 0.8872066155904171,
+        "Precision": 0.8863784640265235,
+        "Recall": 0.899092347406112,
+        "Specificity": 0.8742487789821523,
+        "F1": 0.8926451301030459,
+        "Macro_F1": 0.8869097065708074,
+        "FPR": 0.1257512210178477,
+        "FNR": 0.1009076525938879,
+        "ROC_AUC": 0.9408495886741008,
+        "AP": 0.9465555965256564,
+        "MCC": 0.774021656900711,
+        "seeds": 3,
+        "N": 38374,
+        "groups": 47
+      },
+      "seed_sd": {
+        "dataset": "continuous5m",
+        "baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+        "model": "ArcFusionNet_current",
+        "BAcc_condition": 0.0120634313212779,
+        "BAcc_pooled": 0.0103510728950141,
+        "Accuracy": 0.0103067896849814,
+        "Precision": 0.0121870672583391,
+        "Recall": 0.0129411949733363,
+        "Specificity": 0.0147385570213146,
+        "F1": 0.0098190588189829,
+        "Macro_F1": 0.0103317218388176,
+        "FPR": 0.0147385570213146,
+        "FNR": 0.0129411949733363,
+        "ROC_AUC": 0.0119064726445571,
+        "AP": 0.0152389928052619,
+        "MCC": 0.0207371649556302
+      }
+    },
+    {
+      "mean": {
+        "dataset": "zenodo5501527",
+        "baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+        "model": "ArcFusionNet_current",
+        "BAcc_condition": 0.7628626142128052,
+        "BAcc_pooled": 0.7793939892801314,
+        "Accuracy": 0.745775165319618,
+        "Precision": 0.6244270865119327,
+        "Recall": 0.9757683215130024,
+        "Specificity": 0.5830196570472606,
+        "F1": 0.7611877629041386,
+        "Macro_F1": 0.7444725092081961,
+        "FPR": 0.4169803429527394,
+        "FNR": 0.0242316784869976,
+        "ROC_AUC": 0.8792413038255159,
+        "AP": 0.7880055799003,
+        "MCC": 0.5772602672795962,
+        "seeds": 3,
+        "N": 1361,
+        "groups": 13
+      },
+      "seed_sd": {
+        "dataset": "zenodo5501527",
+        "baseline_id": "B_FUSION_CURRENT_fixed20_v2",
+        "model": "ArcFusionNet_current",
+        "BAcc_condition": 0.0217403359591866,
+        "BAcc_pooled": 0.0224135428133017,
+        "Accuracy": 0.0273047820368288,
+        "Precision": 0.0273138421132124,
+        "Recall": 0.0150796109009137,
+        "Specificity": 0.0522827267854522,
+        "F1": 0.0185552642062614,
+        "Macro_F1": 0.0285852162883263,
+        "FPR": 0.0522827267854522,
+        "FNR": 0.0150796109009138,
+        "ROC_AUC": 0.0301970195262427,
+        "AP": 0.0849276272013422,
+        "MCC": 0.0344242866212042
+      }
+    }
+  ],
+  "no_legacy_score_inheritance": true,
+  "source": "grouped_baseline_standard_20261029/main_results.csv"
+}

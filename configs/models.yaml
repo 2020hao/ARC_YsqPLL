@@ -1,0 +1,731 @@
+# Nine independent model nodes; PILT-compatible parameter sections.
+# Baseline nodes are release-locked; no anchors, merges or inherited defaults.
+ArcFENet_Baseline:
+  implementation: baseline_arc_fenet
+  role: baseline
+  backbone: arc_fenet
+  parent_baseline_id: B_FENET_fixed20_v1
+  parent_release: baselines_v1_20261030
+  fidelity: conditional_reconstruction
+  performance_status: locked_current_grouped_reference
+  model_kwargs:
+    extra: 0
+    fusion: sum
+    enhanced: true
+    channels:
+    - 16
+    - 32
+    - 64
+    - 128
+  model_training_param:
+    optimizer: Adam
+    lr: 0.001
+    wd: 1.0e-05
+    epochs: 20
+    batch_size: 128
+    seeds:
+    - 0
+    - 1
+    - 2
+    min_lr: 0.001
+    scheduler: none
+    threshold: 0.5
+  input_contract:
+    window_ms: 20
+    reference: fixed20
+    model_sample_rate_hz: 250000
+    samples_per_cycle: 5000
+    input_shape:
+    - N
+    - 3
+    - 100
+    - 100
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: false
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: none
+    enabled_by_default: false
+    feature_dim: 0
+    lags: []
+    hf_bands_hz: []
+    phase_bins: 20
+    auxiliary_branch: false
+    requires_refit_on_frozen_parent: false
+  precision:
+    parameter_dtype: float32
+    autocast: none
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+HYDRA_Baseline:
+  implementation: baseline_hydra
+  role: baseline
+  backbone: hydra
+  parent_baseline_id: B_HYDRA_FD_fixed20_v1
+  parent_release: baselines_v1_20261030
+  fidelity: author_configuration
+  performance_status: locked_current_grouped_reference
+  model_kwargs:
+    k: 8
+    g: 8
+    kernel_length: 5
+    stride: 1
+    transform_seed: 0
+  model_training_param:
+    optimizer: HiGHS_L1_hinge
+    lambda_l1: 0.001
+    seeds:
+    - 0
+    threshold: 0.0
+  input_contract:
+    window_ms: 20
+    reference: fixed20
+    model_sample_rate_hz: 50000
+    samples_per_cycle: 1000
+    input_shape:
+    - N
+    - 1024
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: true
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: none
+    enabled_by_default: false
+    feature_dim: 0
+    lags: []
+    hf_bands_hz: []
+    phase_bins: 20
+    auxiliary_branch: false
+    requires_refit_on_frozen_parent: false
+  precision:
+    parameter_dtype: float32
+    autocast: none
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+ArcFusionNet_Current_Baseline:
+  implementation: baseline_arc_fusion
+  role: baseline
+  backbone: arc_fusion
+  parent_baseline_id: B_FUSION_CURRENT_fixed20_v2
+  parent_release: baselines_v1_20261030
+  fidelity: current_only_adaptation
+  performance_status: locked_current_grouped_reference
+  model_kwargs:
+    extra: 0
+    d_model: 64
+    n_heads: 4
+    feedforward_dim: 128
+    dropout: 0.1
+    n_encoder_layers: 2
+    spectral_pool_stride: 2
+  model_training_param:
+    optimizer: AdamW
+    lr: 0.0001
+    wd: 0.01
+    epochs: 70
+    batch_size: 64
+    seeds:
+    - 0
+    - 1
+    - 2
+    min_lr: 1.0e-06
+    scheduler: cosine
+    threshold: 0.5
+  input_contract:
+    window_ms: 20
+    reference: fixed20
+    model_sample_rate_hz: 12500
+    samples_per_cycle: 250
+    input_shape:
+      temporal:
+      - N
+      - 1
+      - 3
+      - 250
+      spectrum:
+      - N
+      - 1
+      - 32
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: false
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: none
+    enabled_by_default: false
+    feature_dim: 0
+    lags: []
+    hf_bands_hz: []
+    phase_bins: 20
+    auxiliary_branch: false
+    requires_refit_on_frozen_parent: false
+  precision:
+    parameter_dtype: float32
+    autocast: bfloat16
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+ArcFENet_DualBranch:
+  implementation: dual_arc_fenet
+  role: dual
+  backbone: arc_fenet
+  parent_baseline_id: B_FENET_fixed20_v1
+  parent_release: baselines_v1_20261030
+  fidelity: conditional_reconstruction
+  performance_status: not_validated_on_locked_parent
+  model_kwargs:
+    extra: 0
+    fusion: sum
+    enhanced: true
+    channels:
+    - 16
+    - 32
+    - 64
+    - 128
+  model_training_param:
+    optimizer: Adam
+    lr: 0.001
+    wd: 1.0e-05
+    epochs: 20
+    batch_size: 128
+    seeds:
+    - 0
+    - 1
+    - 2
+    min_lr: 0.001
+    scheduler: none
+    threshold: 0.5
+  input_contract:
+    window_ms: 20
+    reference: fixed20
+    model_sample_rate_hz: 250000
+    samples_per_cycle: 5000
+    input_shape:
+    - N
+    - 3
+    - 100
+    - 100
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: false
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: score_dynamic_branch
+    enabled_by_default: false
+    feature_dim: 36
+    lags:
+    - 1
+    - 2
+    - 4
+    - 8
+    hf_bands_hz:
+    - - 10000
+      - 100000
+    - - 100000
+      - 400000
+    phase_bins: 20
+    auxiliary_branch: true
+    requires_refit_on_frozen_parent: true
+    training:
+      epochs: 80
+      lr: 0.002
+      wd: 0.002
+      batch_size: 256
+      l1_mean_penalty: 0.0002
+  precision:
+    parameter_dtype: float32
+    autocast: none
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+HYDRA_DualBranch:
+  implementation: dual_hydra
+  role: dual
+  backbone: hydra
+  parent_baseline_id: B_HYDRA_FD_fixed20_v1
+  parent_release: baselines_v1_20261030
+  fidelity: author_configuration
+  performance_status: not_validated_on_locked_parent
+  model_kwargs:
+    k: 8
+    g: 8
+    kernel_length: 5
+    stride: 1
+    transform_seed: 0
+  model_training_param:
+    optimizer: HiGHS_L1_hinge
+    lambda_l1: 0.001
+    seeds:
+    - 0
+    threshold: 0.0
+  input_contract:
+    window_ms: 20
+    reference: fixed20
+    model_sample_rate_hz: 50000
+    samples_per_cycle: 1000
+    input_shape:
+    - N
+    - 1024
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: true
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: score_dynamic_branch
+    enabled_by_default: false
+    feature_dim: 36
+    lags:
+    - 1
+    - 2
+    - 4
+    - 8
+    hf_bands_hz:
+    - - 10000
+      - 100000
+    - - 100000
+      - 400000
+    phase_bins: 20
+    auxiliary_branch: true
+    requires_refit_on_frozen_parent: true
+    training:
+      epochs: 80
+      lr: 0.002
+      wd: 0.002
+      batch_size: 256
+      l1_mean_penalty: 0.0002
+  precision:
+    parameter_dtype: float32
+    autocast: none
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+ArcFusionNet_Current_DualBranch:
+  implementation: dual_arc_fusion
+  role: dual
+  backbone: arc_fusion
+  parent_baseline_id: B_FUSION_CURRENT_fixed20_v2
+  parent_release: baselines_v1_20261030
+  fidelity: current_only_adaptation
+  performance_status: not_validated_on_locked_parent
+  model_kwargs:
+    extra: 0
+    d_model: 64
+    n_heads: 4
+    feedforward_dim: 128
+    dropout: 0.1
+    n_encoder_layers: 2
+    spectral_pool_stride: 2
+  model_training_param:
+    optimizer: AdamW
+    lr: 0.0001
+    wd: 0.01
+    epochs: 70
+    batch_size: 64
+    seeds:
+    - 0
+    - 1
+    - 2
+    min_lr: 1.0e-06
+    scheduler: cosine
+    threshold: 0.5
+  input_contract:
+    window_ms: 20
+    reference: fixed20
+    model_sample_rate_hz: 12500
+    samples_per_cycle: 250
+    input_shape:
+      temporal:
+      - N
+      - 1
+      - 3
+      - 250
+      spectrum:
+      - N
+      - 1
+      - 32
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: false
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: score_dynamic_branch
+    enabled_by_default: false
+    feature_dim: 36
+    lags:
+    - 1
+    - 2
+    - 4
+    - 8
+    hf_bands_hz:
+    - - 10000
+      - 100000
+    - - 100000
+      - 400000
+    phase_bins: 20
+    auxiliary_branch: true
+    requires_refit_on_frozen_parent: true
+    training:
+      epochs: 80
+      lr: 0.002
+      wd: 0.002
+      batch_size: 256
+      l1_mean_penalty: 0.0002
+  precision:
+    parameter_dtype: float32
+    autocast: bfloat16
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+ArcFENet_Plugin:
+  implementation: plugin_arc_fenet
+  role: plugin
+  backbone: arc_fenet
+  parent_baseline_id: B_FENET_fixed20_v1
+  parent_release: baselines_v1_20261030
+  fidelity: conditional_reconstruction
+  performance_status: not_validated_on_locked_parent
+  model_kwargs:
+    extra: 0
+    fusion: sum
+    enhanced: true
+    channels:
+    - 16
+    - 32
+    - 64
+    - 128
+  model_training_param:
+    optimizer: Adam
+    lr: 0.001
+    wd: 1.0e-05
+    epochs: 20
+    batch_size: 128
+    seeds:
+    - 0
+    - 1
+    - 2
+    min_lr: 0.001
+    scheduler: none
+    threshold: 0.5
+  input_contract:
+    window_ms: 20
+    reference: current_self_sync
+    model_sample_rate_hz: 250000
+    samples_per_cycle: 5000
+    input_shape:
+    - N
+    - 3
+    - 100
+    - 100
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: false
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: input_frontend
+    enabled_by_default: false
+    feature_dim: 0
+    lags: []
+    hf_bands_hz: []
+    phase_bins: 20
+    auxiliary_branch: false
+    requires_refit_on_frozen_parent: true
+  precision:
+    parameter_dtype: float32
+    autocast: none
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+HYDRA_Plugin:
+  implementation: plugin_hydra
+  role: plugin
+  backbone: hydra
+  parent_baseline_id: B_HYDRA_FD_fixed20_v1
+  parent_release: baselines_v1_20261030
+  fidelity: author_configuration
+  performance_status: not_validated_on_locked_parent
+  model_kwargs:
+    k: 8
+    g: 8
+    kernel_length: 5
+    stride: 1
+    transform_seed: 0
+  model_training_param:
+    optimizer: HiGHS_L1_hinge
+    lambda_l1: 0.001
+    seeds:
+    - 0
+    threshold: 0.0
+  input_contract:
+    window_ms: 20
+    reference: current_self_sync
+    model_sample_rate_hz: 50000
+    samples_per_cycle: 1000
+    input_shape:
+    - N
+    - 1024
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: true
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: input_frontend
+    enabled_by_default: false
+    feature_dim: 0
+    lags: []
+    hf_bands_hz: []
+    phase_bins: 20
+    auxiliary_branch: false
+    requires_refit_on_frozen_parent: true
+  precision:
+    parameter_dtype: float32
+    autocast: none
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides
+ArcFusionNet_Current_Plugin:
+  implementation: plugin_arc_fusion
+  role: plugin
+  backbone: arc_fusion
+  parent_baseline_id: B_FUSION_CURRENT_fixed20_v2
+  parent_release: baselines_v1_20261030
+  fidelity: current_only_adaptation
+  performance_status: not_validated_on_locked_parent
+  model_kwargs:
+    extra: 0
+    d_model: 64
+    n_heads: 4
+    feedforward_dim: 128
+    dropout: 0.1
+    n_encoder_layers: 2
+    spectral_pool_stride: 2
+  model_training_param:
+    optimizer: AdamW
+    lr: 0.0001
+    wd: 0.01
+    epochs: 70
+    batch_size: 64
+    seeds:
+    - 0
+    - 1
+    - 2
+    min_lr: 1.0e-06
+    scheduler: cosine
+    threshold: 0.5
+  input_contract:
+    window_ms: 20
+    reference: current_self_sync
+    model_sample_rate_hz: 12500
+    samples_per_cycle: 250
+    input_shape:
+      temporal:
+      - N
+      - 1
+      - 3
+      - 250
+      spectrum:
+      - N
+      - 1
+      - 32
+    original_native_rates_hz:
+    - 2000000
+    - 1000000
+    rectified: false
+    phase_estimation_uses_signed_current: true
+    preprocessing_fitted_on: outer_train_only
+  feature_module:
+    mode: input_frontend
+    enabled_by_default: false
+    feature_dim: 0
+    lags: []
+    hf_bands_hz: []
+    phase_bins: 20
+    auxiliary_branch: false
+    requires_refit_on_frozen_parent: true
+  precision:
+    parameter_dtype: float32
+    autocast: bfloat16
+    matmul_tf32: false
+    cudnn_tf32: false
+    cudnn_deterministic: true
+  evaluation:
+    level: cycle
+    primary: BAcc_condition
+    metrics:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1
+    - Specificity
+    - FPR
+    - ROC_AUC
+    - AP
+    grouped_outer_folds: 5
+    datasets:
+    - continuous5m
+    - zenodo5501527
+    no_test_threshold_tuning: true
+  source_note: Independent complete node; no YAML inheritance or implicit overrides

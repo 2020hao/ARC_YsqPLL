@@ -1,0 +1,12 @@
+{
+  "parent_baseline_id": "B_HYDRA_FD_fixed20_v1",
+  "parent_release": "baselines_v1_20261030",
+  "source_model": "src/arc_model/models/standalone/hydra.py + hydra_paper.py",
+  "frozen_source_registry": "outputs/grouped_baseline_standard_20261029/baseline_registry.json",
+  "exact_historical_training_sources": [
+    "scripts/complete_paper_baselines.py"
+  ],
+  "code_duplication": "independent local copies, no peer implementation imports",
+  "legacy_dual_results": "outputs/dynamic_restore_20261029; NOT scores of these new frozen-parent candidates",
+  "fitted_improvement_checkpoint": false
+}

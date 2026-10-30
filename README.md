@@ -21,6 +21,36 @@ HYDRA为原文FD配置、Fusion为修正训练队列后的仅电流结构适配�
 
 [![CPU tests](https://github.com/2020hao/ARC_YsqPLL/actions/workflows/phase-module.yml/badge.svg)](https://github.com/2020hao/ARC_YsqPLL/actions/workflows/phase-module.yml)
 
+## 九个独立模型与配置（当前开发入口）
+
+参考PILT，一份[`configs/models.yaml`](configs/models.yaml)集中保存**九个完整、互不继承的模型节点**。
+结构参数位于`model_kwargs`，训练参数位于`model_training_param`；九套模型与加载器分别位于
+[`src/arc_model/implementations/`](src/arc_model/implementations/)，模型运行不跨目录复用网络组件。
+
+| 骨干 | Baseline | 双分支改进 | 输入热插拔改进 |
+|---|---|---|---|
+| ArcFENet | `baseline_arc_fenet` | `dual_arc_fenet` | `plugin_arc_fenet` |
+| HYDRA | `baseline_hydra` | `dual_hydra` | `plugin_hydra` |
+| ArcFusionNet-current | `baseline_arc_fusion` | `dual_arc_fusion` | `plugin_arc_fusion` |
+
+- **模型配置**：`configs/models.yaml`；**数据配置**：`configs/datasets.yaml`；**实验调度**：`configs/experiment_config.yaml`。
+- **冻结版本**：`releases/baselines_v1_20261030/`，保护三个baseline目录、三个YAML节点及六行已核验指标。修正需新版本，不覆盖旧基线。
+- **六个改进目录是候选实现**：尚未在这套冻结父基线上重训验证，`performance.json`为空；下文历史C0/36维成绩不能直接充作它们的性能。
+- **关闭改进开关**只保持当前骨干的原forward；恢复baseline成绩须加载对应冻结权重及固定20ms输入。
+- **复现边界**：ArcFENet是带VMD数值限制的重建；HYDRA支持作者FD配置；Fusion-current为仅电流结构适配。
+- **整理验证**：冻结70组模型状态经新baseline目录回放，预测最大差0、判决差0；不因目录重构生成新的分类增益。
+- 旧`src/arc_model/models/`保留用于历史重放，后续开发从九个新目录进入。默认仅检查配置，不自动启动训练；训练GPU限1/2/3。
+
+```bash
+python -m pip install -e '.[dev]'
+arc-models list
+arc-models show --model ArcFENet_DualBranch
+arc-models smoke
+python scripts/check_baseline_release.py
+```
+
+详见[九目录职责与配置说明](docs/NINE_MODELS_AND_CONFIG.md)及[作者代码与数据可用性核查](docs/AUTHOR_ASSET_AVAILABILITY_20261030.md)。
+
 ## 阅读导航
 
 - [项目在解决什么问题](#项目在解决什么问题)
