@@ -72,3 +72,60 @@ def fit_from_oof(
         score_kind=np.asarray(score_kind),
     )
     return state, trace
+
+
+def fit_from_nested_oof(
+    x, y, oof_offset, groups, train_indices, receipts, *,
+    selection_offset, selection_fit, selection_validation, selection_base_train,
+    baseline_id, score_kind, seed=0, device="cpu",
+):
+    """Choose strength on groups unseen by both selection backbone and head.
+
+    ``selection_offset`` comes from one A-trained backbone; selection B/C
+    groups are both absent from A. Final fitting uses complete honest inner OOF.
+    Calibration must be fitted on B for selection, on outer-train OOF for refit.
+    """
+    config = load_config()
+    if baseline_id != config["parent_baseline_id"]:
+        raise ValueError("Wrong frozen parent")
+    x, y, groups = np.asarray(x), np.asarray(y), np.asarray(groups)
+    tr = np.asarray(train_indices, dtype=int)
+    b, c, a = [np.asarray(v, dtype=int) for v in
+               (selection_fit, selection_validation, selection_base_train)]
+    if x.shape != (len(y), 36):
+        raise ValueError("Shared finite36 features required")
+    if not np.isfinite(x).all():
+        raise ValueError("Nonfinite features")
+    cover = np.zeros(len(y), dtype=int)
+    for receipt in receipts:
+        fit, val = [np.asarray(receipt[k], dtype=int) for k in ("train", "validation")]
+        if not np.isin(np.r_[fit, val], tr).all() or np.intersect1d(fit, val).size:
+            raise ValueError("Invalid inner OOF rows")
+        if set(groups[fit]) & set(groups[val]):
+            raise ValueError("Inner OOF group leakage")
+        cover[val] += 1
+    if not (cover[tr] == 1).all() or cover.sum() != len(tr):
+        raise ValueError("Incomplete or repeated honest OOF coverage")
+    if not np.isin(np.r_[a, b, c], tr).all():
+        raise ValueError("Selection uses outer test rows")
+    for left, right in [(a,b), (a,c), (b,c)]:
+        if np.intersect1d(left, right).size or set(groups[left]) & set(groups[right]):
+            raise ValueError("Backbone/head/selection groups must be isolated")
+    if not len(b) or not len(c):
+        raise ValueError("Nonempty head fitting/selection groups required")
+    if not np.isfinite(np.asarray(oof_offset)[tr]).all() or not np.isfinite(np.asarray(selection_offset)[np.r_[b,c]]).all():
+        raise ValueError("Required training logits are missing")
+    raw = config["feature_module"]["training"]
+    settings = dict(epochs=raw["epochs"], lr=raw["lr"], weight_decay=raw["wd"],
+                    batch_size=raw["batch_size"], l1_mean_penalty=raw["l1_mean_penalty"])
+    columns = np.arange(36)
+    delta, distance, _ = method.fit(x, y, selection_offset, b, columns, seed, device=device, **settings)
+    (alpha, quantile), trace = method.calibrate(y, groups, selection_offset, delta, distance, b, c)
+    _, distance, state = method.fit(x, y, oof_offset, tr, columns, seed+31, device=device, **settings)
+    normal = tr[y[tr] == 0]
+    state.update(alpha=np.asarray(alpha),
+                 gate_threshold=np.asarray(max(float(np.quantile(distance[normal], quantile)),1e-6)),
+                 baseline_id=np.asarray(baseline_id), score_kind=np.asarray(score_kind),
+                 selection_fit_indices=b, selection_validation_indices=c,
+                 selection_base_fit_indices=a, selected_quantile=np.asarray(quantile))
+    return state, trace

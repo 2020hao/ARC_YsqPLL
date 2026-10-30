@@ -20,7 +20,9 @@ def main():
  a=p.parse_args();suite=yaml.safe_load((boot.ROOT/a.suite).read_text())
  if suite.get('specialized_study'):
   # Specialized coordinate experiments retain both datasets and their own reviewed snapshot.
-  if suite['specialized_study']=='fenet_qualification_20261030':
+  if suite['specialized_study']=='locked_routes_20261030':
+   from run_locked_routes_20261030 import run_study
+  elif suite['specialized_study']=='fenet_qualification_20261030':
    from qualify_fenet_20261030 import run_study
   elif suite['specialized_study']=='fusion_qualification_20261030':
    from qualify_fusion_current_20261030 import run_study

@@ -45,7 +45,16 @@ def test_nine_folders_and_no_peer_component_imports():
         if s.role == "baseline":
             assert len(perf["scores"]) == 2
         else:
-            assert perf["scores"] == [] and perf["status"] == "not_validated_on_locked_parent"
+            if perf["status"] == "not_validated_on_locked_parent":
+                assert perf["scores"] == []
+            else:
+                assert perf["status"] == "seed0_screen_complete_on_locked_parent"
+                assert perf["seeds"] == [0] and perf["outer_folds"] == 5
+                assert perf["source"] == "outputs/locked_routes_20261030/main_results.csv"
+                assert perf["no_legacy_score_inheritance"] is True
+                assert perf["promoted_to_default"] is False
+                assert {r["dataset"] for r in perf["scores"]} == {"continuous5m", "zenodo5501527"}
+                assert all(r["seed"] == 0 and r["N"] in (38374, 1361) for r in perf["scores"])
 
 
 @pytest.mark.parametrize("backbone,original", [("arc_fenet", FENet), ("arc_fusion", FusionNet)])

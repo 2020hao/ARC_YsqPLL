@@ -236,7 +236,7 @@ ArcFENet_DualBranch:
   parent_baseline_id: B_FENET_fixed20_v1
   parent_release: baselines_v1_20261030
   fidelity: conditional_reconstruction
-  performance_status: not_validated_on_locked_parent
+  performance_status: seed0_screen_complete_on_locked_parent
   model_kwargs:
     extra: 0
     fusion: sum
@@ -329,7 +329,7 @@ HYDRA_DualBranch:
   parent_baseline_id: B_HYDRA_FD_fixed20_v1
   parent_release: baselines_v1_20261030
   fidelity: author_configuration
-  performance_status: not_validated_on_locked_parent
+  performance_status: seed0_screen_complete_on_locked_parent
   model_kwargs:
     k: 8
     g: 8
@@ -410,7 +410,7 @@ ArcFusionNet_Current_DualBranch:
   parent_baseline_id: B_FUSION_CURRENT_fixed20_v2
   parent_release: baselines_v1_20261030
   fidelity: current_only_adaptation
-  performance_status: not_validated_on_locked_parent
+  performance_status: seed0_screen_complete_on_locked_parent
   model_kwargs:
     extra: 0
     d_model: 64
@@ -507,7 +507,7 @@ ArcFENet_Plugin:
   parent_baseline_id: B_FENET_fixed20_v1
   parent_release: baselines_v1_20261030
   fidelity: conditional_reconstruction
-  performance_status: not_validated_on_locked_parent
+  performance_status: seed0_screen_complete_on_locked_parent
   model_kwargs:
     extra: 0
     fusion: sum
@@ -586,7 +586,7 @@ HYDRA_Plugin:
   parent_baseline_id: B_HYDRA_FD_fixed20_v1
   parent_release: baselines_v1_20261030
   fidelity: author_configuration
-  performance_status: not_validated_on_locked_parent
+  performance_status: seed0_screen_complete_on_locked_parent
   model_kwargs:
     k: 8
     g: 8
@@ -653,7 +653,7 @@ ArcFusionNet_Current_Plugin:
   parent_baseline_id: B_FUSION_CURRENT_fixed20_v2
   parent_release: baselines_v1_20261030
   fidelity: current_only_adaptation
-  performance_status: not_validated_on_locked_parent
+  performance_status: seed0_screen_complete_on_locked_parent
   model_kwargs:
     extra: 0
     d_model: 64

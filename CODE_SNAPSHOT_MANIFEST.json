@@ -6,8 +6,8 @@
   },
   {
     "path": ".github/workflows/phase-module.yml",
-    "bytes": 625,
-    "sha256": "b05aaecd57f110e324d332aae0248e533183bc202fc0029ce3f38bdddd6e169f"
+    "bytes": 660,
+    "sha256": "970788a9dea13fc6d70e912f71760090de6a774e2903b289693dbbf63aebfa08"
   },
   {
     "path": ".gitignore",
@@ -16,13 +16,13 @@
   },
   {
     "path": "README.md",
-    "bytes": 43287,
-    "sha256": "5b7cd3d6eb9de8f82f3e1274badd896c0e997c77dcc8d94d4e454bccdecd3157"
+    "bytes": 51291,
+    "sha256": "c433b7db473311936684d6861b2cb2ad778f1f00e6fdf70980a2524de400a04e"
   },
   {
     "path": "configs/datasets.yaml",
-    "bytes": 3160,
-    "sha256": "e39f2715d31631ace4f623f22e3187ff937abd66f23d23f45fe100575766ebb9"
+    "bytes": 3313,
+    "sha256": "929f397191db938dae0764766089bdc99b86fa47dfae79948def9569d49d7e6b"
   },
   {
     "path": "configs/experiment_config.yaml",
@@ -31,8 +31,8 @@
   },
   {
     "path": "configs/models.yaml",
-    "bytes": 15585,
-    "sha256": "362e5aeab9374c9aba25087bb755b395d61b470bc97b3cdab5e8bb6d30981cf9"
+    "bytes": 15633,
+    "sha256": "d7fc6961be894066d032b07c3f07a78259ce7556e3767e9a2ca93c3076a63892"
   },
   {
     "path": "configs/modules/dynamic_restore.yaml",
@@ -63,6 +63,11 @@
     "path": "configs/modules/input_frontend_pilot.yaml",
     "bytes": 274,
     "sha256": "10dd2f9bffd91ac6f065397b88e9b64512ac6522e17df1152c047f5940fa8a5d"
+  },
+  {
+    "path": "configs/modules/locked_routes_20261030.yaml",
+    "bytes": 2503,
+    "sha256": "36590ca6abef29f11b2cd91005e76ef2e377e088e83cca5bbd531c5c018ddaaa"
   },
   {
     "path": "configs/modules/paper_baseline_completion.yaml",
@@ -111,8 +116,8 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 13290,
-    "sha256": "2aec3196388c553c37c4f981f24fa00e46c4beb41e531dcb97f265c4e93b2795"
+    "bytes": 14586,
+    "sha256": "a7b59de65557e28b35632142909a6f74be8888701af8efc27f52b4158274ecf8"
   },
   {
     "path": "docs/CLASSIFICATION_METRICS.md",
@@ -158,6 +163,11 @@
     "path": "docs/INDEPENDENT_MODELS.md",
     "bytes": 4409,
     "sha256": "644935f04f04d0ff77450065ae98d0553b48e136e7f5ad04d54dea2eba0524a4"
+  },
+  {
+    "path": "docs/LOCKED_ROUTES_20261030.md",
+    "bytes": 8549,
+    "sha256": "310ca68d6f473674fe85ae3a4a622579faa97539c373b479f57bef1ee4059d8b"
   },
   {
     "path": "docs/NINE_MODELS_AND_CONFIG.md",
@@ -230,6 +240,16 @@
     "sha256": "cfcb812f91bcd905748eabeda4eb77e5c1aaf31cde0da0dc025c79a14315de33"
   },
   {
+    "path": "scripts/audit_locked_plugin_20261030.py",
+    "bytes": 4364,
+    "sha256": "6a8c0c472355524aa41bec4f2c9be2c48fc5b4d026260d1e1e10c478d94cb9d6"
+  },
+  {
+    "path": "scripts/audit_locked_plugin_frontend_20261030.py",
+    "bytes": 2845,
+    "sha256": "99ecf8118cb7e0604fc6c23f6bed8e311b1bd2eb3909cb25874ce892f1a7562c"
+  },
+  {
     "path": "scripts/audit_nine_model_baselines.py",
     "bytes": 5014,
     "sha256": "59cfcb53953b6a05e04c85d4053ca45d61f3ff95a0f511106025f5cbbd4b2a81"
@@ -256,8 +276,8 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 5016,
-    "sha256": "45e12eca0fe90dedc81474be9fbf0baa6a8da078f884ef95185045adbdeb0205"
+    "bytes": 5441,
+    "sha256": "05e8d299ed0ae956c22a6bea8061c5b214479472dbc3c6eacfc72e9f37090e14"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
@@ -315,14 +335,24 @@
     "sha256": "90cdc3f86ce54c0c1f5c9ced922394f5e98cab9c1c430fefec792cb8997d3688"
   },
   {
+    "path": "scripts/report_locked_routes_20261030.py",
+    "bytes": 9709,
+    "sha256": "3787ab22b604433310a746af08c2e9076170d81754c9fbe9dc63a9092c9e30a1"
+  },
+  {
     "path": "scripts/report_shared_eight_e2e.py",
     "bytes": 11059,
     "sha256": "446ea196b5e6491caf695c12eb52ffb0e61acb6be064be0dd21d857018acb662"
   },
   {
     "path": "scripts/run_experiment_suite.py",
-    "bytes": 8438,
-    "sha256": "44983dc375a67da6c334b476207265b28a4bf631b4bf232117d0e4cd8aee65c7"
+    "bytes": 8551,
+    "sha256": "6b4b9f51cd8c2d094892541268f56a6ab0731ec0a0184c42dfee6e2ae357dd3c"
+  },
+  {
+    "path": "scripts/run_locked_routes_20261030.py",
+    "bytes": 4042,
+    "sha256": "e9a831083e71a6a576d3fdd37ca23bb15bc26a7a04bb1b476cb23250df37f6b8"
   },
   {
     "path": "scripts/seal_baseline_release.py",
@@ -343,6 +373,11 @@
     "path": "scripts/summarize_grouped_baselines.py",
     "bytes": 8113,
     "sha256": "8eba2558c296804cd0f7d42a7cb1da7f1362fb20aec4baf65688aee35763f86d"
+  },
+  {
+    "path": "scripts/summarize_locked_routes_20261030.py",
+    "bytes": 8654,
+    "sha256": "469d437f120f3f175e59a1a47baa4422045ee7a643fd68f0197515b2381f7ee2"
   },
   {
     "path": "scripts/summarize_paper_baselines.py",
@@ -378,6 +413,16 @@
     "path": "scripts/validate_input_frontend.py",
     "bytes": 9779,
     "sha256": "8d28c76d141b2e8434af3ac19b0fe718b2ca7897fac3acddb39a9f520ef9e60f"
+  },
+  {
+    "path": "scripts/validate_locked_dual_20261030.py",
+    "bytes": 19756,
+    "sha256": "0de4da83a9f8448e40152be995e843be1ca4be1cb3fe832fc0d6b0ef049cbc2d"
+  },
+  {
+    "path": "scripts/validate_locked_plugin_20261030.py",
+    "bytes": 19832,
+    "sha256": "48366dd8fe6e5d827b44662161a6c7da69a8cfc79b3a5d4ec38fcff3279b7d76"
   },
   {
     "path": "scripts/validate_shared_eight.py",
@@ -751,8 +796,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/README.md",
-    "bytes": 1325,
-    "sha256": "111710d01a00ce25c1488b12c915c804bff5f1d535af6df5802cda3674b3217d"
+    "bytes": 1669,
+    "sha256": "8773dd613757b3e8eb0d8d57758c1fe0311f27ce920ba4e6091a87442417b070"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/__init__.py",
@@ -806,8 +851,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/model.py",
-    "bytes": 1315,
-    "sha256": "f15eb7fe64767b2e3d50e3abdae943f67f59ba05392066e8308479eb651c497a"
+    "bytes": 2324,
+    "sha256": "e749ab3a17e4f0f05cbac578c07f665f7555aa6423b9ea6d18bb0358de603d0a"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/network.py",
@@ -816,8 +861,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/performance.json",
-    "bytes": 122,
-    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+    "bytes": 8362,
+    "sha256": "a8b6dd99deec8dbffd1cabec7f6a795831a01187ea164b5e336c9f758723ecf4"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/preprocessing.py",
@@ -836,13 +881,13 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/training.py",
-    "bytes": 2661,
-    "sha256": "7e268dc4881618d2fbb7dac8eebceacb8777314aff4bb4c14796e58e40d0f70d"
+    "bytes": 5915,
+    "sha256": "2c414e460cd493ebf21aec1a6dfd1635c2063438e50562ef08a7c39c499836f9"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/README.md",
-    "bytes": 1340,
-    "sha256": "1fbc9dff7d8cd5cf4c1ad248ea32e9abc2f899cbc4cc44012b13ad24bc36eb84"
+    "bytes": 1684,
+    "sha256": "42435e77a50b2f89a1e60e6a49607c244e9be8a487b377478d4545a5e619ae0c"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/__init__.py",
@@ -886,8 +931,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/model.py",
-    "bytes": 1324,
-    "sha256": "d8173c01ef7961a629b989b48e7b41275773f0ec52c64a76bdf40bc7f9abbb94"
+    "bytes": 2333,
+    "sha256": "de314126b9ce48be93365ecdc4db8e9472ffe87a9b4e639410164cf0da43463d"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/network.py",
@@ -896,8 +941,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/performance.json",
-    "bytes": 122,
-    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+    "bytes": 8417,
+    "sha256": "aa076d172645595f0908bc8c2701bc7cef89353411b58f2edab0234f596b3d5d"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/preprocessing.py",
@@ -916,13 +961,13 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/training.py",
-    "bytes": 2661,
-    "sha256": "7e268dc4881618d2fbb7dac8eebceacb8777314aff4bb4c14796e58e40d0f70d"
+    "bytes": 5915,
+    "sha256": "2c414e460cd493ebf21aec1a6dfd1635c2063438e50562ef08a7c39c499836f9"
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/README.md",
-    "bytes": 1211,
-    "sha256": "613ae650ad59a51b5f5fad4e82022fa061b48e06f27d778ccb61f4d63a64449a"
+    "bytes": 1555,
+    "sha256": "ca50243a201958b8c032b3010f88b987f92cd3868d2c5ceea5712003c4c5c23b"
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/__init__.py",
@@ -981,8 +1026,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/performance.json",
-    "bytes": 122,
-    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+    "bytes": 8252,
+    "sha256": "296ca2a97ae7e8e02d35b2bdab057348b9b87b78acd3750d93f055a2658d93a5"
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/provenance.json",
@@ -996,8 +1041,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/training.py",
-    "bytes": 2661,
-    "sha256": "7e268dc4881618d2fbb7dac8eebceacb8777314aff4bb4c14796e58e40d0f70d"
+    "bytes": 5915,
+    "sha256": "2c414e460cd493ebf21aec1a6dfd1635c2063438e50562ef08a7c39c499836f9"
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/transform.py",
@@ -1006,8 +1051,8 @@
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fenet/README.md",
-    "bytes": 1465,
-    "sha256": "6713ba4645738208c3a6a865ca5631c6eaf011bc4ebc97ff451854afc6d6f25c"
+    "bytes": 1603,
+    "sha256": "e75434182013ee047409341abcd4ec51aa6cb792ef8718be79ecd321b59bb718"
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fenet/__init__.py",
@@ -1061,8 +1106,8 @@
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fenet/performance.json",
-    "bytes": 122,
-    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+    "bytes": 5448,
+    "sha256": "8e7957450b50d4f29df0f89805d0750c9f337a3342057b194bdefa522569956a"
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fenet/preprocessing.py",
@@ -1086,8 +1131,8 @@
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fusion/README.md",
-    "bytes": 1480,
-    "sha256": "c0813526eaae962dba00538982544b105dd49b37acf7ab28e580c47b126f9d2e"
+    "bytes": 1618,
+    "sha256": "83fae639c741932c4c543b727bfffc4ca18d9dc6120619442a4da5b8205d1ef6"
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fusion/__init__.py",
@@ -1131,8 +1176,8 @@
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fusion/performance.json",
-    "bytes": 122,
-    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+    "bytes": 5483,
+    "sha256": "01dbac706eb52fb8a4f293850fdbbd475d8819cbb9cc468f8e93c394595d081a"
   },
   {
     "path": "src/arc_model/implementations/plugin_arc_fusion/preprocessing.py",
@@ -1156,8 +1201,8 @@
   },
   {
     "path": "src/arc_model/implementations/plugin_hydra/README.md",
-    "bytes": 1351,
-    "sha256": "659790004aa728ed58b524b8084abb972ebfdd2f2f3725d31d97eab6eb5cfe79"
+    "bytes": 1489,
+    "sha256": "fa3951f3f7e9eb19f35c690a3da809813bf009dbb3360fda07b4206223369da9"
   },
   {
     "path": "src/arc_model/implementations/plugin_hydra/__init__.py",
@@ -1206,8 +1251,8 @@
   },
   {
     "path": "src/arc_model/implementations/plugin_hydra/performance.json",
-    "bytes": 122,
-    "sha256": "6d72e66c69d98cf7ea0a7ff7844b3e01b53609d3358ca0aac5d3e78b7263ced4"
+    "bytes": 5412,
+    "sha256": "44dd04848e97eab7874abd1f44932a2b557b2a8a36912bb63b1d09f33f2b277c"
   },
   {
     "path": "src/arc_model/implementations/plugin_hydra/provenance.json",
@@ -1620,9 +1665,19 @@
     "sha256": "ca35d3610471ea71072a288351f22bf0f846569496c544de7c3b738cc7360336"
   },
   {
+    "path": "tests/phase_module/test_locked_dual_nested_selection.py",
+    "bytes": 3106,
+    "sha256": "8a5e5ceb539a6dae8b678b442452f5d2b9d48dc3f58519ea8c86c067d8a42949"
+  },
+  {
+    "path": "tests/phase_module/test_locked_route_statistics.py",
+    "bytes": 969,
+    "sha256": "f86da9a94476dbcfd65a523953ab35bce1f5c439db09663a8a748d8ddce528f9"
+  },
+  {
     "path": "tests/phase_module/test_nine_model_packages.py",
-    "bytes": 8368,
-    "sha256": "b7c68ef14e49ff7565bf1e2aeeae7907878ad07b3e12dde150497a1061efbdfb"
+    "bytes": 8969,
+    "sha256": "56b507c3a72ab591ca932d512824d967361017289f08672bdb5abe7f4ffeab8e"
   },
   {
     "path": "tests/phase_module/test_phase_model_adapter.py",
@@ -1643,6 +1698,11 @@
     "path": "tests/phase_module/test_shared_eight_e2e.py",
     "bytes": 1406,
     "sha256": "b72864e8f52000e6516aa2f4c262b2b9ef4c878c5421dd9db0e2c9775881965b"
+  },
+  {
+    "path": "tests/test_locked_plugin_routes.py",
+    "bytes": 2543,
+    "sha256": "157f94575a759f282f15c3ea29db78b7bb412bc2db505681718de03ad8f4d0cc"
   },
   {
     "path": "third_party/current_reference_recovery_v2/dual_reference_pll.py",

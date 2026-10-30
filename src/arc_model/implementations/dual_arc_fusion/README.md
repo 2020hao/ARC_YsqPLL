@@ -1,6 +1,6 @@
 # dual_arc_fusion
 
-原骨干＋独立36维动态纠错分支；当前父基线上的性能待验证。
+原骨干＋独立36维动态纠错分支；已完成当前父基线seed0五折探索验证，默认仍关闭。
 
 - 父基线：`B_FUSION_CURRENT_fixed20_v2`，发布：`baselines_v1_20261030`。
 - 模型实现：`network.py`；本目录`model.py`为本角色入口，不导入其他八个模型包。
@@ -13,3 +13,8 @@
 符合度：仅电流结构适配；没有作者供电电压/正常差分/合成微调完整流程。
 
 `training.fit_from_oof`要求诚实分组OOF及收据；HYDRA还需要训练内margin校准和校准-only对照。没有声称新父基线已取得旧C0分数。
+
+本轮验证入口为`training.fit_from_nested_oof`，将基模拟合组、头拟合组与门控验证组隔离。
+`fit_from_oof`保留旧研究兼容；新研究不要将其历史调门控结果代入本轮。
+
+本轮结果：项目`docs/LOCKED_ROUTES_20261030.md`；完整指标见本目录`performance.json`。
