@@ -16,3 +16,6 @@
 `fit_from_oof`保留旧研究兼容；新研究不要将其历史调门控结果代入本轮。
 
 本轮结果：项目`docs/LOCKED_ROUTES_20261030.md`；完整指标见本目录`performance.json`。
+
+新增`phase_dynamic_v2.py`用于12组机制实验；可变维度和整路径有界融合另立版本。
+`docs/PHASE_DYNAMIC_EVIDENCE_20261030.md`说明结果；不替换旧`model.py`或默认方法。

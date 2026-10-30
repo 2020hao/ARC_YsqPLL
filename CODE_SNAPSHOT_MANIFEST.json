@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 51291,
-    "sha256": "c433b7db473311936684d6861b2cb2ad778f1f00e6fdf70980a2524de400a04e"
+    "bytes": 53145,
+    "sha256": "38a04540834bec320c259e0c55ee9ab8d56ff1cd526ad6b523f7651b1881eb7e"
   },
   {
     "path": "configs/datasets.yaml",
@@ -75,6 +75,11 @@
     "sha256": "36ded0b8545bff7c09f195e7f878263aac6d26892925d40e65480875e6b28880"
   },
   {
+    "path": "configs/modules/phase_dynamic_evidence_20261030.yaml",
+    "bytes": 5084,
+    "sha256": "2e3d5bed01aa4eccaf753844f62a5db8400242a31bcebc0656f2a9f8b4853eef"
+  },
+  {
     "path": "configs/modules/phase_representation.yaml",
     "bytes": 927,
     "sha256": "95cb40ee9f5f82e74f928836a38c5f177ba7d0995769b3e843eafc80de9b4aa4"
@@ -116,8 +121,8 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 14586,
-    "sha256": "a7b59de65557e28b35632142909a6f74be8888701af8efc27f52b4158274ecf8"
+    "bytes": 15485,
+    "sha256": "4446efcce8812d00658d65683c2503818d426b2b603fd389aedf17915c2e1a37"
   },
   {
     "path": "docs/CLASSIFICATION_METRICS.md",
@@ -173,6 +178,11 @@
     "path": "docs/NINE_MODELS_AND_CONFIG.md",
     "bytes": 5491,
     "sha256": "0b4d78cf932175ecb25bad02b9da589d1c4067996dc2b8a27ad4419f14850143"
+  },
+  {
+    "path": "docs/PHASE_DYNAMIC_EVIDENCE_20261030.md",
+    "bytes": 7849,
+    "sha256": "c366340822d7fbf68614ec7d737e26e106f0b3f22c5c2ad19559ed036f660376"
   },
   {
     "path": "docs/PHASE_MODULE_DESIGN.md",
@@ -260,6 +270,11 @@
     "sha256": "31d204f9b94e2add7b4db16bb5d5f8996b2d340ff345f573c0fb07f5d759e9d6"
   },
   {
+    "path": "scripts/audit_phase_dynamic_evidence_20261030.py",
+    "bytes": 20143,
+    "sha256": "43fac43496385edb645c29711ccaa86f45ee95a1f51dfc97511569a345007a01"
+  },
+  {
     "path": "scripts/audit_shared_eight_e2e.py",
     "bytes": 4347,
     "sha256": "616e47f1f6b0698046a43bdeeb421c3efb8ee7b4a5799669bc8d9b94707ce70c"
@@ -276,8 +291,8 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 5441,
-    "sha256": "05e8d299ed0ae956c22a6bea8061c5b214479472dbc3c6eacfc72e9f37090e14"
+    "bytes": 5832,
+    "sha256": "ffb70e06f81013dfe3ebf3a5e2318a807b6a7e973f1a58266e227e42bad9ad43"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
@@ -303,6 +318,11 @@
     "path": "scripts/phase_module.py",
     "bytes": 280,
     "sha256": "64180c05caee26d98d173f629eb0513e1aad294ecb204f87a6e2ff369de546f5"
+  },
+  {
+    "path": "scripts/prepare_phase_dynamic_evidence_20261030.py",
+    "bytes": 5210,
+    "sha256": "b90e5b905c76037601b6b4b7f2e68077909b044a97c2f7854ff89d5a8ebf7ef5"
   },
   {
     "path": "scripts/qualify_fenet_20261030.py",
@@ -340,19 +360,29 @@
     "sha256": "3787ab22b604433310a746af08c2e9076170d81754c9fbe9dc63a9092c9e30a1"
   },
   {
+    "path": "scripts/report_phase_dynamic_evidence_20261030.py",
+    "bytes": 9437,
+    "sha256": "0a3bf4dd6af4a13e37381e21880b7b97ea49c2bb35e3fd803a2d4d35d06bf6ac"
+  },
+  {
     "path": "scripts/report_shared_eight_e2e.py",
     "bytes": 11059,
     "sha256": "446ea196b5e6491caf695c12eb52ffb0e61acb6be064be0dd21d857018acb662"
   },
   {
     "path": "scripts/run_experiment_suite.py",
-    "bytes": 8551,
-    "sha256": "6b4b9f51cd8c2d094892541268f56a6ab0731ec0a0184c42dfee6e2ae357dd3c"
+    "bytes": 8682,
+    "sha256": "e098fcf4582da862e7e5802e4bc5ec9d0db6a04ffcafd2837cb434a6646ee637"
   },
   {
     "path": "scripts/run_locked_routes_20261030.py",
     "bytes": 4042,
     "sha256": "e9a831083e71a6a576d3fdd37ca23bb15bc26a7a04bb1b476cb23250df37f6b8"
+  },
+  {
+    "path": "scripts/run_phase_dynamic_evidence_20261030.py",
+    "bytes": 2800,
+    "sha256": "7028a4a5d0fa86ce5ab060fc73379b301abc3a6b7dcf0ba5845a74a2573181b9"
   },
   {
     "path": "scripts/seal_baseline_release.py",
@@ -383,6 +413,11 @@
     "path": "scripts/summarize_paper_baselines.py",
     "bytes": 6929,
     "sha256": "4f3c9440ba74f5d6ef07192e0cab01f8e7b8c42faf579f144bfe0d0ddf15932a"
+  },
+  {
+    "path": "scripts/summarize_phase_dynamic_evidence_20261030.py",
+    "bytes": 5902,
+    "sha256": "c4023f3e4b21ac773c6b0b028d6999e53d8efa212f7c5e0ab6cc0026b91e2c2c"
   },
   {
     "path": "scripts/summarize_shared_eight.py",
@@ -423,6 +458,11 @@
     "path": "scripts/validate_locked_plugin_20261030.py",
     "bytes": 19832,
     "sha256": "48366dd8fe6e5d827b44662161a6c7da69a8cfc79b3a5d4ec38fcff3279b7d76"
+  },
+  {
+    "path": "scripts/validate_phase_dynamic_evidence_20261030.py",
+    "bytes": 15717,
+    "sha256": "e8a481709212e326fe30f38e34f5ab37299526562f6bf0f5e72e4c0d56feb0c0"
   },
   {
     "path": "scripts/validate_shared_eight.py",
@@ -796,8 +836,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/README.md",
-    "bytes": 1669,
-    "sha256": "8773dd613757b3e8eb0d8d57758c1fe0311f27ce920ba4e6091a87442417b070"
+    "bytes": 1872,
+    "sha256": "4b97424ff173edfcb57e261260839b399eb84af46f349f8eb680affab28651b1"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/__init__.py",
@@ -861,8 +901,13 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/performance.json",
-    "bytes": 8362,
-    "sha256": "a8b6dd99deec8dbffd1cabec7f6a795831a01187ea164b5e336c9f758723ecf4"
+    "bytes": 13563,
+    "sha256": "aed96bce43dac596d870214754585586812da8e396eb570d335de72990b0284d"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fenet/phase_dynamic_v2.py",
+    "bytes": 8394,
+    "sha256": "cc87a5557140c1d7ef3e7f10d06033da447fbe61f31d69d409b5c9449a832c15"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fenet/preprocessing.py",
@@ -886,8 +931,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/README.md",
-    "bytes": 1684,
-    "sha256": "42435e77a50b2f89a1e60e6a49607c244e9be8a487b377478d4545a5e619ae0c"
+    "bytes": 1887,
+    "sha256": "909e0bcc3786cee402f182b4cf821588b5e71c98a9fdf20b20223934b4111c8e"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/__init__.py",
@@ -941,8 +986,13 @@
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/performance.json",
-    "bytes": 8417,
-    "sha256": "aa076d172645595f0908bc8c2701bc7cef89353411b58f2edab0234f596b3d5d"
+    "bytes": 13631,
+    "sha256": "f2f352c69f03f3440ae2f2b64227013383a8b88c5b3cdecb484b5184db8b123f"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_arc_fusion/phase_dynamic_v2.py",
+    "bytes": 8403,
+    "sha256": "e8a6c43801aed455bfe89d30d765ee897d2dbcdf03a7192d0dc491aabf9835a3"
   },
   {
     "path": "src/arc_model/implementations/dual_arc_fusion/preprocessing.py",
@@ -966,8 +1016,8 @@
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/README.md",
-    "bytes": 1555,
-    "sha256": "ca50243a201958b8c032b3010f88b987f92cd3868d2c5ceea5712003c4c5c23b"
+    "bytes": 1758,
+    "sha256": "f04aa31737a193f2a7a40788d35ce5df0d1926f43b9d683f7853c4a9c4c54aa4"
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/__init__.py",
@@ -1026,8 +1076,13 @@
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/performance.json",
-    "bytes": 8252,
-    "sha256": "296ca2a97ae7e8e02d35b2bdab057348b9b87b78acd3750d93f055a2658d93a5"
+    "bytes": 13424,
+    "sha256": "8bd3c5ec0a89260a5e41bac309cb2b755f587709eacbf8a9f2d3596281d607f9"
+  },
+  {
+    "path": "src/arc_model/implementations/dual_hydra/phase_dynamic_v2.py",
+    "bytes": 7954,
+    "sha256": "4fbbed9ba850b0c8c3c5ee7fc0eb8f491a1eb74271427b0f80bf43e8547c7789"
   },
   {
     "path": "src/arc_model/implementations/dual_hydra/provenance.json",
@@ -1678,6 +1733,21 @@
     "path": "tests/phase_module/test_nine_model_packages.py",
     "bytes": 8969,
     "sha256": "56b507c3a72ab591ca932d512824d967361017289f08672bdb5abe7f4ffeab8e"
+  },
+  {
+    "path": "tests/phase_module/test_phase_dynamic_independent_audit.py",
+    "bytes": 1543,
+    "sha256": "e6de79332576a40026cc847ed043f472f7f28a2cb391fd24a1f9bc1115834b58"
+  },
+  {
+    "path": "tests/phase_module/test_phase_dynamic_position_features.py",
+    "bytes": 1311,
+    "sha256": "41a5ea3f21e19d979ae40881ecf2b4451a88163b46f66253d2a31f2e50ce8afe"
+  },
+  {
+    "path": "tests/phase_module/test_phase_dynamic_v2.py",
+    "bytes": 2770,
+    "sha256": "5ae2128cd7452ac2b5b582f61f9c9d5f48224a9cbf4edf8f118dab60d410b419"
   },
   {
     "path": "tests/phase_module/test_phase_model_adapter.py",

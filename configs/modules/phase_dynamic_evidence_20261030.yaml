@@ -1,0 +1,97 @@
+specialized_study: phase_dynamic_evidence_20261030
+mainline: current_self_synchronous_cross_cycle_HF_dynamic_score_correction
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+parent_release: releases/baselines_v1_20261030
+source_study: outputs/locked_routes_20261030/dual
+output: outputs/phase_dynamic_evidence_20261030
+protocol:
+  outer_folds: 5
+  backbone_seeds: [0]
+  head_seed: fold_for_selection_fold_plus31_for_final
+  primary_candidate: P1_rcr40_phase
+  reviewed_windows: {continuous5m: 38374, zenodo5501527: 1361}
+  stage: exploratory_mechanism_validation_on_exposed_folds
+  reuse_frozen_outer_and_honest_inner_models: true
+  new_backbone_fits: 0
+  new_outer_arm_bundles: 240
+  distinct_new_feature_set_folds: 210
+  new_linear_head_fits: 420
+  outer_test_selection: forbidden
+arms:
+  R0_parent: {reuse: baseline, dimension: 0}
+  R1_calibration: {reuse: calibration_only, dimension: 0}
+  R2_rcr36_old: {reuse: dual_rcr, dimension: 36}
+  R3_fixed36_old: {reuse: dual_fixed20, dimension: 36}
+  A1_rcr_masks4_oldfusion: {features: rcr_masks4, dimension: 4, fusion: legacy_residual, recall_constraint: false}
+  A2_rcr_stats32_oldfusion: {features: rcr_stats32, dimension: 32, fusion: legacy_residual, recall_constraint: false}
+  B1_rcr36_wholeblend: {features: rcr36, dimension: 36, fusion: bounded_whole_path, recall_constraint: false}
+  B2_rcr36_wholeblend_recall: {features: rcr36, dimension: 36, fusion: bounded_whole_path, recall_constraint: true}
+  P1_rcr40_phase: {features: rcr40_phase, dimension: 40, fusion: bounded_whole_path, recall_constraint: true}
+  P2_fixed40_phase: {features: fixed40_phase, dimension: 40, fusion: bounded_whole_path, recall_constraint: true}
+  P3_rcr40_shift: {features: rcr40_shift, dimension: 40, fusion: bounded_whole_path, recall_constraint: true}
+  P4_rcr40_phasefree: {features: rcr40_phasefree, dimension: 40, fusion: bounded_whole_path, recall_constraint: true}
+features:
+  dynamic: existing_native_HF_distribution_statistics_without_changes
+  native_sample_rates_hz: {continuous5m: 2000000, zenodo5501527: 1000000}
+  bands_hz: [[10000, 100000], [100000, 400000]]
+  phase_bins: 20
+  phase4: two_bands_times_reference0_and180_degree_neighborhood_energy_ratios
+  zero_neighborhood_bins: [19, 0]
+  half_cycle_neighborhood_bins: [9, 10]
+  neighborhood_half_width_deg: 18
+  zero_total_energy_policy: all_ratios_zero
+  normalization: divide_by_positive_total_no_unit_specific_epsilon
+  shift_control: deterministic_independent_physical_cycle_circular_shift_only_new4_on_valid_RCR_cycles
+  shift_seed_namespace: phase_dynamic_evidence_20261030
+  phasefree4: two_bands_times_peak_fraction_and_sum_squared_bin_probabilities
+  fallback: keep_nominal_coordinate_features_and_report_separately
+head:
+  architecture: zero_initialized_linear_without_bias
+  training: {epochs: 80, lr: 0.002, weight_decay: 0.002, batch_size: 256, l1_mean_penalty: 0.0002}
+  standardized_on_fit_indices_only: true
+  pca: {fit_class: normal, components_max: 6}
+  calibration: reuse_same_B_only_and_outertrain_honest_OOF_positive_affine_states
+  selection: base_A_unseen_D_split_by_groups_into_head_B_and_selection_C
+  final_fit: all_outer_training_honest_two_inner_fold_OOF
+  legacy: {alphas: [0, 0.1, 0.25, 0.5, 1, 1.5, 2], normal_quantiles: [0.75, 0.9, 0.95, 0.975]}
+  bounded_whole_path:
+    equation: z_new=z_raw+lambda*q*((a-1)*z_raw+b+r)
+    lambda_grid: [0, 0.1, 0.25, 0.5, 0.75, 1]
+    normal_quantiles: [0.75, 0.9, 0.95, 0.975]
+    softness: 0.15
+    lambda0_restores_raw_parent_exactly: true
+    max_condition_FPR_increase: 0.02
+    max_condition_Recall_decrease_when_constrained: 0.01
+    selection_metric: condition_equal_BAcc_then_lower_FPR_then_smaller_lambda_then_smaller_quantile
+    constraints_apply_to: C_training_internal_validation_not_outer_test_guarantee
+evaluation:
+  unit: cycle_window
+  primary: condition_equal_BAcc
+  secondary: [Accuracy, Precision, Recall, Specificity, F1, Macro_F1, FPR, FNR, ROC_AUC, AP, MCC, TP, FP, TN, FN]
+  primary_pairs:
+    - [P1_rcr40_phase, R0_parent]
+    - [P1_rcr40_phase, B2_rcr36_wholeblend_recall]
+    - [P1_rcr40_phase, P2_fixed40_phase]
+    - [P1_rcr40_phase, P3_rcr40_shift]
+    - [P1_rcr40_phase, P4_rcr40_phasefree]
+  diagnostic_pairs:
+    - [R2_rcr36_old, A1_rcr_masks4_oldfusion]
+    - [R2_rcr36_old, A2_rcr_stats32_oldfusion]
+    - [B1_rcr36_wholeblend, R2_rcr36_old]
+    - [B2_rcr36_wholeblend_recall, B1_rcr36_wholeblend]
+    - [P1_rcr40_phase, R1_calibration]
+  paired_bootstrap: {unit: condition_or_appliance_file, repeats: 10000, seed: 20261030}
+  primary_multiple_comparison: Holm_across_all30_primary_comparisons
+  diagnostic_multiple_comparison: Holm_within_each_six_cell_pair_family
+  strata: [valid_RCR, nominal_fallback]
+  choose_method_from_outer_test: false
+execution:
+  head_parallel_workers: 3
+  CPU_threads_per_worker: 2
+  head_device: cpu_for_exact_frozen_recipe
+  GPU_allowed: [1, 2, 3]
+  GPU_reserved: [0]
+  GPU_use: only_if_needed_for_independent_original_Model_replay_not_retraining
+  repeat_backbone_training: false
+  overwrite_frozen_results: false
