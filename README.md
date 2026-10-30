@@ -21,6 +21,17 @@ HYDRA为原文FD配置、Fusion为修正训练队列后的仅电流结构适配�
 
 [![CPU tests](https://github.com/2020hao/ARC_YsqPLL/actions/workflows/phase-module.yml/badge.svg)](https://github.com/2020hao/ARC_YsqPLL/actions/workflows/phase-module.yml)
 
+## 两项基线资格验证与论文划分
+
+已补齐ArcFENet与Fusion-current的双数据集同源能力核验、ArcFENet数值前端修订和
+Fusion训练内校准诊断，共68次新神经拟合与10份简单校准。保存权重的完整预测重放
+误差0，原冻结比较器未覆盖。数值修订和普通校准均未建立双数据集一致的性能升级。
+
+[实现与验证范围](docs/BASELINE_QUALIFICATION_20261030.md) ·
+[双数据集划分及正文表述](docs/DATA_SPLIT_PROTOCOL_20261030.md)。
+主表保留47条件/13电器文件的组隔离五折；同源70/20/10只用于能力核验。
+数据与权重、完整表格保留本地`outputs/baseline_qualification_summary_20261030/`。
+
 ## 九个独立模型与配置（当前开发入口）
 
 参考PILT，一份[`configs/models.yaml`](configs/models.yaml)集中保存**九个完整、互不继承的模型节点**。

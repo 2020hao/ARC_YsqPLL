@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 42579,
-    "sha256": "91feeada6881d1493c9e92b02c84fd0d5ef7b37e30c70230996354916ad7a7f7"
+    "bytes": 43287,
+    "sha256": "5b7cd3d6eb9de8f82f3e1274badd896c0e997c77dcc8d94d4e454bccdecd3157"
   },
   {
     "path": "configs/datasets.yaml",
@@ -38,6 +38,16 @@
     "path": "configs/modules/dynamic_restore.yaml",
     "bytes": 373,
     "sha256": "0d52ba13bad60638598db74757c446909d6783f5ab564a8d299793d1a4639e8f"
+  },
+  {
+    "path": "configs/modules/fenet_qualification_20261030.yaml",
+    "bytes": 431,
+    "sha256": "2e827f84f53fac00132d4fe0122455b877d8bf45d93af8bc338ec8e465b5d8bb"
+  },
+  {
+    "path": "configs/modules/fusion_qualification_20261030.yaml",
+    "bytes": 737,
+    "sha256": "eccfe7f071814808a014072f2ad03936282a9a5c46132f0b6f70e6e39524f1a6"
   },
   {
     "path": "configs/modules/grouped_baseline_standard.yaml",
@@ -90,14 +100,19 @@
     "sha256": "817227c938cdf0c73ff010e594a7000740a6bcbd1ac98d195215b08750dd15a6"
   },
   {
+    "path": "docs/BASELINE_QUALIFICATION_20261030.md",
+    "bytes": 5239,
+    "sha256": "93611eea9bc35540a9288c502b66fa9abee967c393d20492d4d28404fda1066c"
+  },
+  {
     "path": "docs/BRANCH_VS_REPLACEMENT.md",
     "bytes": 7013,
     "sha256": "a46292ace9f68b3ef0684b9c0f68f3485a67e18bb6ee62427f9e7804c9f5df28"
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 12437,
-    "sha256": "033c1537a213b91b08be5fd60464aebc97441c79a2f2f3eed2abeb32efa7b8ff"
+    "bytes": 13290,
+    "sha256": "2aec3196388c553c37c4f981f24fa00e46c4beb41e531dcb97f265c4e93b2795"
   },
   {
     "path": "docs/CLASSIFICATION_METRICS.md",
@@ -113,6 +128,11 @@
     "path": "docs/DATASETS.md",
     "bytes": 9256,
     "sha256": "145420c030ae407d82f397a4181a1e8ddf13fbebfbe9d00eb340d75ba4d33be5"
+  },
+  {
+    "path": "docs/DATA_SPLIT_PROTOCOL_20261030.md",
+    "bytes": 6186,
+    "sha256": "5363c8907bd4ff4bcd803426fb8cb09dd0da0e293a9e758ef53e73b453913cf5"
   },
   {
     "path": "docs/DYNAMIC_CORRECTION_RESTORE.md",
@@ -236,13 +256,23 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 4598,
-    "sha256": "65131ebc85e6386a53ac879a7ad586093d29af84f9340f08560c7c9ab2f2c59c"
+    "bytes": 5016,
+    "sha256": "45e12eca0fe90dedc81474be9fbf0baa6a8da078f884ef95185045adbdeb0205"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
     "bytes": 2612,
     "sha256": "38af661adc7310b4224c8d765c1ae7deca027f51fedfd0fa83a1cbb73b9024f6"
+  },
+  {
+    "path": "scripts/fenet_stream_prepare_20261030.py",
+    "bytes": 4828,
+    "sha256": "32e7cd3a818209401b622644991218da3193b3e537d8a7cb927308f95224ded1"
+  },
+  {
+    "path": "scripts/fenet_vmd_graph_20261030.py",
+    "bytes": 4805,
+    "sha256": "3b48abeb1d2716c06c6f765cc6cf4d2a210acc4ec222fcff511d94ae95e73c2f"
   },
   {
     "path": "scripts/freeze_grouped_baselines.py",
@@ -253,6 +283,21 @@
     "path": "scripts/phase_module.py",
     "bytes": 280,
     "sha256": "64180c05caee26d98d173f629eb0513e1aad294ecb204f87a6e2ff369de546f5"
+  },
+  {
+    "path": "scripts/qualify_fenet_20261030.py",
+    "bytes": 9362,
+    "sha256": "9389214d6796a51aba7bd14d70165859cdd2f93575e3922f675fd803ea7061b0"
+  },
+  {
+    "path": "scripts/qualify_fenet_prepare_20261030.py",
+    "bytes": 11624,
+    "sha256": "eb5a70f79b4ff11373d1d7821b81545ec714b5d06bc539095078411c6a28bb87"
+  },
+  {
+    "path": "scripts/qualify_fusion_current_20261030.py",
+    "bytes": 20002,
+    "sha256": "37d71c53b6a57db8b70687d22c0228081a5165a2076b38e7cde27817bf91f854"
   },
   {
     "path": "scripts/report_classification_metrics.py",
@@ -275,6 +320,11 @@
     "sha256": "446ea196b5e6491caf695c12eb52ffb0e61acb6be064be0dd21d857018acb662"
   },
   {
+    "path": "scripts/run_experiment_suite.py",
+    "bytes": 8438,
+    "sha256": "44983dc375a67da6c334b476207265b28a4bf631b4bf232117d0e4cd8aee65c7"
+  },
+  {
     "path": "scripts/seal_baseline_release.py",
     "bytes": 2709,
     "sha256": "a45c46ddcca15272b847f59391169d0d40c9868d5015bc6c3250e1e1a9d2e6c7"
@@ -283,6 +333,11 @@
     "path": "scripts/summarize_dynamic_restore.py",
     "bytes": 9491,
     "sha256": "3bb621d0266ca82b4720b5cefa554de2dee6dc45122f22ced3271bb9625c6921"
+  },
+  {
+    "path": "scripts/summarize_fenet_qualification_20261030.py",
+    "bytes": 9233,
+    "sha256": "cb42ecc7d2a67ffe18aad649ff5951bd3c7fc7e43c4ce738d6ec2364b121da3f"
   },
   {
     "path": "scripts/summarize_grouped_baselines.py",
@@ -1538,6 +1593,16 @@
     "path": "tests/phase_module/test_features.py",
     "bytes": 2610,
     "sha256": "29f97c4ac44e9cd5a64ce1718c328e078f939a18874e2ca533908370d114a676"
+  },
+  {
+    "path": "tests/phase_module/test_fenet_qualification_20261030.py",
+    "bytes": 1608,
+    "sha256": "d751ed39fdf46649a5282d4a4537daef85e62f490926d4f0420c2201a8bbd1f0"
+  },
+  {
+    "path": "tests/phase_module/test_fusion_qualification_20261030.py",
+    "bytes": 1281,
+    "sha256": "b085e3c4d3f4bdb6623ff9da79d55a27250e5ab084b4e6a3bb0250a432d28611"
   },
   {
     "path": "tests/phase_module/test_hydra_alternating.py",

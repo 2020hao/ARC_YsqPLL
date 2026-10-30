@@ -1,0 +1,12 @@
+specialized_study: fenet_qualification_20261030
+datasets:
+  new5m: {cohort: continuous5m, channel_zero_based: 0, distance_m: 5}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3}
+models: [ArcFENet_reconstructed]
+protocols: [same_record_capability, grouped]
+model_config_source: configs/models.yaml
+seeds: [0, 1, 2]
+physical_gpu: [1, 2]
+pool_datasets: false
+output: outputs/fenet_qualification_20261030
+freeze_old_baseline: true

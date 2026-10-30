@@ -1,0 +1,17 @@
+specialized_study: fusion_qualification_20261030
+datasets:
+  new5m: {cohort: continuous5m, channel: NET9770_114_CH0, native_fs: 2000000}
+  zenodo5501527: {cohort: zenodo5501527, channel: C3, native_fs: 1000000}
+models: [ArcFusionNet_current]
+training:
+  epochs: 70
+  lr: 0.0001
+  min_lr: 0.000001
+  weight_decay: 0.01
+  batch: 64
+  precision: BF16_autocast_FP32_loss
+  optimizer: AdamW
+capability: {ratio: [0.7, 0.2, 0.1], seeds: [0, 1, 2], record_sharing: intentional, model_selection: none}
+calibration: {outer_folds: 5, inner_group_folds: 2, backbone_seed: 0, positive_slope: true, penalty: 0.001}
+execution: {gpu_allowed: [1, 2, 3], gpu_reserved: [0], per_process_memory_fraction: 0.30}
+output: outputs/fusion_qualification_20261030
