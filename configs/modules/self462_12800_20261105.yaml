@@ -1,0 +1,44 @@
+specialized_study: self462_12800_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_12800_20261105
+parent: outputs/self462_feature_study_20261105
+manifest_sha256: 2506a6bea05d82107de2e5d2ac4d98d71b501258fe99ec254e07322e8179b201
+arms: [native_full_rcr, native_lowband_rcr, low128_rcr, low128_fixed]
+low_band_hz: [[1000,3000],[3000,5000]]
+resampling:
+  first_stage: native2MHz_to50kHz_existing_causal_FIR801_20kHz
+  second_stage: causal_up32_down125_Kaiser80dB_pass5000_stop6400
+  delay_compensation: none
+  digital_emulation_only: true
+phase:
+  native_reference_fs: 5000
+  low_reference_fs: 12800
+  low_reference_filter: causal_Butterworth2_800Hz
+  RCR_parameters: existing_CycleRCRConfig_except_reference_fs
+history_cycles: 9
+phase_bins: 64
+input_channels: 5
+outer_folds: 4
+seeds: [0]
+training:
+  epochs: 50
+  batch_size: 512
+  learning_rate: 0.001
+  weight_decay: 0.001
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  loss: condition_class_equal_BCE
+  precision: FP32
+  distillation: false
+cohort: parent_common_anchors_intersect_all_frontend_support_guards; no label_based_fallback_switch
+execution:
+  physical_gpus: [2,3]
+  allowed_physical_gpus: [1,2,3]
+  scheduling_reason: GPU1 already busy with another task at launch
+  exclude_gpu: 0
+  preparation_workers: 8
+  remote_signal_workers: 8
+  timeout_seconds: 7200
+scope: self462_single_seed_exploratory; complete_frontend_adaptation_not_pure_ADC_factor

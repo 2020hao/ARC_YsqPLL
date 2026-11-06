@@ -1,0 +1,73 @@
+specialized_study: coordinate_evidence_20261031
+output: outputs/coordinate_evidence_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+backbone_seed: 0
+outer_folds: 5
+coordinates:
+  fixed20: outputs/rcr_three_backbones_20261028/data
+  sogi: outputs/continuous_pll_validation_20261027_v2/data
+  rcr: current_registered_RCR36
+SOGI_scope: robust_3Hz_PI_SOGI_5kHz_with_original_causal_50kHz_phase_extrapolation
+SOGI_limit: fixed_existing_configuration_not_all_optimally_tuned_PLLs
+arms:
+  parent: frozen_fixed20_backbone
+  fixed36: fixed20_36D_whole_path_matched
+  sogi36: SOGI_36D_whole_path_matched
+  rcr36: RCR_36D_whole_path_matched_reuse_after_exact_identity
+  sogi32: SOGI_32D_without_explicit_history_masks
+  rcr32: RCR_32D_without_explicit_history_masks
+fusion:
+  equation: raw_plus_lambda_q_times_calibration_change_plus_dynamic_residual
+  strengths: [0, 0.1, 0.25, 0.5, 0.75, 1]
+  quantiles: [0.75, 0.9, 0.95, 0.975]
+  softness: 0.15
+  max_raw_condition_FPR_increase: 0.02
+  raw_off_option: true
+  reuse_selection_rules: fusion_frontier_20261031_B1_matched
+head:
+  epochs: 80
+  learning_rate: 0.002
+  weight_decay: 0.002
+  L1_mean: 0.0002
+  batch_size: 256
+  feature_selection: none
+  PCA_normal_components_max: 6
+  selection: existing_honest_A_B_C_groups
+  final_fit: existing_honest_two_inner_fold_outertrain_OOF
+evaluation:
+  primary_pairs: [[rcr36, fixed36], [rcr36, sogi36]]
+  primary_Holm_family: all_12_tests
+  diagnostic_pairs: [[rcr32, sogi32], [rcr36, rcr32], [sogi36, sogi32], [rcr36, parent], [sogi36, parent], [fixed36, parent]]
+  diagnostic_Holm: each_six_cell_pair_family
+  unit: cycle_window
+  bootstrap_unit: condition_or_appliance_file
+  bootstrap_repeats: 10000
+  primary_cohort: unchanged_38374_and_1361
+  strata_diagnostic_only: [common_native_valid_full_history, RCR_fallback_or_history_missing]
+  real_phase_truth: unavailable
+  normal_dynamic_separation: training_fitted_individual_feature_AP_not_novelty_or_causality_proof
+synthetic:
+  source_domain: known_phase_signals_generated_at_native_1_and_2MHz_then_identical_causal_reference_filters
+  native_sample_rates_hz: [1000000, 2000000]
+  duration_s: 4
+  seeds: [73101, 73102, 73103]
+  scenarios: [steady, slow_frequency_ramp, low_frequency_harmonic_change, impulsive_contamination, periodic_weak_fundamental, reference_dropout]
+  methods: [initial_fit_frozen50, robust_SOGI, RCR, RCR_without_morphology_backup]
+  reference_sample_rate_hz: 5000
+  main_evaluation_range_s: [0.8, 3.8]
+  analytic_truth: phase_of_known_complex_fundamental_passed_through_same_causal_filters
+  feature_diagnostics: stationary_phase_locked_HF_bursts_only_steady_ramp_and_LF_harmonic_change
+  no_synthetic_arc_labels: true
+  constant_phase_rotation_control: all_four_36D_dynamic_statistics_should_be_invariant
+  independent_cycle_rotation_control: sensitivity_diagnostic_only_not_retrained_classification_evidence
+execution:
+  new_linear_head_fits: 240
+  reused_RCR_initial_final_states: 60
+  new_backbone_fits: 0
+  CPU_workers: 3
+  CPU_threads_per_worker: 2
+  allowed_GPUs: [1, 2, 3]
+  reserved_GPU: 0
+  outer_test_tuning: forbidden
+  historical_test_exposure: true

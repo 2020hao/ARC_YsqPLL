@@ -1,0 +1,30 @@
+{
+  "model_id": "arc_fenet_phase_aligned_input",
+  "source": "arc_model.implementations.plugin_arc_fenet.model",
+  "class": "Model",
+  "fixed_kwargs": {
+    "extra": 0,
+    "fusion": "sum",
+    "enhanced": true,
+    "channels": [
+      16,
+      32,
+      64,
+      128
+    ]
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/plugin_arc_fenet/model.py",
+      "sha256": "2e85e4591da9a4ca734316f507c37789634ed06e065b6497fab04e9e702dfadd",
+      "local_copy": "_source_plugin_arc_fenet_model.py"
+    },
+    {
+      "path": "src/arc_model/implementations/plugin_arc_fenet/network.py",
+      "sha256": "16862f6879129735c8867715fa9f2ce1db63a5a5b0012bb9edc8045afdba54aa",
+      "local_copy": "_source_plugin_arc_fenet_network.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

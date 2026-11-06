@@ -1,0 +1,34 @@
+specialized_study: self462_feature_study_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_feature_study_20261105
+manifest: /data/hzy/recording_audit/manual_aligned_20261105/自采四目标负载_462条纳入清单.csv
+manifest_sha256: 2506a6bea05d82107de2e5d2ac4d98d71b501258fe99ec254e07322e8179b201
+input: NET9770_114_CH0_only_native_2MHz
+references: [fixed, sogi, rcr]
+phase_bins: 64
+history_cycles: 9
+label_guard_seconds: 0.04
+history_policy: nine complete contiguous cycles fully inside same annotated state, including guard
+outer_folds: 4
+split_seed: 20261105
+group: canonical_target_plus_sorted_background
+primary: condition_equal_BAcc
+threshold: 0.5
+feature_screening: outer_training_only; common direction and cross-load stability; max one two-channel family
+selection_candidates: [relative_distribution, absolute_distribution_delta, burst_concentration, band_allocation]
+selection_gate: training signed AUC >=0.60 for every target load; condition direction agreement >=0.70
+training:
+  seeds: [0]
+  epochs: 50
+  batch_size: 512
+  learning_rate: 0.001
+  weight_decay: 0.001
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+arms: [fixed_base, rcr_base, fixed_selected, rcr_selected, rcr_capacity, rcr_dropfirst, rcr_dropsecond]
+execution:
+  physical_gpus: [1, 2, 3]
+  remote_preparation_workers: 12
+  training_wait_for_existing: true
+scope: new self dataset only, explicitly requested; exploratory historical source overlap not independent external test

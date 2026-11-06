@@ -1,0 +1,182 @@
+schema_version: 2
+model_id: arc_fusion_dynamic_correction_1m
+display_name: ArcFusionNet-current 动态输出校正
+role: output_correction
+package: arc_model.model_instances.arc_fusion_dynamic_correction_1m
+factory: arc_model.model_instances.arc_fusion_dynamic_correction_1m:create_model
+status: engineering_migrated_current462_validation_pending
+network:
+  class: Model
+  file: network.py
+  fixed_kwargs:
+    extra: 0
+    d_model: 64
+    n_heads: 4
+    feedforward_dim: 128
+    dropout: 0.1
+    n_encoder_layers: 2
+    spectral_pool_stride: 2
+  instance_local_dependencies: true
+input:
+  window_ms: 20
+  reference: fixed20
+  model_sample_rate_hz: 12500
+  samples_per_cycle: 250
+  input_shape:
+    temporal:
+    - N
+    - 1
+    - 3
+    - 250
+    spectrum:
+    - N
+    - 1
+    - 32
+  original_native_rates_hz:
+  - 2000000
+  - 1000000
+  rectified: false
+  phase_estimation_uses_signed_current: true
+  preprocessing_fitted_on: outer_train_only
+  datasets:
+  - self462
+  - zenodo5501527
+  branch_sample_rate_hz: 1000000
+training:
+  optimizer: AdamW
+  lr: 0.0001
+  wd: 0.01
+  epochs: 70
+  batch_size: 64
+  seeds:
+  - 0
+  - 1
+  - 2
+  min_lr: 1.0e-06
+  scheduler: cosine
+  threshold: 0.5
+  current_cohort_validation_pending: true
+evaluation:
+  protocols:
+  - self462_group4_125051
+  - public_group5_1357
+  grouped_folds:
+    self462: 4
+    zenodo5501527: 5
+  seeds:
+  - 0
+  - 1
+  - 2
+  threshold: 0.5
+  primary: BAcc_condition
+  current_cohort_performance_validated: false
+provenance:
+  legacy_class: arc_model.implementations.dual_arc_fusion.model:Model
+  legacy_kwargs:
+    extra: 0
+    d_model: 64
+    n_heads: 4
+    feedforward_dim: 128
+    dropout: 0.1
+    n_encoder_layers: 2
+    spectral_pool_stride: 2
+  legacy_source_files:
+  - path: src/arc_model/implementations/dual_arc_fusion/model.py
+    sha256: de314126b9ce48be93365ecdc4db8e9472ffe87a9b4e639410164cf0da43463d
+    local_copy: _source_dual_arc_fusion_model.py
+  - path: src/arc_model/implementations/dual_arc_fusion/enhancement.py
+    sha256: 09a1578555773bef8d4cd47dce30bebf97ad8b16bc8329459100af79d82ff538
+    local_copy: _source_dual_arc_fusion_enhancement.py
+  - path: src/arc_model/implementations/dual_arc_fusion/dynamic_correction.py
+    sha256: a29b473f756f7fbf9c600003f30789b3efac76dddad0d5177b60effa73fb8bc5
+    local_copy: dynamic_correction.py
+    shared_module: arc_model.modules.rcr_dynamic_branch_1mhz.legacy_dynamic_correction
+  - path: src/arc_model/implementations/dual_arc_fusion/network.py
+    sha256: 3fce953700a946617766aaaea3e582e83a79e60ed9686e7dc913aecb3acc985b
+    local_copy: _source_dual_arc_fusion_network.py
+  migration: local_dependency_closure_copy; preserve constructor ordering and state_dict;
+    no weight or metric transfer
+  legacy_feature_definition:
+    mode: score_dynamic_branch
+    enabled_by_default: false
+    feature_dim: 36
+    lags:
+    - 1
+    - 2
+    - 4
+    - 8
+    hf_bands_hz:
+    - - 10000
+      - 100000
+    - - 100000
+      - 400000
+    phase_bins: 20
+    auxiliary_branch: true
+    requires_refit_on_frozen_parent: true
+    training:
+      epochs: 80
+      lr: 0.002
+      wd: 0.002
+      batch_size: 256
+      l1_mean_penalty: 0.0002
+model_kwargs:
+  extra: 0
+  d_model: 64
+  n_heads: 4
+  feedforward_dim: 128
+  dropout: 0.1
+  n_encoder_layers: 2
+  spectral_pool_stride: 2
+model_training_param:
+  optimizer: AdamW
+  lr: 0.0001
+  wd: 0.01
+  epochs: 70
+  batch_size: 64
+  seeds:
+  - 0
+  - 1
+  - 2
+  min_lr: 1.0e-06
+  scheduler: cosine
+  threshold: 0.5
+  current_cohort_validation_pending: true
+feature_module:
+  mode: score_dynamic_branch
+  enabled_by_default: false
+  feature_dim: 36
+  lags:
+  - 1
+  - 2
+  - 4
+  - 8
+  hf_bands_hz:
+  - - 10000
+    - 100000
+  - - 100000
+    - 400000
+  phase_bins: 64
+  auxiliary_branch: true
+  requires_refit_on_frozen_parent: true
+  training:
+    epochs: 80
+    lr: 0.002
+    wd: 0.002
+    batch_size: 256
+    l1_mean_penalty: 0.0002
+  feature_schema: dynamic36_phase64_v2
+  implementation: arc_model.modules.rcr_dynamic_branch_1mhz
+  source_sample_rate_hz: 1000000
+  performance_status: current462_unvalidated
+precision:
+  parameter_dtype: float32
+  autocast: bfloat16
+  matmul_tf32: false
+  cudnn_tf32: false
+  cudnn_deterministic: true
+parent_baseline_id: B_FUSION_CURRENT_fixed20_v2
+parent_release: baselines_v1_20261030
+backbone: arc_fusion
+shared_module: rcr_dynamic_branch_1mhz
+current_cohort_validated: false
+legacy_state_compatible: true

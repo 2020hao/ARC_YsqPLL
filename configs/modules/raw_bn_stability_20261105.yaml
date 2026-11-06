@@ -1,0 +1,76 @@
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+specialized_study: raw_bn_stability_20261105
+output: outputs/raw_bn_stability_20261105
+model: DeepCodedPhaseMap
+parameters: 7097
+weighted_MAC: 683808
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+input_coding: raw_fixed_before_training
+references:
+- rcr
+- sogi
+distillation: false
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  singleton_policy: merge singleton remainder into preceding batch, no dropped samples
+bn_reestimation:
+  type: layerwise_training_population
+  batch_size: 512
+  order: actual_forward_topological
+  previous_BN: new_inference_statistics
+  variance: population_M2_over_N
+  accumulator: float64_parallel_Welford
+  sample_weight: uniform_per_training_activation
+  labels_used: false
+  outer_test_used: false
+  learned_parameters_changed: false
+evaluation:
+  threshold: 0.5
+  primary: condition_equal_BAcc
+  secondary:
+  - Accuracy
+  - Precision
+  - Recall
+  - FPR
+  - F1
+  - AP
+  - ROC_AUC
+  - MCC
+  primary_pair: raw_bn minus raw_original
+  primary_Holm_family: 4
+  secondary_pairs:
+  - raw_original minus selected_old
+  - raw_bn minus selected_old
+  uncertainty_unit: condition_or_appliance_file
+  cluster_bootstrap_repeats: 10000
+  seed_SD: descriptive_three_complete_OOF_seeds_not_independent_folds
+  no_outer_selection: true
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  new_raw_fits: 28
+  reused_exact_raw_fits: 32
+  BN_reestimates: 60
+  timeout_seconds: 5400

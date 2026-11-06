@@ -1,0 +1,32 @@
+{
+  "model_id": "midband_phase_map_base",
+  "source": "arc_model.implementations.map_input_calibration.midband_network",
+  "class": "MidbandPhaseMap",
+  "fixed_kwargs": {
+    "arm": "base"
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/map_input_calibration/midband_network.py",
+      "sha256": "74895101cc40190daf837c5037ca0217038d9783af412832853ec820b6b2e042",
+      "local_copy": "_source_map_input_calibration_midband_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/map_input_calibration/deep_network.py",
+      "sha256": "29b47231416ff67b2849f95dc17cb5a8af746a24222b1078f71d5b532c7fe502",
+      "local_copy": "_source_map_input_calibration_deep_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/map_input_calibration/network.py",
+      "sha256": "3e6d0b4d9d64c98132b7e4d723363eb1cd60cf0f8ceb2b997f179b2fb8d96f91",
+      "local_copy": "_source_map_input_calibration_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/direct_efficiency/phase_map_hybrid.py",
+      "sha256": "7fcc2c77722b1b9283c81bb760be75d2c5560b2aea430958c62797b86017a198",
+      "local_copy": "_source_direct_efficiency_phase_map_hybrid.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

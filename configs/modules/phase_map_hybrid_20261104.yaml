@@ -1,0 +1,124 @@
+specialized_study: phase_map_hybrid_20261104
+output: outputs/phase_map_hybrid_20261104
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+model: PhaseMapHybrid_reference_factorial
+correction_branch: false
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+arms:
+  compact_rcr:
+    coordinate: realtime
+    encoding: continuous
+    spiking: true
+    decomposition: false
+    architecture: compact
+  compact_sogi:
+    coordinate: sogi
+    encoding: continuous
+    spiking: true
+    decomposition: false
+    architecture: compact
+  map_rcr:
+    coordinate: realtime
+    encoding: continuous
+    spiking: true
+    decomposition: false
+    architecture: map
+  map_sogi:
+    coordinate: sogi
+    encoding: continuous
+    spiking: true
+    decomposition: false
+    architecture: map
+input:
+  source_profiles: native_rate_LF_mean_and_HF_10_100k_100_400k_power
+  sample_rates_retained_hz:
+  - 2000000
+  - 1000000
+  channels:
+  - LF_mean
+  - log_HF_low
+  - log_HF_high
+  - delta_distribution_low
+  - delta_distribution_high
+  - unused_zero
+  - unused_zero
+  - unused_zero
+  decomposition_is_reversible_above_numerical_floor: false
+  phase_bins: 64
+  history_cycles: 9
+  standardization: outer_training_current_cycles_only
+  masks_reset_neurons: true
+  no_test_labels_in_encoding: true
+architecture:
+  phase_encoder: unchanged5to16_DW7_PW24_pool4_DW5_PW16_pool2
+  compact: 128to16_BN_then16LIFstates_thenLinear16to1
+  map: shared_pointwise16to16_BN_then16x8LIFstates_then128to16_BN_GELU_Linear16to1
+  history: 9physicalcycles_current_and_past
+  learned_leak_initial: 0.8
+  threshold_initial: 0.5
+  readout: last_current_cycle_membrane_over_threshold_plus_trace
+  extra_classifier_branch: false
+  attention: false
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+evaluation:
+  primary: condition_equal_BAcc
+  primary_pairs:
+  - - map_rcr
+    - compact_rcr
+  - - map_sogi
+    - compact_sogi
+  primary_Holm_family: 4
+  secondary_pairs:
+  - - compact_sogi
+    - compact_rcr
+  - - map_sogi
+    - map_rcr
+  secondary_Holm_family: 4
+  uncertainty_unit: condition_or_appliance_file
+  cluster_bootstrap_repeats: 10000
+  complexity:
+  - parameters
+  - bytes
+  - convolution_linear_MAC
+  - explicit_weighted_pool_MAC
+  - non_MAC_ops
+  - LIF_updates
+  - CPU_GPU_B1_latency
+  energy_scope: no_hardware_energy_claim_from_operation_counts
+  runtime_scope: full_cycle_input_then_direct_prediction_CPU_FIFO
+  historical_outer_exposure: exploratory_development
+  adoption: evaluate complete architecture gain within same reference; target97 descriptive,
+    no test tuning or per-dataset arm selection
+  target_public_accuracy: 0.97
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  timeout_seconds: 5400
+  neural_fits: 90
+  reused_reference_fits: 30
+development_scope: user-authorized new factorial architecture/reference test after
+  prior420fits; historically exposed outer groups, exploratory development
+distillation: false

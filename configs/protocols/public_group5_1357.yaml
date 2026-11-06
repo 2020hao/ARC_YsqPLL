@@ -1,0 +1,17 @@
+schema_version: 2
+protocol_id: public_group5_1357
+dataset_id: zenodo5501527
+expected: {records: 13, groups: 13, windows: 1357, normal: 794, arc: 563}
+outer_folds: 5
+isolation_columns: [record_id, condition_key, source_group]
+group_unit: appliance_recording
+label_boundary_guard_ms: 40
+normal_label: 0
+arc_label: 1
+evaluation_level: cycle
+primary_metric: condition_equal_BAcc
+uncertainty_unit: appliance_recording_group
+fit_scope: outer_training_groups_only
+development_status: exposed_grouped_development
+historical_1361_scores_are_current_results: false
+

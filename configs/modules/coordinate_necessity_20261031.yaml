@@ -1,0 +1,32 @@
+specialized_study: coordinate_necessity_20261031
+output: outputs/coordinate_necessity_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+backbone_seed: 0
+outer_folds: 5
+head_seeds: [0]
+raw_preparation: fresh_native_HF_filter_and_full_ledger_energy_reconstruction_from_lossless_raw_current_arrays
+native_sample_rate_hz: {continuous5m: 2000000, zenodo5501527: 1000000}
+bands_hz: [[10000,100000],[100000,400000]]
+phase_bins: 20
+lags: [1,2,4,8]
+arms: [fixed32, sogi32, rcr32, rcr_cycle_roll32, rcr_sorted32, rcr_registered32]
+common_rotation: exact_invariance_control_not_an_extra_fit
+common_history: minimum_of_three_coordinate_history_masks_identical_for_all_arms
+state_controls: no_learned_history_columns_identical_missing_pattern_and_coverage_gate
+fusion: raw_plus_history_coverage_times_affine_calibration_change_and_32D_linear_residual
+head: {epochs: 80, learning_rate: 0.002, weight_decay: 0.002, L1_mean: 0.0002, batch_size: 256}
+selection: training_C_on_off_only_condition_BAcc_then_FPR_with_raw_FPR_plus_0.02_limit
+primary_pairs: [[rcr32,fixed32],[rcr32,sogi32],[rcr32,rcr_cycle_roll32]]
+primary_Holm_family: all_18_tests
+secondary_pairs: [[rcr32,rcr_sorted32],[rcr_registered32,rcr32],[rcr_registered32,fixed32]]
+secondary_Holm_family: all_18_tests
+bootstrap_unit: condition_or_appliance_file
+bootstrap_repeats: 10000
+strata_diagnostic: [lag8_coordinate_disagreement_le_1deg, lag8_coordinate_disagreement_1_to_4_5deg, lag8_coordinate_disagreement_gt_4_5deg, undefined]
+no_outer_test_tuning: true
+stress_scope: coordinate_features_only_not_new_physical_fault_examples
+optimization_candidate: relative_circular_registration_removes_phase_displacement_may_remove_fault_information
+scope: exploratory_existing_exposed_outer_folds_no_independent_confirmation
+hardware: {CPU_workers: 3, threads_per_worker: 2, GPU_training: false, GPU0_used: false, GPU_allowed_if_needed: [1,2,3]}
+csv_float_reconstruction: round_trip_to_preserve_original_bin_edges_before_ceil

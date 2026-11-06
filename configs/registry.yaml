@@ -1,0 +1,26 @@
+schema_version: 2
+discovery:
+  - src/arc_model/model_instances/*/model.yaml
+sealed_baselines:
+  - model_id: baseline_arc_fenet
+    display_name: ArcFENet本地论文重建（冻结基准）
+    package: arc_model.implementations.baseline_arc_fenet
+    factory: arc_model.implementations.baseline_arc_fenet.network:Model
+    config_file: configs/models.yaml
+    config_key: ArcFENet_Baseline
+    release: releases/baselines_v1_20261030
+  - model_id: baseline_hydra
+    display_name: HYDRA原文FD配置（冻结基准）
+    package: arc_model.implementations.baseline_hydra
+    factory: arc_model.implementations.baseline_hydra.network:Model
+    config_file: configs/models.yaml
+    config_key: HYDRA_Baseline
+    release: releases/baselines_v1_20261030
+  - model_id: baseline_arc_fusion
+    display_name: ArcFusionNet仅电流适配（冻结基准）
+    package: arc_model.implementations.baseline_arc_fusion
+    factory: arc_model.implementations.baseline_arc_fusion.network:Model
+    config_file: configs/models.yaml
+    config_key: ArcFusionNet_Current_Baseline
+    release: releases/baselines_v1_20261030
+

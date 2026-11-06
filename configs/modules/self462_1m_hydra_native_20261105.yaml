@@ -1,0 +1,12 @@
+specialized_study: self462_1m_hydra_native_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_1m_baselines_20261105
+purpose: persistent_basis_acceleration_of_same_working_set_dual_LP
+fold: 2
+model_features_data_scaler_lambda_objective_threshold: unchanged
+solver: native_HiGHS_exact_ranged_dual; fixed_variables_retained; basis_preserved_across_bound_releases
+acceptance: first_global_original_primal_dual_certificate_lt1e-6; all_training_examples; no_test_score_selection
+execution:
+  CPU_solver_jobs: 1
+  physical_gpus: []

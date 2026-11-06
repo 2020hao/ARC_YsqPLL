@@ -1,0 +1,17 @@
+schema_version: 2
+protocol_id: self462_group4_125051
+dataset_id: self462
+expected: {records: 462, groups: 156, windows: 125051, normal: 61896, arc: 63155}
+outer_folds: 4
+isolation_columns: [record_id, condition_key, source_group]
+group_unit: target_load_and_background_condition
+label_boundary_guard_ms: 40
+normal_label: 0
+arc_label: 1
+evaluation_level: cycle
+primary_metric: condition_equal_BAcc
+uncertainty_unit: condition
+fit_scope: outer_training_groups_only
+development_status: exposed_grouped_development
+legacy_self_cohorts_allowed: false
+

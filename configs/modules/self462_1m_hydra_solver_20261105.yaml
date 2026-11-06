@@ -1,0 +1,13 @@
+specialized_study: self462_1m_hydra_solver_20261105
+datasets: [self462]
+pool_datasets: false
+parent_protocol: outputs/self462_1m_baselines_20261105/protocol.json
+output: outputs/self462_1m_baselines_20261105
+purpose: resource_execution_retry_after_default900s_HiGHS_timeout
+model: frozen_HYDRA_FD_Baseline_source_and_config_unmodified
+changed: HiGHS_solver_algorithm_only; highs_to_highs-ipm; time_limit1800s
+unchanged: feature_transform; SparseScaler; all_training_rows; mean_hinge_L1_lambda0.001; threshold0; model_architecture
+acceptance: optimal_status; primal_objective_replay; primal_dual_gap_lt_1e-6; constraint_violation_lt_1e-6
+execution:
+  CPU_solver_jobs: 2
+  physical_gpus: []

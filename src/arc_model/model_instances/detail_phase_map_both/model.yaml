@@ -1,0 +1,89 @@
+schema_version: 2
+model_id: detail_phase_map_both
+display_name: detail phase map both
+role: direct_classifier
+package: arc_model.model_instances.detail_phase_map_both
+factory: arc_model.model_instances.detail_phase_map_both:create_model
+status: legacy_architecture_unvalidated_on_current_cohort
+network:
+  class: Model
+  file: network.py
+  fixed_kwargs:
+    arm: both
+  instance_local_dependencies: true
+input:
+  datasets:
+  - self462
+  - zenodo5501527
+  native_sample_rate_hz:
+    self462: 2000000
+    zenodo5501527: 1000000
+  physical_cycles: 9
+  channels: 9
+  phase_bins: 64
+  raw_encoding: raw
+  reference: explicit_frontend_from_selected_current_protocol
+  current_only: true
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  singleton_policy: merge singleton remainder into preceding batch, no dropped samples
+  source_protocol: configs/modules/detail_performance_20261105.yaml
+  source_protocol_scope: parameter_reference_only; historical cohorts retired; use
+    current external protocol
+  physical_augmentation: false
+  calibration: none
+  calibration_inner_group_folds: null
+  distillation: false
+  component_training_only: true
+  full_study_runner: legacy reference; not automatically invoked
+evaluation:
+  protocols:
+  - self462_group4_125051
+  - public_group5_1357
+  grouped_folds:
+    self462: 4
+    zenodo5501527: 5
+  seeds:
+  - 0
+  - 1
+  - 2
+  threshold: 0.5
+  primary: BAcc_condition
+  current_cohort_performance_validated: false
+provenance:
+  legacy_class: arc_model.implementations.map_input_calibration.detail_training_network:DetailPerformanceMap
+  legacy_kwargs:
+    arm: both
+  legacy_source_files:
+  - path: src/arc_model/implementations/map_input_calibration/detail_training_network.py
+    sha256: 49aaa759d21146b5844eda703d11dd9e0c502339dd4f3a996cec7df53b498bd7
+    local_copy: _source_map_input_calibration_detail_training_network.py
+  - path: src/arc_model/implementations/map_input_calibration/detail_network.py
+    sha256: a2b158a4c5e3c5c6b13073e1da7ac5c2c6413ad88f1e0a8d7395e15a0daa5c6a
+    local_copy: _source_map_input_calibration_detail_network.py
+  - path: src/arc_model/implementations/map_input_calibration/deep_network.py
+    sha256: 29b47231416ff67b2849f95dc17cb5a8af746a24222b1078f71d5b532c7fe502
+    local_copy: _source_map_input_calibration_deep_network.py
+  - path: src/arc_model/implementations/map_input_calibration/network.py
+    sha256: 3e6d0b4d9d64c98132b7e4d723363eb1cd60cf0f8ceb2b997f179b2fb8d96f91
+    local_copy: _source_map_input_calibration_network.py
+  - path: src/arc_model/implementations/direct_efficiency/phase_map_hybrid.py
+    sha256: 7fcc2c77722b1b9283c81bb760be75d2c5560b2aea430958c62797b86017a198
+    local_copy: _source_direct_efficiency_phase_map_hybrid.py
+  migration: local_dependency_closure_copy; preserve constructor ordering and state_dict;
+    no weight or metric transfer
+  training_source: configs/modules/detail_performance_20261105.yaml
+current_cohort_validated: false
+legacy_state_compatible: true

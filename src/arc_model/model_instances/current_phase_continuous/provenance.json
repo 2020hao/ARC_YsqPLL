@@ -1,0 +1,17 @@
+{
+  "model_id": "current_phase_continuous",
+  "source": "arc_model.implementations.rcr_snn.network",
+  "class": "CurrentPhaseSNN",
+  "fixed_kwargs": {
+    "spiking": false
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/rcr_snn/network.py",
+      "sha256": "72f85a56307018f72a8aa1490d4b473794c8e29402d073a530e52ee43968a185",
+      "local_copy": "_source_rcr_snn_network.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

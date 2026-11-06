@@ -1,0 +1,12 @@
+specialized_study: self462_1m_hydra_parallel_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_1m_baselines_20261105
+parent_solver: configs/modules/self462_1m_hydra_dual_ds_20261105.yaml
+purpose: scheduling_only_four_CPU_folds_parallel_preserve_running_f0_f1
+execution:
+  CPU_solver_jobs: 4
+  physical_gpus: []
+  RAM_available_GiB_at_launch: 201
+  stop_only_own_pair_workers_after_their_first_fold_COMPLETE: true
+model_data_objective_solver_tolerance: unchanged

@@ -1,0 +1,37 @@
+{
+  "model_id": "rcr_cnn_snn_original",
+  "source": "arc_model.implementations.dynamic_state_net.network",
+  "class": "DynamicStateNet",
+  "fixed_kwargs": {
+    "arm": "base"
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/dynamic_state_net/network.py",
+      "sha256": "601a7f5155d73eaa97a193b198b9f8415a5ce37f44c9ade5c2486c4168071c7b",
+      "local_copy": "_source_dynamic_state_net_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/dynamic_state_net/summary.py",
+      "sha256": "a4894754951ba1f4be9d9b3eac21aacff1a278ca5d21fda81705bf786cc72772",
+      "local_copy": "_source_dynamic_state_net_summary.py"
+    },
+    {
+      "path": "src/arc_model/implementations/map_input_calibration/deep_network.py",
+      "sha256": "29b47231416ff67b2849f95dc17cb5a8af746a24222b1078f71d5b532c7fe502",
+      "local_copy": "_source_map_input_calibration_deep_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/map_input_calibration/network.py",
+      "sha256": "3e6d0b4d9d64c98132b7e4d723363eb1cd60cf0f8ceb2b997f179b2fb8d96f91",
+      "local_copy": "_source_map_input_calibration_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/direct_efficiency/phase_map_hybrid.py",
+      "sha256": "7fcc2c77722b1b9283c81bb760be75d2c5560b2aea430958c62797b86017a198",
+      "local_copy": "_source_direct_efficiency_phase_map_hybrid.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

@@ -1,0 +1,70 @@
+specialized_study: real_arc_reference_evidence_20261031
+output: outputs/real_arc_reference_evidence_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+cohorts: {continuous5m: 38374, zenodo5501527: 1361}
+reference_only_methods: [fixed50, SOGI, RCR, RCR_selective]
+reference_proxy:
+  input: same_signed_5kHz_reference_current
+  method: independent_50Hz_complex_demodulation_centered_Hann80_and120ms
+  phase_definition: positive_sine_current_phase
+  max_crossscale_disagreement_deg: 5
+  minimum_fundamental_power_fraction: 0.1
+  full_symmetric_support_required: true
+  status: offline_consistency_proxy_not_voltage_phase_truth_not_detector_input
+anomaly:
+  primary_deviation_deg: 10
+  sensitivity_deviation_deg: 20
+  consecutive_past_anchors: 2
+  main_post_startup_age_s: 0.8
+  algorithms_own_availability: true
+  never_define_SOGI_failure_from_RCR_output: true
+normal_disturbance_candidate:
+  RMS_change_divided_by_sum_minimum: 0.2
+  normalized_waveform_RMSE_minimum: 0.5
+  previous_window_same_normal_reviewed_interval: true
+  event_separation_s: 0.2
+  status: waveform_disturbance_candidate_not_verified_appliance_switching
+features:
+  native_bands_hz: [[10000,100000],[100000,400000]]
+  physical_support: identical_fixed20ms_for_all_coordinate_maps
+  native_energy_cell_s: 0.0002
+  phase_bins: 20
+  diagnostics: [MAD_lag1,JS_lag1,deviation_from_offline_proxy_dynamic]
+  caveat: diagnostic_mapping_not_existing_classifier_feature_mediation
+onset_diagnostic:
+  self_onset_uncertainty_s: 0.04
+  before_s: [-0.30,-0.12]
+  after_s: [0.12,0.30]
+  public_start: reviewed_arc_interval_start_not_independent_precise_onset
+predictions:
+  source: outputs/coordinate_evidence_20261031
+  arms: [parent,fixed36,sogi36,rcr36]
+  frozen_seed: 0
+  no_new_fits: true
+  do_not_mix_selective_reference_with_old_classification: true
+evaluation:
+  primary_reference_tests: 6
+  primary_reference_Holm: all_6
+  detection_whole_cohort_Holm: RCR36_minus_SOGI36_all_6
+  hard_strata: descriptive_all_class_coverages_not_selected_winners
+  cluster: condition_or_public_appliance_file
+  bootstrap_repeats: 10000
+examples:
+  arc_ranking: highest_P95_SOGI_proxy_deviation_with_at_least20_eligible_arc_windows
+  normal_ranking: largest_raw_waveform_disturbance_score
+  classification_scores_not_used_for_example_selection: true
+  no_threshold_positive_case: explicitly_report_none
+scope: exploratory_observational_evidence_no_causal_arc_attribution_or_real_phase_truth
+hardware: {CPU_workers: 3, threads_per_worker: 2, GPU_used: false, GPU_allowed_if_needed: [1,2,3], GPU0_used: false}
+relative_coordinate_instability:
+  residual_phase: wrapped_estimator_minus_independent_proxy
+  lag1_threshold_deg: 5
+  lag8_threshold_deg: 10
+  same_record_epoch_and_segment_required: true
+  hard_stratum_for_detection: SOGI_relative_instability
+  absolute_offset_is_not_dynamic_corruption: true
+negative_control: offline_proxy_common_rotation_18deg_MAD_and_JS_invariance
+boundary_sensitivity: reference_support_plus40ms_annotation_uncertainty_within_same_interval
+mapped_energy_support: report_fraction_and_require_all_cells_valid_same_epoch_segment_for_dynamic_comparison
+counterexample_selection: also_keep_RCR_highest_P95_proxy_deviation_arc_record

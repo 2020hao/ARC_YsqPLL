@@ -1,0 +1,39 @@
+specialized_study: folded_calibration_20261105
+datasets: [self462, zenodo5501527]
+pool_datasets: false
+output: outputs/folded_calibration_20261105
+parent: outputs/phase_hierarchy_20261105
+outer_source_arm: gain_phase
+outer_folds: {self462: 4, zenodo5501527: 5}
+seeds: [0, 1, 2]
+arms: [uncalibrated, folded_bias, folded_affine]
+inner_folds: 2
+calibration:
+  target: condition_and_class_equal_BCE_plus_identity_ridge
+  ridge: 0.01
+  bias_bounds: [-4, 4]
+  scale_bounds: [0.25, 4]
+  selection_from_outer_test: false
+  fold_into_original_final_linear_layer: true
+  added_inference_parameters: 0
+training:
+  epochs: 50
+  batch_size: 512
+  learning_rate: 0.001
+  min_learning_rate: 0.00001
+  weight_decay: 0.001
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  gradient_clip: 1.0
+  distillation: false
+  raw_encoding: true
+evaluation:
+  primary_pairs: [[folded_bias, uncalibrated], [folded_affine, uncalibrated]]
+  Holm_primary_family: 4
+  bootstrap_repeats: 10000
+execution:
+  physical_gpus: [1, 2, 3]
+  excluded_gpu: 0
+  timeout_seconds: 7200
+scope: training_group_OOF_calibration_on_exposed_development_folds; not_independent_SOTA_confirmation

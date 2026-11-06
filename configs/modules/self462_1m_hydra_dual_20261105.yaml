@@ -1,0 +1,12 @@
+specialized_study: self462_1m_hydra_dual_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_1m_baselines_20261105
+purpose: exact_equivalent_LP_dual_execution_after_large_primal_solver_stall
+model: sealed_HYDRA_Baseline_unmodified_features_scaler_classifier_objective
+solver: HiGHS_IPM_explicit_dual_time1800s
+lambda_L1: 0.001
+acceptance: primal_dual_gap_lt1e-6; original_primal_constraints_lt1e-6; objective_replay; small_primal_dual_parity
+execution:
+  CPU_solver_jobs: 2
+  physical_gpus: []

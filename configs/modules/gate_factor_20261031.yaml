@@ -1,0 +1,59 @@
+specialized_study: gate_factor_20261031
+output: outputs/gate_factor_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+outer_folds: 5
+backbone_seed: 0
+features: RCR_32_dynamic_statistics_with_4_availability_controls
+arms:
+  pca_distance: h_times_normal_distance_quality
+  no_distance: h_only
+  reference_quality: h_times_causal_RCR_observation_quality
+references: [parent, current36]
+fixed:
+  availability_aware: true
+  fusion_consistent_training: true
+  epochs: 80
+  learning_rate: 0.002
+  weight_decay: 0.002
+  L1_mean: 0.0002
+  batch_size: 256
+  strength: 1
+  normal_quantile: 0.95
+  softness: 0.15
+  feature_weights: 32
+  calibration: fixed_from_honest_training_OOF
+quality:
+  formula: clip(1-robust_residual_ratio/0.35,0,1)*clip(repeat_correlation,0,1)
+  source: selected_RCR_cycle_end_availability_clock_row
+  native_requirements: [phase_valid, matching_segment, matching_epoch, available_no_later_than_anchor]
+  nominal_fallback: 0
+  public_time_origin: first_raw_C3_timestamp
+  meaning: observation_quality_proxy_not_phase_accuracy_probability
+selection:
+  candidates: [on, raw_off]
+  C_FPR_limit_vs_raw_parent: 0.02
+  rank: [max_condition_BAcc, min_condition_FPR, prefer_off_tie]
+  no_outer_test_selection: true
+evaluation:
+  primary_pairs: [[reference_quality, pca_distance], [reference_quality, no_distance]]
+  primary_Holm: all_12
+  secondary_pairs: [[no_distance, pca_distance], [reference_quality, current36]]
+  secondary_Holm: all_12
+  diagnostic_pairs: [[no_distance, current36], [reference_quality, parent], [no_distance, parent]]
+  diagnostic_Holm: each_six_cell_family
+  primary_metric: condition_equal_cycle_BAcc
+  threshold: raw_margin_zero
+  paired_bootstrap_unit: condition_or_appliance_file
+  bootstrap_repeats: 10000
+  always_on: diagnostic_only
+  exposed_outer_folds: true
+execution:
+  CPU_workers: 3
+  CPU_threads: 2
+  GPU_reserved: [0]
+  GPU_allowed: [1, 2, 3]
+  new_head_fits: 120
+  reused_head_states: 60
+  new_backbone_fits: 0
+  timeout_s: 3600

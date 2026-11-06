@@ -3,6 +3,10 @@
 !/data/.gitkeep
 /outputs/**
 !/outputs/.gitkeep
+/artifacts/**
+!/artifacts/.gitkeep
+/configs/local/**
+!/configs/local/paths.example.yaml
 /build/
 /dist/
 /dist_new/
@@ -33,6 +37,8 @@ venv/
 *.pt
 *.pth
 *.ckpt
+*.onnx
+*.safetensors
 *.pkl
 *.joblib
 *.zip

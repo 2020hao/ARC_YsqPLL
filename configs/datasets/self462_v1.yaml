@@ -1,0 +1,30 @@
+schema_version: 2
+dataset_id: self462
+display_name: 人工复核四目标负载462条自采录波
+protocol_id: self462_group4_125051
+source:
+  manifest: ${ARC_SELF462_MANIFEST}
+  manifest_sha256: 2506a6bea05d82107de2e5d2ac4d98d71b501258fe99ec254e07322e8179b201
+  measurement: single_trunk_current
+  device: NET9770_114
+  channel: CH0
+  native_sample_rate_hz: 2000000
+  annotation: manually_reviewed_arc_onset_and_extinction
+  excluded_target_loads: [microwave, desk_lamp]
+  background_combinations_may_include_excluded_targets: true
+prepared:
+  root: ${ARC_SELF462_PREPARED}
+  metadata: cycles.csv
+  keep: null
+  splits: {kind: metadata_column, column: fold}
+  arrays:
+    phase_native_2mhz:
+      file: cnn_snn_2m_control.npy
+      source_sample_rate_hz: 2000000
+      shape_tail: [9, 5, 64]
+    phase_causal_1mhz:
+      file: cnn_snn_1m.npy
+      source_sample_rate_hz: 1000000
+      antialias: causal_Kaiser103_pass400k_stop500k_down2_no_advance
+      shape_tail: [9, 5, 64]
+

@@ -1,0 +1,11 @@
+specialized_study: self462_1m_hydra_scaled_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_1m_baselines_20261105
+purpose: numerical_conditioning_trial_only_same_convex_model
+model_data_features_objective_lambda: unchanged
+change: beta=n*alpha; dual_bounds_0_to1; dual_RHS=n*lambda; recover_original_objective_divide_n
+acceptance: first_optimality_certified_solution_not_test_scores; primal_dual_gap_lt1e-6
+execution:
+  CPU_extra_jobs: 1
+  physical_gpus: []

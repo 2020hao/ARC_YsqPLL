@@ -1,3 +1,5 @@
+> 历史接口说明：本文保留原版本来源；当前模型目录、独立配置和入口见 [V2项目结构](CURRENT_PROJECT_STRUCTURE.md)及[模型目录](MODEL_CATALOG.md)。旧自采协议不再启用。
+
 # 九个独立模型与PILT式YAML配置
 
 ## 代码与配置分工

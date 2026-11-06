@@ -1,0 +1,7 @@
+schema_version: 2
+allowed_physical_gpus: [1, 2, 3]
+forbidden_physical_gpus: [0]
+cpu_validation_environment: {CUDA_VISIBLE_DEVICES: ''}
+training_requires_explicit_execution: true
+artifacts_root: ${ARC_ARTIFACTS_ROOT}
+

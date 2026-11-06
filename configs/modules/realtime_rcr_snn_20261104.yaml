@@ -1,0 +1,68 @@
+specialized_study: realtime_rcr_snn_20261104
+output: outputs/realtime_rcr_snn_20261104
+datasets: [continuous5m, zenodo5501527]
+pool_datasets: false
+model: CurrentPhaseSNN_unified_direct_classifier
+correction_branch: false
+seeds: [0, 1, 2]
+outer_folds: 5
+arms:
+  realtime_snn: {coordinate: realtime, spiking: true}
+  realtime_analog: {coordinate: realtime, spiking: false}
+  original_rcr_snn: {coordinate: rcr, spiking: true}
+  sogi_snn: {coordinate: sogi, spiking: true}
+  fixed_snn: {coordinate: fixed20, spiking: true}
+reference:
+  reference_fs_hz: 5000
+  update_seconds: 0.001
+  memory_cycles: 4
+  observation_cycles: 2
+  bootstrap_seconds: 0.04
+  holdover_seconds: 0.04
+  availability_is_not_observed_truth: true
+  output_phase_coordinate: causally_filtered_current_fundamental
+synthetic:
+  duration_seconds: 4
+  native_sample_rates: [1000000, 2000000]
+  seeds: [84111, 84112]
+  scenarios: [steady, slow_frequency_ramp, low_frequency_harmonic_change, impulsive_contamination, reference_dropout, periodic_weak_fundamental, phase_jump, noise_only]
+  methods: [realtime_RCR, original_RCR, robust_SOGI]
+  common_evaluation_seconds: [0.4, 3.8]
+  phase_error: circular_error_against_same_causally_filtered_known_complex_fundamental
+input:
+  history_cycles: 9
+  phase_bins: 64
+  channels: [lowpass_signed_mean, log_HF_10_100k_power, log_HF_100_400k_power, previous_cycle_distribution_change_low, previous_cycle_distribution_change_high]
+  raw_sample_rates_retained_for_HF: true
+  history_reset: source_record_reference_segment_epoch_or_gap_never_labels
+  common_cohort: original_reviewed_keep_intersect_all_current_window_guard40_support
+  no_label_based_frontend_switch: true
+training:
+  epochs: 70
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 0.00001
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  threshold: 0.5
+  checkpoint: fixed_final_epoch
+  precision: BF16_autocast_FP32_loss_and_parameters
+  standardization: outer_training_only
+evaluation:
+  unit: current_cycle_window
+  primary: condition_equal_BAcc
+  metrics: [Accuracy, Precision, Recall, F1, FPR, ROC_AUC, AP, MCC, TP, FP, TN, FN]
+  primary_pairs: [[realtime_snn, original_rcr_snn], [realtime_snn, realtime_analog]]
+  primary_Holm_family: 4
+  secondary_pairs: [[realtime_snn, sogi_snn], [realtime_snn, fixed_snn]]
+  uncertainty_unit: condition_or_appliance_file
+  bootstrap_repeats: 10000
+  historical_outer_exposure: exploratory_not_independent_confirmation
+execution:
+  physical_gpus: [1, 2, 3]
+  exclude_gpu: 0
+  CPU_workers: 4
+  CPU_threads_per_GPU_worker: 2
+  timeout_seconds: 3600
+  neural_fits: 150

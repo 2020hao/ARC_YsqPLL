@@ -1,0 +1,58 @@
+specialized_study: coordinate_utility_20261031
+output: outputs/coordinate_utility_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+outer_folds: 5
+backbone_seed: 0
+candidates: [mixed32, utility_router]
+controls: [fixed32, rcr32, quality_posthoc]
+references: [parent, current36]
+features: same_32_statistics_4_arithmetic_history_masks
+coordinate_mix: fixed_plus_qref_times_RCR_minus_fixed_per_valid_lag
+reference_failure: preserve_fixed_information_not_zero_whole_branch
+head_training:
+  loss: unchanged_fusion_consistent_BCE
+  epochs: 80
+  learning_rate: 0.002
+  weight_decay: 0.002
+  batch_size: 256
+  strength: 1
+  gate: history_coverage_only
+router:
+  features: [calibrated_parent_probability, advisor_probability, absolute_probability_gap, RCR_observation_quality, history_coverage]
+  parameters: 6
+  target: raw_error_minus_advisor_error
+  loss: cost_weighted_logistic_on_disagreements
+  training: B_only_two_groupfold_crossfit
+  crossfit_calibration: Bother_only
+  final_router: unchanged_B_fitted
+  final_advisor: outertrain_honest_OOF_refit
+  no_in_sample_advisor_targets: true
+  single_benefit_class: constant_advisor
+  single_harm_or_all_ties: constant_raw
+  deployment: hard_binary_selection_not_soft_logit_mixture
+selection:
+  C_on_or_raw_off: true
+  FPR_limit_vs_raw: 0.02
+  no_outer_test_selection: true
+evaluation:
+  primary_pairs: [[mixed32, fixed32], [utility_router, rcr32]]
+  primary_Holm: all_12
+  secondary_pairs: [[mixed32, rcr32], [utility_router, quality_posthoc]]
+  secondary_Holm: all_12
+  reference_pairs: [[mixed32, current36], [utility_router, current36]]
+  reference_Holm: each_six_cell_family
+  metric: condition_equal_cycle_BAcc
+  bootstrap_repeats: 10000
+  cluster: condition_or_appliance_file
+  known_exposed_outer_folds: true
+execution:
+  new_linear_head_fits: 180
+  new_6parameter_routers: 30
+  reused_advisor_states: 60
+  new_backbone_fits: 0
+  CPU_workers: 3
+  CPU_threads: 2
+  GPU_reserved: [0]
+  GPU_allowed: [1, 2, 3]
+  timeout_s: 3600

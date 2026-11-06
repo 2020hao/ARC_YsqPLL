@@ -1,0 +1,93 @@
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+specialized_study: scale_robust_20261105
+output: outputs/scale_robust_20261105
+model: ScaleRobustPhaseMap
+input_coding: raw_fixed
+distillation: false
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+references:
+- rcr
+- sogi
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  singleton_policy: merge singleton remainder into preceding batch, no dropped samples
+arms:
+  bn_linear:
+    normalization: batch
+    head: linear
+    reuse: raw_bn_stability/original; exact unchanged 60 fits
+  gn_linear:
+    normalization: sample
+    head: linear
+  bn_cosine:
+    normalization: batch
+    head: cosine
+  gn_cosine:
+    normalization: sample
+    head: cosine
+sample_normalization:
+  convolution: GroupNorm(4,C)
+  readout: LayerNorm(32)
+  running_statistics: false
+  initial_affine: copy original identity/zero residual init
+cosine_head:
+  logit: s*cos(h,w)+b
+  scale: 1+softplus(scale_raw)
+  initial_scale: 8.0
+  learned_bias: true
+  group_specific_bias: false
+  threshold: 0.5
+  extra_parameters: 1
+evaluation:
+  primary: condition_equal_BAcc
+  threshold: 0.5
+  primary_family: three candidates minus bn_linear across two datasets and two references
+  primary_Holm_tests: 12
+  mechanism_family: gn_cosine minus gn_linear and bn_cosine
+  mechanism_Holm_tests: 8
+  bootstrap: 10000
+  unit: condition_or_appliance_file
+  historical_exposure: exploratory targeted development
+  test_selected_options: false
+  diagnostics:
+  - per_appliance
+  - per_condition
+  - score
+  - hidden_norm
+  - hidden_cosine
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  new_fits: 180
+  reused_fits: 60
+  epochs_per_fit: 50
+  timeout_seconds: 5400
+references_basis:
+- title: Group Normalization
+  url: https://openaccess.thecvf.com/content_ECCV_2018/html/Yuxin_Wu_Group_Normalization_ECCV_2018_paper.html
+  role: sample-normalization rationale; not arc validation
+- title: 'NormFace: L2 Hypersphere Embedding for Face Verification'
+  url: https://arxiv.org/abs/1704.06369
+  role: normalized feature/weight rationale; binary BCE adaptation, not paper reproduction

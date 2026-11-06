@@ -1,0 +1,11 @@
+"""Fixed instance; local dependency closure preserves checkpoint keys and RNG."""
+from ._source_dual_arc_fenet_model import Model as _Original
+
+FIXED_KWARGS = {'extra': 0, 'fusion': 'sum', 'enhanced': True, 'channels': [16, 32, 64, 128]}
+
+class Model(_Original):
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            if key not in FIXED_KWARGS or value != FIXED_KWARGS[key]:
+                raise ValueError("This instance fixes its architecture; use a different model ID")
+        super().__init__(**FIXED_KWARGS)

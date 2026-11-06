@@ -1,0 +1,17 @@
+{
+  "model_id": "compact_phase_content_attention",
+  "source": "arc_model.implementations.direct_efficiency.attentive_hybrid",
+  "class": "AttentiveHybrid",
+  "fixed_kwargs": {
+    "pooling": "content"
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/direct_efficiency/attentive_hybrid.py",
+      "sha256": "9a0bfc52f02a44a01d5fcfae4e70606ad17b858749362eb59825600f3d1b3e00",
+      "local_copy": "_source_direct_efficiency_attentive_hybrid.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

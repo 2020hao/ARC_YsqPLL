@@ -1,0 +1,35 @@
+specialized_study: detail_features_20261105
+datasets: [continuous5m, zenodo5501527]
+pool_datasets: false
+output: outputs/detail_features_20261105
+stage: feature_engineering_and_cpu_validation
+training_enabled: false
+model: DetailPhaseMap
+arms: [base, burst, allocation, both]
+references: [rcr, sogi]
+phase_bins: 64
+history_cycles: 9
+features:
+  original5: immutable raw-valued profiles
+  source: native current at 1 or 2 MHz
+  subbands_hz: [[10000, 40000], [40000, 100000], [100000, 200000], [200000, 400000]]
+  burst: log10 of within-bin mean squared instantaneous power divided by squared mean power
+  allocation: lower-subband power divided by sum of paired subband powers
+  channels_added: 4
+  uses_labels: false
+  clip_or_quantize: false
+execution:
+  device: cpu
+  representative_records_per_dataset: 1
+  future_training_physical_gpus: [1, 2, 3]
+  exclude_gpu: 0
+future_validation:
+  status: planned_not_executed
+  outer_folds: 5
+  seeds: [0, 1, 2]
+  primary: condition_equal_BAcc
+  secondary: [Recall, FPR, Precision, F1, AP, ROC_AUC]
+  retain_groups_and_original_training_budget: true
+  no_test_feature_selection: true
+  controls: [original5, burst_only, allocation_only, both, same_capacity_original5]
+  promotion: retrained ablation and paired grouped evidence; inspect false positives and difficult appliances

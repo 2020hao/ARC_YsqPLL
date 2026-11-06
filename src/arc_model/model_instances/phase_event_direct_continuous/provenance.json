@@ -1,0 +1,23 @@
+{
+  "model_id": "phase_event_direct_continuous",
+  "source": "arc_model.implementations.phase_event_snn.network",
+  "class": "PhaseEventSNN",
+  "fixed_kwargs": {
+    "encoding": "direct",
+    "spiking": false
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/phase_event_snn/network.py",
+      "sha256": "8e6b9219cb83517b690461e87b4739efd940dd7de42fe5480b52a842e3e3e67a",
+      "local_copy": "_source_phase_event_snn_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/phase_event_snn/neurons.py",
+      "sha256": "22f73f0b9554fbd87abe36927a69668333cf329c39defc56f3b69583865f5116",
+      "local_copy": "_source_phase_event_snn_neurons.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

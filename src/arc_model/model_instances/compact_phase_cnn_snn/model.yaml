@@ -1,0 +1,74 @@
+schema_version: 2
+model_id: compact_phase_cnn_snn
+display_name: 紧凑相位CNN–SNN
+role: direct_classifier
+package: arc_model.model_instances.compact_phase_cnn_snn
+factory: arc_model.model_instances.compact_phase_cnn_snn:create_model
+status: legacy_architecture_unvalidated_on_current_cohort
+network:
+  class: Model
+  file: network.py
+  fixed_kwargs: {}
+  instance_local_dependencies: true
+input:
+  datasets:
+  - self462
+  - zenodo5501527
+  native_sample_rate_hz:
+    self462: 2000000
+    zenodo5501527: 1000000
+  physical_cycles: 9
+  channels: 5
+  phase_bins: 64
+  raw_encoding: raw
+  reference: explicit_frontend_from_selected_current_protocol
+  current_only: true
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  source_protocol: configs/modules/direct_efficiency_20261104.yaml
+  source_protocol_scope: parameter_reference_only; historical cohorts retired; use
+    current external protocol
+  physical_augmentation: false
+  calibration: none
+  calibration_inner_group_folds: null
+  distillation: false
+  component_training_only: true
+  full_study_runner: legacy reference; not automatically invoked
+evaluation:
+  protocols:
+  - self462_group4_125051
+  - public_group5_1357
+  grouped_folds:
+    self462: 4
+    zenodo5501527: 5
+  seeds:
+  - 0
+  - 1
+  - 2
+  threshold: 0.5
+  primary: BAcc_condition
+  current_cohort_performance_validated: false
+provenance:
+  legacy_class: arc_model.implementations.direct_efficiency.compact_hybrid:CompactHybrid
+  legacy_kwargs: {}
+  legacy_source_files:
+  - path: src/arc_model/implementations/direct_efficiency/compact_hybrid.py
+    sha256: b06afd6b6214fbd83a47500ddacdaf7cc311730b53cfa35b17912eb39d22f8c0
+    local_copy: _source_direct_efficiency_compact_hybrid.py
+  migration: local_dependency_closure_copy; preserve constructor ordering and state_dict;
+    no weight or metric transfer
+  training_source: configs/modules/direct_efficiency_20261104.yaml
+current_cohort_validated: false
+legacy_state_compatible: true
