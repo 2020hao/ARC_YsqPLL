@@ -28,3 +28,9 @@ prepared:
       antialias: causal_Kaiser103_pass400k_stop500k_down2_no_advance
       shape_tail: [9, 5, 64]
 
+source_pool:
+  annotated_candidates: 504
+  annotated_exported_acquisitions: 468
+  paired_BIN_files: 936
+  excluded_target_acquisitions: {microwave: 3, table_lamp: 3}
+  selected_acquisitions: 462

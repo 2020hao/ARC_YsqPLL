@@ -21,8 +21,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 13088,
-    "sha256": "6017c42e25535f67e8b477893a727103f03afa796c033d4f22cbea8e3bf25851"
+    "bytes": 13486,
+    "sha256": "5cc1fee153de9540ef25abf052036273980151bfb34beb5ebf9d24ec4fd2d14e"
   },
   {
     "path": "configs/datasets/public_v1.yaml",
@@ -31,8 +31,8 @@
   },
   {
     "path": "configs/datasets/self462_v1.yaml",
-    "bytes": 979,
-    "sha256": "3fae883e505603bd1e09623a44024eb6f31eafae1c62de59e29ae51cd2b99141"
+    "bytes": 1174,
+    "sha256": "e35efe77f6fc4030fc1668e54e43faaee421769d9618b792a877789b259201f7"
   },
   {
     "path": "configs/datasets.yaml",
@@ -381,8 +381,8 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 49686,
-    "sha256": "f420ecc77d9b0111129c6803240dfd988316cd0ba0274672b6089b24c6c060f1"
+    "bytes": 50188,
+    "sha256": "1ce30c5a12ac39c3535537716dc321bfcb7a26611e67156b510f5fbd0e8b543e"
   },
   {
     "path": "docs/CLASSIFICATION_METRICS.md",
@@ -401,8 +401,13 @@
   },
   {
     "path": "docs/DATASETS.md",
-    "bytes": 10339,
-    "sha256": "477b0c8ec8414a1de0f4b1f778a3ec1552e1e5f5ef4948fc7b4a20f2150a4bc8"
+    "bytes": 11246,
+    "sha256": "cec0b6b40007e15471a59c0cd521b34d0b4dbe84f660f4f17d90043ea6b9489a"
+  },
+  {
+    "path": "docs/DATASET_SCOPE_20261106.md",
+    "bytes": 2134,
+    "sha256": "4ea0e9f698826c54c26fd92e7bf188dd9eef2c477b82cfadc0e1863832c25040"
   },
   {
     "path": "docs/DATA_SPLIT_PROTOCOL_20261030.md",
@@ -616,8 +621,8 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 7297,
-    "sha256": "e73f9e8befa19152792cea5087915e5343d25805e81c61fd39a891fd898c13b4"
+    "bytes": 7335,
+    "sha256": "a93a239882194f01457de99dcf23f14b186d60a3de53a4f0a294a750a087c9cf"
   },
   {
     "path": "scripts/export_dynamic_modules.py",

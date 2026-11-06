@@ -97,6 +97,7 @@ PATTERNS = [
     "docs/DYNAMIC_CORRECTION_RESTORE.md",
     "docs/BASELINE_DEFINITION.md",
     "docs/DATASETS.md",
+    "docs/DATASET_SCOPE_20261106.md",
     "docs/BRANCH_VS_REPLACEMENT.md",
     "docs/CLASSIFICATION_METRICS.md",
     "docs/HYDRA_ALTERNATING.md",
