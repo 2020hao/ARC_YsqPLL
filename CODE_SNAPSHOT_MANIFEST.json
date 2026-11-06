@@ -21,8 +21,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 13486,
-    "sha256": "5cc1fee153de9540ef25abf052036273980151bfb34beb5ebf9d24ec4fd2d14e"
+    "bytes": 16493,
+    "sha256": "8415cef0d37f524224a3accceb58dd6b7aeffc281425e7d7cf676f4654b70a17"
   },
   {
     "path": "configs/datasets/public_v1.yaml",
@@ -381,8 +381,8 @@
   },
   {
     "path": "docs/CHANGELOG.md",
-    "bytes": 50188,
-    "sha256": "1ce30c5a12ac39c3535537716dc321bfcb7a26611e67156b510f5fbd0e8b543e"
+    "bytes": 50890,
+    "sha256": "6f26f6ffe98c80b9b227ad279238597c2d2fbea084e101277040ad755b0009d6"
   },
   {
     "path": "docs/CLASSIFICATION_METRICS.md",
@@ -423,6 +423,11 @@
     "path": "docs/DYNAMIC_STATE_NET.md",
     "bytes": 3125,
     "sha256": "e8ccb89ab677adaf6d9f697c8e6a3388b5456ba3d996a7355ea5430be177a5cd"
+  },
+  {
+    "path": "docs/EXPERIMENT_RESULTS.md",
+    "bytes": 14318,
+    "sha256": "29a8dc03121ca5f0212dd2701b0c1c30580bfe9bf78a23e85185708f515bbfc7"
   },
   {
     "path": "docs/FOLDED_CALIBRATION.md",
@@ -610,6 +615,11 @@
     "sha256": "616e47f1f6b0698046a43bdeeb421c3efb8ee7b4a5799669bc8d9b94707ce70c"
   },
   {
+    "path": "scripts/build_experiment_showcase.py",
+    "bytes": 15888,
+    "sha256": "3149f688a86500a3fa97f632c07167940a029bcc75f688f7d4758e2145bdeb90"
+  },
+  {
     "path": "scripts/check_baseline_release.py",
     "bytes": 1890,
     "sha256": "c18fbf489b1a99fd7ceb583a9ccc6bd2d1cc277c3d01dee2d53b45b8e1e639c5"
@@ -621,8 +631,8 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 7335,
-    "sha256": "a93a239882194f01457de99dcf23f14b186d60a3de53a4f0a294a750a087c9cf"
+    "bytes": 7413,
+    "sha256": "dc3faf0d010301854b8f011b9d31bf1b3af8d78d5f56f494a8439c84d61cddc7"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
