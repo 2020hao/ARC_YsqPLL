@@ -1,0 +1,130 @@
+schema_version: 2
+model_id: arc_fenet_phase_aligned_input
+display_name: ArcFENet 相位对齐输入
+role: input_alignment
+package: arc_model.model_instances.arc_fenet_phase_aligned_input
+factory: arc_model.model_instances.arc_fenet_phase_aligned_input:create_model
+status: engineering_migrated_current462_validation_pending
+network:
+  class: Model
+  file: network.py
+  fixed_kwargs:
+    extra: 0
+    fusion: sum
+    enhanced: true
+    channels:
+    - 16
+    - 32
+    - 64
+    - 128
+  instance_local_dependencies: true
+input:
+  window_ms: 20
+  reference: current_self_sync
+  model_sample_rate_hz: 250000
+  samples_per_cycle: 5000
+  input_shape:
+  - N
+  - 3
+  - 100
+  - 100
+  original_native_rates_hz:
+  - 2000000
+  - 1000000
+  rectified: false
+  phase_estimation_uses_signed_current: true
+  preprocessing_fitted_on: outer_train_only
+  datasets:
+  - self462
+  - zenodo5501527
+training:
+  optimizer: Adam
+  lr: 0.001
+  wd: 1.0e-05
+  epochs: 20
+  batch_size: 128
+  seeds:
+  - 0
+  - 1
+  - 2
+  min_lr: 0.001
+  scheduler: none
+  threshold: 0.5
+  current_cohort_validation_pending: true
+evaluation:
+  protocols:
+  - self462_group4_125051
+  - public_group5_1357
+  grouped_folds:
+    self462: 4
+    zenodo5501527: 5
+  seeds:
+  - 0
+  - 1
+  - 2
+  threshold: 0.5
+  primary: BAcc_condition
+  current_cohort_performance_validated: false
+provenance:
+  legacy_class: arc_model.implementations.plugin_arc_fenet.model:Model
+  legacy_kwargs:
+    extra: 0
+    fusion: sum
+    enhanced: true
+    channels:
+    - 16
+    - 32
+    - 64
+    - 128
+  legacy_source_files:
+  - path: src/arc_model/implementations/plugin_arc_fenet/model.py
+    sha256: 2e85e4591da9a4ca734316f507c37789634ed06e065b6497fab04e9e702dfadd
+    local_copy: _source_plugin_arc_fenet_model.py
+  - path: src/arc_model/implementations/plugin_arc_fenet/network.py
+    sha256: 16862f6879129735c8867715fa9f2ce1db63a5a5b0012bb9edc8045afdba54aa
+    local_copy: _source_plugin_arc_fenet_network.py
+  migration: local_dependency_closure_copy; preserve constructor ordering and state_dict;
+    no weight or metric transfer
+model_kwargs:
+  extra: 0
+  fusion: sum
+  enhanced: true
+  channels:
+  - 16
+  - 32
+  - 64
+  - 128
+model_training_param:
+  optimizer: Adam
+  lr: 0.001
+  wd: 1.0e-05
+  epochs: 20
+  batch_size: 128
+  seeds:
+  - 0
+  - 1
+  - 2
+  min_lr: 0.001
+  scheduler: none
+  threshold: 0.5
+  current_cohort_validation_pending: true
+feature_module:
+  mode: input_frontend
+  enabled_by_default: false
+  feature_dim: 0
+  lags: []
+  hf_bands_hz: []
+  phase_bins: 20
+  auxiliary_branch: false
+  requires_refit_on_frozen_parent: true
+precision:
+  parameter_dtype: float32
+  autocast: none
+  matmul_tf32: false
+  cudnn_tf32: false
+  cudnn_deterministic: true
+parent_baseline_id: B_FENET_fixed20_v1
+parent_release: baselines_v1_20261030
+backbone: arc_fenet
+current_cohort_validated: false
+legacy_state_compatible: true

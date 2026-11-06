@@ -1,0 +1,157 @@
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+correction_branch: false
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+input:
+  source_profiles: native_rate_LF_mean_and_HF_10_100k_100_400k_power
+  sample_rates_retained_hz:
+  - 2000000
+  - 1000000
+  channels:
+  - LF_mean
+  - log_HF_low
+  - log_HF_high
+  - delta_distribution_low
+  - delta_distribution_high
+  - unused_zero
+  - unused_zero
+  - unused_zero
+  decomposition_is_reversible_above_numerical_floor: false
+  phase_bins: 64
+  history_cycles: 9
+  standardization: outer_training_current_cycles_only
+  masks_reset_neurons: true
+  no_test_labels_in_encoding: true
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  singleton_policy: merge singleton remainder into preceding batch, no dropped samples
+specialized_study: map_input_calibration_20261105
+output: outputs/map_input_calibration_20261105
+model: InputCodedPhaseMap
+distillation: false
+arms:
+  raw_rcr:
+    coding: raw
+    coordinate: realtime
+    reference: rcr
+  raw_sogi:
+    coding: raw
+    coordinate: sogi
+    reference: sogi
+  clip_rcr:
+    coding: clip
+    coordinate: realtime
+    reference: rcr
+  clip_sogi:
+    coding: clip
+    coordinate: sogi
+    reference: sogi
+  sparse4_rcr:
+    coding: sparse4
+    coordinate: realtime
+    reference: rcr
+  sparse4_sogi:
+    coding: sparse4
+    coordinate: sogi
+    reference: sogi
+architecture:
+  backbone: unchanged3945parameter_PhaseMapHybrid
+  physical_history_steps: 9
+  simulated_TTFS_steps_added: false
+  extra_classifier: false
+input_coding:
+  location: after_training_fold_standardization_before_first_CNN
+  raw: identity
+  clip: clip[-3,3]
+  sparse4: clip3,abs<0.25_to0,existing4stepTTFS_latency_reconstructed_to_signed4level_amplitude
+  thresholds_fitted_on_test: false
+  active_information_channels: 5
+  unused_padding_channels: 3
+calibration:
+  type: decision_threshold_only
+  inner_calibration_fold: (outer_fold+1)%5
+  inner_train: outer_train minus entire calibration group fold
+  inner_statistics_fit: inner_train_only
+  final_model: refit_on_entire_outer_train
+  grid_start: 0.05
+  grid_stop: 0.95
+  grid_step: 0.01
+  objective: condition_equal_BAcc
+  tie_break: closest_to0.5_then_smaller
+  outer_test_used: false
+  score_rank_metrics: original_network_scores_unchanged; foldwise decision threshold
+    vectors
+  calibration_does_not_change_probability: true
+evaluation:
+  primary: condition_equal_BAcc
+  primary_pairs:
+  - - clip_{ref}_fixed
+    - raw_{ref}_fixed
+  - - sparse4_{ref}_fixed
+    - clip_{ref}_fixed
+  primary_Holm_family: 8
+  secondary_pairs:
+  - - '{coding}_{ref}_cal'
+    - '{coding}_{ref}_fixed'
+  secondary_Holm_family: 12
+  full_pipeline_pairs:
+  - - sparse4_{ref}_cal
+    - raw_{ref}_fixed
+  full_pipeline_Holm_family: 4
+  uncertainty_unit: condition_or_appliance_file
+  cluster_bootstrap_repeats: 10000
+  historical_outer_exposure: exploratory_sequential_development
+  target_public_accuracy: 0.97
+  no_outer_threshold_selection: true
+  deep_pairs:
+  - - deep_{ref}_fixed
+    - '{selected_coding}_{ref}_fixed'
+  - - deep_{ref}_cal
+    - raw_{ref}_cal
+  deep_Holm_family: 8
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  epochs_per_fit: 50
+  new_final_fits: 120
+  new_inner_fits: 180
+  reused_final_fits: 60
+  total_new_fits: 420
+  total_weight_receipts: 480
+  timeout_seconds: 5400
+  new_deep_final_fits: 60
+  new_deep_inner_fits: 60
+stages:
+- input_factorial
+- deep_training_selected_input
+deep_architecture:
+  phase_state: unchanged16x8
+  added: one residual block:DW3/DW5/DW7 concat thenPW48to16_BN_GELU
+  initialization: zero_final_residual_BN_scale
+  readout: 128to32_BN_GELU_32to1
+  coding_selection: highest base_inner_calibration_BAcc_at0.5; ties raw,clip,sparse4;
+    no outer test access
+  parameter_budget: about7100
+  MAC_budget: below1M
+  distillation: false

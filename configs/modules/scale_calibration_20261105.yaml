@@ -1,0 +1,64 @@
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+specialized_study: scale_calibration_20261105
+output: outputs/scale_robust_20261105/calibration_followup
+distillation: false
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  singleton_policy: merge singleton remainder into preceding batch, no dropped samples
+arms:
+- bn_linear
+- gn_linear
+references:
+- rcr
+- sogi
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+roles:
+  train: outer training minus next original fold
+  calibration: next original fold intersect outer training
+  test: unchanged outer fold
+  normalization_fit: train only
+  refit_after_calibration: false
+threshold:
+  objective: condition_equal_BAcc
+  grid: 101 calibration-score quantiles plus .5 and endpoints
+  tie: closest .5 then smaller
+  labels: training-heldout calibration only
+evaluation:
+  primary_method_family: 4
+  calibration_family: 8
+  combined_family: 4
+  unit: condition or appliance file
+  classification_thresholds:
+  - fixed .5
+  - calibration-selected
+  AP_ROC: unchanged original network probabilities
+  scope: exploratory follow-up after observing ranking/fixed-threshold mismatch; not
+    initial full-training comparison
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  new_fits: 88
+  reused_inner_raw_fits: 32
+  timeout_seconds: 5400

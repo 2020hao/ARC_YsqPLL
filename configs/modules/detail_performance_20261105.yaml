@@ -1,0 +1,54 @@
+specialized_study: detail_performance_20261105
+datasets: [continuous5m, zenodo5501527]
+pool_datasets: false
+output: outputs/detail_performance_20261105
+model: DetailPerformanceMap
+distillation: false
+input_coding: raw_fixed
+seeds: [0, 1, 2]
+outer_folds: 5
+references: [rcr, sogi]
+arms: [base, burst, allocation, both, capacity]
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 0.00001
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  singleton_policy: merge singleton remainder into preceding batch, no dropped samples
+features:
+  original5: bit-exact preserved; all current information and preprocessing unchanged
+  added: [log10_burst_concentration_10_100k, log10_burst_concentration_100_400k, power_fraction_10_40_of_10_100k, power_fraction_100_200_of_100_400k]
+  native_rates_hz: [2000000, 1000000]
+  subbands_hz: [[10000, 40000], [40000, 100000], [100000, 200000], [200000, 400000]]
+  phase_bins: 64
+  history_cycles: 9
+  integration: direct_within_bin_moment_sum
+  reference_and_fallback_and_masks: unchanged
+  capacity_control: 9 input columns = original5 plus original power channels repeated twice, zero-initialized added weights
+evaluation:
+  primary: condition_equal_BAcc
+  threshold: 0.5
+  primary_family: burst-base, allocation-base, both-base, both-capacity; both datasets and references
+  primary_Holm_tests: 16
+  mechanism_family: both-burst, both-allocation; both datasets and references
+  mechanism_Holm_tests: 8
+  reference_family: RCR-SOGI for each of five arms and both datasets
+  reference_Holm_tests: 10
+  bootstrap: 10000
+  unit: condition_or_appliance_record
+  scope: exploratory after historical test-fold exposure; all groups retained
+  promotion: inspect paired BAcc, FPR, AP and appliance failures together; no test-based selection
+execution:
+  physical_gpus: [1, 2, 3]
+  exclude_gpu: 0
+  preparation_workers: 3
+  timeout_seconds: 7200

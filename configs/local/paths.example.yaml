@@ -1,0 +1,7 @@
+# Copy to paths.yaml (ignored) or set environment variables. Do not publish local paths.
+variables:
+  ARC_SELF462_MANIFEST: /your/private/path/self462_manifest.csv
+  ARC_SELF462_PREPARED: /your/private/path/self462_prepared
+  ARC_PUBLIC_PREPARED: /your/private/path/public1357_prepared
+  ARC_ARTIFACTS_ROOT: /your/private/path/arc_artifacts
+

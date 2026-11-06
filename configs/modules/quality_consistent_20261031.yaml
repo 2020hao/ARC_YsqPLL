@@ -1,0 +1,58 @@
+specialized_study: quality_consistent_20261031
+output: outputs/quality_consistent_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+outer_folds: 5
+backbone_seed: 0
+features: unchanged_RCR_32_dynamic_statistics_plus_4_availability_controls
+arms:
+  basic32: {availability_aware: false, consistent_objective: false}
+  history_only: {availability_aware: true, consistent_objective: false}
+  objective_only: {availability_aware: false, consistent_objective: true}
+  full_revision: {availability_aware: true, consistent_objective: true}
+references:
+  parent: current_frozen_parent_seed0
+  current36: coordinate_evidence_20261031_rcr36
+  current32: coordinate_evidence_20261031_rcr32
+training:
+  new_head_fits: 240
+  new_backbone_fits: 0
+  fit_B_then_refit_outertrain_honest_two_inner_fold_OOF: true
+  selection_C: on_or_raw_off_only
+  epochs: 80
+  lr: 0.002
+  weight_decay: 0.002
+  L1_mean: 0.0002
+  batch_size: 256
+  strength_on: 1
+  normal_quantile: 0.95
+  gate_softness: 0.15
+  fixed_regularization: true
+selection:
+  candidate_on_condition_FPR_at_most_raw_parent_plus: 0.02
+  rank: [max_condition_BAcc, min_condition_FPR, prefer_raw_off_tie]
+  no_outer_test_selection: true
+  save_always_on_diagnostic_not_for_test_selection: true
+evaluation:
+  primary_pairs: [[full_revision, history_only], [full_revision, objective_only]]
+  primary_Holm: all_12_tests
+  secondary_pairs: [[full_revision, basic32], [full_revision, current36]]
+  secondary_Holm: all_12_tests
+  diagnostic_pairs: [[history_only, basic32], [objective_only, basic32], [full_revision, parent]]
+  diagnostic_Holm: each_six_cell_pair_family
+  interaction: full_minus_history_minus_objective_plus_basic
+  interaction_Holm: all_6_tests
+  primary_metric: condition_equal_cycle_BAcc
+  threshold: raw_margin_zero
+  bootstrap_unit: condition_or_appliance_file
+  bootstrap_repeats: 10000
+  reference_quality_is_PCA_feature_distance_not_PLL_error_probability: true
+  existing_exposed_outer_folds: true
+execution:
+  CPU_workers: 3
+  CPU_threads_per_worker: 2
+  head_device: cpu
+  GPU_allowed: [1, 2, 3]
+  GPU_reserved: [0]
+  timeout_s: 3600
+  overwrite_frozen_baselines: false

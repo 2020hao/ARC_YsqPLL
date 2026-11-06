@@ -1,0 +1,807 @@
+[
+  {
+    "id": "rcr_cnn_snn_original",
+    "module": "arc_model.implementations.dynamic_state_net.network",
+    "cls": "DynamicStateNet",
+    "kwargs": {
+      "arm": "base"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr cnn snn original",
+    "role": "direct_classifier",
+    "current": true
+  },
+  {
+    "id": "rcr_cnn_snn_dynamic_summary",
+    "module": "arc_model.implementations.dynamic_state_net.network",
+    "cls": "DynamicStateNet",
+    "kwargs": {
+      "arm": "dynamic"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr cnn snn dynamic summary",
+    "role": "direct_classifier",
+    "current": true
+  },
+  {
+    "id": "rcr_cnn_snn_capacity_control",
+    "module": "arc_model.implementations.dynamic_state_net.network",
+    "cls": "DynamicStateNet",
+    "kwargs": {
+      "arm": "capacity"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr cnn snn capacity control",
+    "role": "direct_classifier",
+    "current": true
+  },
+  {
+    "id": "rcr_cnn_snn_peak_dynamic",
+    "module": "arc_model.implementations.dynamic_state_net.network",
+    "cls": "DynamicStateNet",
+    "kwargs": {
+      "arm": "maxpool_dynamic"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr cnn snn peak dynamic",
+    "role": "direct_classifier",
+    "current": true
+  },
+  {
+    "id": "rcr_cnn_snn_peak_dynamic_augmented",
+    "module": "arc_model.implementations.dynamic_state_net.network",
+    "cls": "DynamicStateNet",
+    "kwargs": {
+      "arm": "maxpool_dynamic"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr cnn snn peak dynamic augmented",
+    "role": "direct_classifier",
+    "current": true,
+    "augmentation": true,
+    "calibration": "none"
+  },
+  {
+    "id": "rcr_cnn_snn_peak_dynamic_bias_calibrated",
+    "module": "arc_model.implementations.dynamic_state_net.network",
+    "cls": "DynamicStateNet",
+    "kwargs": {
+      "arm": "maxpool_dynamic"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr cnn snn peak dynamic bias calibrated",
+    "role": "direct_classifier",
+    "current": true,
+    "augmentation": true,
+    "calibration": "bias"
+  },
+  {
+    "id": "rcr_cnn_snn_peak_dynamic_affine_calibrated",
+    "module": "arc_model.implementations.dynamic_state_net.network",
+    "cls": "DynamicStateNet",
+    "kwargs": {
+      "arm": "maxpool_dynamic"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr cnn snn peak dynamic affine calibrated",
+    "role": "direct_classifier",
+    "current": true,
+    "augmentation": true,
+    "calibration": "affine"
+  },
+  {
+    "id": "rcr_hierarchical_snn_compact",
+    "module": "arc_model.implementations.phase_hierarchy_net.network",
+    "cls": "PhaseHierarchyNet",
+    "kwargs": {
+      "size": "small"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr hierarchical snn compact",
+    "role": "direct_classifier",
+    "current": true
+  },
+  {
+    "id": "rcr_hierarchical_snn_wide",
+    "module": "arc_model.implementations.phase_hierarchy_net.network",
+    "cls": "PhaseHierarchyNet",
+    "kwargs": {
+      "size": "wide"
+    },
+    "channels": 5,
+    "status": "completed_current_grouped_development",
+    "name": "rcr hierarchical snn wide",
+    "role": "direct_classifier",
+    "current": true
+  },
+  {
+    "id": "arc_fenet_dynamic_correction_1m",
+    "module": "arc_model.implementations.dual_arc_fenet.model",
+    "cls": "Model",
+    "kwargs": {
+      "extra": 0,
+      "fusion": "sum",
+      "enhanced": true,
+      "channels": [
+        16,
+        32,
+        64,
+        128
+      ]
+    },
+    "channels": 0,
+    "status": "engineering_migrated_current462_validation_pending",
+    "name": "ArcFENet 动态输出校正",
+    "role": "output_correction",
+    "legacy_config_key": "ArcFENet_DualBranch",
+    "source_package": "dual_arc_fenet"
+  },
+  {
+    "id": "arc_fenet_phase_aligned_input",
+    "module": "arc_model.implementations.plugin_arc_fenet.model",
+    "cls": "Model",
+    "kwargs": {
+      "extra": 0,
+      "fusion": "sum",
+      "enhanced": true,
+      "channels": [
+        16,
+        32,
+        64,
+        128
+      ]
+    },
+    "channels": 0,
+    "status": "engineering_migrated_current462_validation_pending",
+    "name": "ArcFENet 相位对齐输入",
+    "role": "input_alignment",
+    "legacy_config_key": "ArcFENet_Plugin",
+    "source_package": "plugin_arc_fenet"
+  },
+  {
+    "id": "hydra_dynamic_correction_1m",
+    "module": "arc_model.implementations.dual_hydra.model",
+    "cls": "Model",
+    "kwargs": {
+      "k": 8,
+      "g": 8,
+      "kernel_length": 5,
+      "stride": 1,
+      "transform_seed": 0
+    },
+    "channels": 0,
+    "status": "engineering_migrated_current462_validation_pending",
+    "name": "HYDRA 动态输出校正",
+    "role": "output_correction",
+    "legacy_config_key": "HYDRA_DualBranch",
+    "source_package": "dual_hydra"
+  },
+  {
+    "id": "hydra_phase_aligned_input",
+    "module": "arc_model.implementations.plugin_hydra.model",
+    "cls": "Model",
+    "kwargs": {
+      "k": 8,
+      "g": 8,
+      "kernel_length": 5,
+      "stride": 1,
+      "transform_seed": 0
+    },
+    "channels": 0,
+    "status": "engineering_migrated_current462_validation_pending",
+    "name": "HYDRA 相位对齐输入",
+    "role": "input_alignment",
+    "legacy_config_key": "HYDRA_Plugin",
+    "source_package": "plugin_hydra"
+  },
+  {
+    "id": "arc_fusion_dynamic_correction_1m",
+    "module": "arc_model.implementations.dual_arc_fusion.model",
+    "cls": "Model",
+    "kwargs": {
+      "extra": 0,
+      "d_model": 64,
+      "n_heads": 4,
+      "feedforward_dim": 128,
+      "dropout": 0.1,
+      "n_encoder_layers": 2,
+      "spectral_pool_stride": 2
+    },
+    "channels": 0,
+    "status": "engineering_migrated_current462_validation_pending",
+    "name": "ArcFusionNet-current 动态输出校正",
+    "role": "output_correction",
+    "legacy_config_key": "ArcFusionNet_Current_DualBranch",
+    "source_package": "dual_arc_fusion"
+  },
+  {
+    "id": "arc_fusion_phase_aligned_input",
+    "module": "arc_model.implementations.plugin_arc_fusion.model",
+    "cls": "Model",
+    "kwargs": {
+      "extra": 0,
+      "d_model": 64,
+      "n_heads": 4,
+      "feedforward_dim": 128,
+      "dropout": 0.1,
+      "n_encoder_layers": 2,
+      "spectral_pool_stride": 2
+    },
+    "channels": 0,
+    "status": "engineering_migrated_current462_validation_pending",
+    "name": "ArcFusionNet-current 相位对齐输入",
+    "role": "input_alignment",
+    "legacy_config_key": "ArcFusionNet_Current_Plugin",
+    "source_package": "plugin_arc_fusion"
+  },
+  {
+    "id": "phase_cycle_cnn_history",
+    "module": "arc_model.implementations.sp_cycle_net.network",
+    "cls": "SPCycleNet",
+    "kwargs": {
+      "use_history": true
+    },
+    "channels": 3,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase cycle cnn history",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "phase_cycle_cnn_single",
+    "module": "arc_model.implementations.sp_cycle_net.network",
+    "cls": "SPCycleNet",
+    "kwargs": {
+      "use_history": false
+    },
+    "channels": 3,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase cycle cnn single",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "current_phase_snn",
+    "module": "arc_model.implementations.rcr_snn.network",
+    "cls": "CurrentPhaseSNN",
+    "kwargs": {
+      "spiking": true
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "current phase snn",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "current_phase_continuous",
+    "module": "arc_model.implementations.rcr_snn.network",
+    "cls": "CurrentPhaseSNN",
+    "kwargs": {
+      "spiking": false
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "current phase continuous",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_spike_normalized_laststate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": true,
+      "preserve_levels": false,
+      "multistate": false
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase spike normalized laststate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_spike_normalized_multistate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": true,
+      "preserve_levels": false,
+      "multistate": true
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase spike normalized multistate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_spike_level_laststate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": true,
+      "preserve_levels": true,
+      "multistate": false
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase spike level laststate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_spike_level_multistate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": true,
+      "preserve_levels": true,
+      "multistate": true
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase spike level multistate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_continuous_normalized_laststate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": false,
+      "preserve_levels": false,
+      "multistate": false
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase continuous normalized laststate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_continuous_normalized_multistate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": false,
+      "preserve_levels": false,
+      "multistate": true
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase continuous normalized multistate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_continuous_level_laststate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": false,
+      "preserve_levels": true,
+      "multistate": false
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase continuous level laststate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "cycle_phase_continuous_level_multistate",
+    "module": "arc_model.implementations.cycle_phase_snn.network",
+    "cls": "CyclePhaseSNN",
+    "kwargs": {
+      "spiking": false,
+      "preserve_levels": true,
+      "multistate": true
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "cycle phase continuous level multistate",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "phase_event_ttfs_snn",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "ttfs",
+      "spiking": true
+    },
+    "channels": 8,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase event ttfs snn",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "phase_event_ttfs_continuous",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "ttfs",
+      "spiking": false
+    },
+    "channels": 8,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase event ttfs continuous",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "phase_event_rate_snn",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "rate",
+      "spiking": true
+    },
+    "channels": 8,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase event rate snn",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "phase_event_rate_continuous",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "rate",
+      "spiking": false
+    },
+    "channels": 8,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase event rate continuous",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "phase_event_direct_snn",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "direct",
+      "spiking": true
+    },
+    "channels": 8,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase event direct snn",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "phase_event_direct_continuous",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "direct",
+      "spiking": false
+    },
+    "channels": 8,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "phase event direct continuous",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "compact_phase_cnn",
+    "module": "arc_model.implementations.direct_efficiency.compact_cnn",
+    "cls": "CompactCNN",
+    "kwargs": {},
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "compact phase cnn",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "compact_phase_cnn_snn",
+    "module": "arc_model.implementations.direct_efficiency.compact_hybrid",
+    "cls": "CompactHybrid",
+    "kwargs": {},
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "compact phase cnn snn",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "compact_phase_content_attention",
+    "module": "arc_model.implementations.direct_efficiency.attentive_hybrid",
+    "cls": "AttentiveHybrid",
+    "kwargs": {
+      "pooling": "content"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "compact phase content attention",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "compact_phase_static_attention",
+    "module": "arc_model.implementations.direct_efficiency.attentive_hybrid",
+    "cls": "AttentiveHybrid",
+    "kwargs": {
+      "pooling": "static"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "compact phase static attention",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "position_preserving_cnn_snn",
+    "module": "arc_model.implementations.direct_efficiency.phase_map_hybrid",
+    "cls": "PhaseMapHybrid",
+    "kwargs": {},
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "position preserving cnn snn",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "coded_phase_map_raw",
+    "module": "arc_model.implementations.map_input_calibration.network",
+    "cls": "InputCodedPhaseMap",
+    "kwargs": {
+      "coding": "raw"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "coded phase map raw",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "deep_phase_map_raw",
+    "module": "arc_model.implementations.map_input_calibration.deep_network",
+    "cls": "DeepCodedPhaseMap",
+    "kwargs": {
+      "coding": "raw"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "deep phase map raw",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "coded_phase_map_clip",
+    "module": "arc_model.implementations.map_input_calibration.network",
+    "cls": "InputCodedPhaseMap",
+    "kwargs": {
+      "coding": "clip"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "coded phase map clip",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "deep_phase_map_clip",
+    "module": "arc_model.implementations.map_input_calibration.deep_network",
+    "cls": "DeepCodedPhaseMap",
+    "kwargs": {
+      "coding": "clip"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "deep phase map clip",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "coded_phase_map_sparse4",
+    "module": "arc_model.implementations.map_input_calibration.network",
+    "cls": "InputCodedPhaseMap",
+    "kwargs": {
+      "coding": "sparse4"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "coded phase map sparse4",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "deep_phase_map_sparse4",
+    "module": "arc_model.implementations.map_input_calibration.deep_network",
+    "cls": "DeepCodedPhaseMap",
+    "kwargs": {
+      "coding": "sparse4"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "deep phase map sparse4",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "scale_robust_batch_linear",
+    "module": "arc_model.implementations.map_input_calibration.scale_robust",
+    "cls": "ScaleRobustPhaseMap",
+    "kwargs": {
+      "normalization": "batch",
+      "head": "linear"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "scale robust batch linear",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "scale_robust_batch_cosine",
+    "module": "arc_model.implementations.map_input_calibration.scale_robust",
+    "cls": "ScaleRobustPhaseMap",
+    "kwargs": {
+      "normalization": "batch",
+      "head": "cosine"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "scale robust batch cosine",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "scale_robust_sample_linear",
+    "module": "arc_model.implementations.map_input_calibration.scale_robust",
+    "cls": "ScaleRobustPhaseMap",
+    "kwargs": {
+      "normalization": "sample",
+      "head": "linear"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "scale robust sample linear",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "scale_robust_sample_cosine",
+    "module": "arc_model.implementations.map_input_calibration.scale_robust",
+    "cls": "ScaleRobustPhaseMap",
+    "kwargs": {
+      "normalization": "sample",
+      "head": "cosine"
+    },
+    "channels": 5,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "scale robust sample cosine",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "midband_phase_map_base",
+    "module": "arc_model.implementations.map_input_calibration.midband_network",
+    "cls": "MidbandPhaseMap",
+    "kwargs": {
+      "arm": "base"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "midband phase map base",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "midband_phase_map_mid",
+    "module": "arc_model.implementations.map_input_calibration.midband_network",
+    "cls": "MidbandPhaseMap",
+    "kwargs": {
+      "arm": "mid"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "midband phase map mid",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "midband_phase_map_competition",
+    "module": "arc_model.implementations.map_input_calibration.midband_network",
+    "cls": "MidbandPhaseMap",
+    "kwargs": {
+      "arm": "competition"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "midband phase map competition",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "midband_phase_map_both",
+    "module": "arc_model.implementations.map_input_calibration.midband_network",
+    "cls": "MidbandPhaseMap",
+    "kwargs": {
+      "arm": "both"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "midband phase map both",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "detail_phase_map_base",
+    "module": "arc_model.implementations.map_input_calibration.detail_training_network",
+    "cls": "DetailPerformanceMap",
+    "kwargs": {
+      "arm": "base"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "detail phase map base",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "detail_phase_map_burst",
+    "module": "arc_model.implementations.map_input_calibration.detail_training_network",
+    "cls": "DetailPerformanceMap",
+    "kwargs": {
+      "arm": "burst"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "detail phase map burst",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "detail_phase_map_allocation",
+    "module": "arc_model.implementations.map_input_calibration.detail_training_network",
+    "cls": "DetailPerformanceMap",
+    "kwargs": {
+      "arm": "allocation"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "detail phase map allocation",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "detail_phase_map_both",
+    "module": "arc_model.implementations.map_input_calibration.detail_training_network",
+    "cls": "DetailPerformanceMap",
+    "kwargs": {
+      "arm": "both"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "detail phase map both",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "detail_phase_map_capacity",
+    "module": "arc_model.implementations.map_input_calibration.detail_training_network",
+    "cls": "DetailPerformanceMap",
+    "kwargs": {
+      "arm": "capacity"
+    },
+    "channels": 9,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "detail phase map capacity",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "self462_burst_phase_map",
+    "module": "arc_model.implementations.map_input_calibration.self462_input",
+    "cls": "Self462BurstMap",
+    "kwargs": {},
+    "channels": 7,
+    "status": "legacy_architecture_unvalidated_on_current_cohort",
+    "name": "self462 burst phase map",
+    "role": "direct_classifier"
+  },
+  {
+    "id": "sogi_ttfs_snn_reference",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "ttfs",
+      "spiking": true
+    },
+    "channels": 8,
+    "status": "historical_architecture_current462_validation_pending",
+    "name": "SOGI参考＋TTFS脉冲主干",
+    "role": "direct_classifier",
+    "reference": "sogi"
+  },
+  {
+    "id": "fixed20_ttfs_snn_reference",
+    "module": "arc_model.implementations.phase_event_snn.network",
+    "cls": "PhaseEventSNN",
+    "kwargs": {
+      "encoding": "ttfs",
+      "spiking": true
+    },
+    "channels": 8,
+    "status": "historical_architecture_current462_validation_pending",
+    "name": "固定20 ms参考＋TTFS脉冲主干",
+    "role": "direct_classifier",
+    "reference": "fixed20"
+  }
+]

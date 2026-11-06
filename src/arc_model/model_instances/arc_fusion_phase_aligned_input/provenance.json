@@ -1,0 +1,28 @@
+{
+  "model_id": "arc_fusion_phase_aligned_input",
+  "source": "arc_model.implementations.plugin_arc_fusion.model",
+  "class": "Model",
+  "fixed_kwargs": {
+    "extra": 0,
+    "d_model": 64,
+    "n_heads": 4,
+    "feedforward_dim": 128,
+    "dropout": 0.1,
+    "n_encoder_layers": 2,
+    "spectral_pool_stride": 2
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/plugin_arc_fusion/model.py",
+      "sha256": "2e85e4591da9a4ca734316f507c37789634ed06e065b6497fab04e9e702dfadd",
+      "local_copy": "_source_plugin_arc_fusion_model.py"
+    },
+    {
+      "path": "src/arc_model/implementations/plugin_arc_fusion/network.py",
+      "sha256": "3fce953700a946617766aaaea3e582e83a79e60ed9686e7dc913aecb3acc985b",
+      "local_copy": "_source_plugin_arc_fusion_network.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

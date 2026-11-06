@@ -1,0 +1,39 @@
+specialized_study: self462_1m_baselines_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_1m_baselines_20261105
+parent: outputs/self462_12800_20261105
+manifest_sha256: 2506a6bea05d82107de2e5d2ac4d98d71b501258fe99ec254e07322e8179b201
+native_source_hz: 2000000
+comparison_source_hz: 1000000
+resampling: causal_Kaiser80dB_pass400k_stop500k_down2_no_advance
+models: [cnn_snn_1m, cnn_snn_2m_control, ArcFENet_Baseline, HYDRA_Baseline, ArcFusionNet_Current_Baseline]
+outer_folds: 4
+seeds: [0]
+baselines: frozen_baselines_v1_20261030; extra0; unmodified_sources_and_model_yaml; same_paper_training_budgets
+fenet_frontend: frozen_FIR401_112500Hz_to250k; VMD_K3_alpha2000_tol1e-7_cap500; frozen_MBWVD_jet_RGB100x100
+fenet_acceleration: FP64_CUDAgraph_same500iteration_equations; requires_frozen_CPU_GPU_parity
+cnn_snn:
+  epochs: 50
+  batch_size: 512
+  learning_rate: 0.001
+  weight_decay: 0.001
+  spike_activity_penalty: 0.001
+  checkpoint: final_epoch
+  threshold: 0.5
+  history_cycles: 9
+  phase_bins: 64
+  hf_bands_hz: [[10000,100000],[100000,400000]]
+HYDRA:
+  transform: unmodified_paper_transform_seed0
+  objective: mean_hinge_plus_lambda0.001_L1; unpenalized_intercept
+  solver: frozen_HiGHS_function_default900s; no_fallback_classifier
+execution:
+  allowed_physical_gpus: [1,2,3]
+  physical_gpus: [2,3]
+  exclude_gpu: 0
+  remote_signal_workers: 8
+  preparation_workers: 8
+  CPU_solver_jobs: 2
+  timeout_seconds: 14400
+scope: one_self_dataset; exploratory_single_seed; 9cycle_CNN_SNN_vs_single_cycle_baselines; not_three_complete_author_source_reproductions

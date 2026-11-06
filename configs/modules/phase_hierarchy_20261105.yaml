@@ -1,0 +1,55 @@
+specialized_study: phase_hierarchy_20261105
+datasets: [self462, zenodo5501527]
+pool_datasets: false
+output: outputs/phase_hierarchy_20261105
+references: [rcr]
+inputs: native2MHz_self462_and_native1MHz_public_original5channels
+outer_folds: {self462: 4, zenodo5501527: 5}
+seeds: [0, 1, 2]
+arms: [maxpool_dynamic, gain_phase, hierarchy_small, hierarchy_wide]
+architecture:
+  reference: previous_prespecified_maxpool_dynamic_8249
+  hierarchy_small_parameters: 7001
+  hierarchy_wide_parameters: 13921
+  phase_states_before_pooling: [64, 32, 16]
+  physical_cycle_steps: 9
+  direct_classifier: true
+  baseline_scores_as_input: false
+  distillation: false
+  fixed_raw_numeric_encoding: true
+augmentation:
+  arms: [gain_phase]
+  shared_by_nine_cycles: true
+  current_gain_range: [0.7079458, 1.4125375]
+  log10_power_shift: twice_log10_current_gain
+  phase_shift_bins: [-2, 2]
+  validation_augmentation: false
+training:
+  epochs: 50
+  batch_size: 512
+  learning_rate: 0.001
+  min_learning_rate: 0.00001
+  weight_decay: 0.001
+  spike_activity_penalty: 0.001
+  optimizer: AdamW
+  loss: condition_and_class_equal_BCE
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  gradient_clip: 1.0
+  precision: FP32
+evaluation:
+  primary: condition_equal_BAcc
+  secondary: [Accuracy, Precision, Recall, FPR, F1, AP, ROC_AUC, MCC]
+  primary_pairs: [[gain_phase, maxpool_dynamic], [hierarchy_small, maxpool_dynamic], [hierarchy_wide, maxpool_dynamic]]
+  Holm_primary_family: 6
+  bootstrap_unit: condition_or_appliance_record_group
+  bootstrap_repeats: 10000
+  no_test_threshold_or_checkpoint_selection: true
+execution:
+  physical_gpus: [1, 2, 3]
+  excluded_gpu: 0
+  worker_threads: 2
+  worker_memory_fraction: 0.45
+  timeout_seconds: 10800
+  resume_completed_only_with_matching_hashes: true
+scope: second_versioned_development_round; compare_all_arms_and_seeds; not_independent_SOTA_confirmation

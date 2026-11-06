@@ -1,0 +1,79 @@
+specialized_study: cycle_phase_snn_v2_multistate_20261104
+output: outputs/cycle_phase_snn_v2_multistate_20261104
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+model: unified_CyclePhaseSNN
+correction_branch: false
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+arms:
+  v1_cycle:
+    coordinate: realtime
+    spiking: true
+    preserve_levels: false
+    multistate: false
+  multistate_norm:
+    coordinate: realtime
+    spiking: true
+    preserve_levels: false
+    multistate: true
+reference:
+  reference_fs_hz: 5000
+  update_seconds: 0.002
+  bootstrap_retry_seconds: 0.02
+  memory_cycles: 4
+  startup_seconds: 0.04
+  output_budget: completed_cycle_before_next_cycle_end
+  no_unobservable_truth_guarantee: true
+input:
+  channels:
+  - signed_LF_mean
+  - log_HF_10_100k_power
+  - log_HF_100_400k_power
+  - delta_distribution_low
+  - delta_distribution_high
+  history_cycles: 9
+  phase_bins: 64
+  raw_sample_rates_retained:
+  - 1000000
+  - 2000000
+  common_cohort: previous_common_keep_intersect_new40ms_guard
+training:
+  epochs: 70
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  threshold: 0.5
+  checkpoint: fixed_final_epoch
+  precision: BF16_autocast_FP32_loss_and_parameters
+  standardization: outer_training_only
+  gradient_clip: 1.0
+evaluation:
+  primary: condition_equal_BAcc
+  primary_pairs:
+  - - multistate_norm
+    - v1_cycle
+  primary_Holm_family: 2
+  secondary_pairs: []
+  secondary_Holm_family: 0
+  uncertainty_unit: condition_or_appliance_file
+  historical_outer_exposure: exploratory
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  timeout_seconds: 3600
+  neural_fits: 30
+  reused_reference_fits: 30
+development_scope: Complete missing2x2 normalization/readout cell after prior results;
+  exploratory, not independent confirmation

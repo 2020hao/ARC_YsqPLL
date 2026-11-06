@@ -1,0 +1,19 @@
+{
+  "model_id": "cycle_phase_continuous_level_laststate",
+  "source": "arc_model.implementations.cycle_phase_snn.network",
+  "class": "CyclePhaseSNN",
+  "fixed_kwargs": {
+    "spiking": false,
+    "preserve_levels": true,
+    "multistate": false
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/cycle_phase_snn/network.py",
+      "sha256": "1d0ee43baed0a8d0101bb74420c614c3eed583374b8152fc70fef213f4f8c4bc",
+      "local_copy": "_source_cycle_phase_snn_network.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

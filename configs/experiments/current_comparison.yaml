@@ -1,0 +1,10 @@
+schema_version: 2
+study_id: current_two_dataset_comparison
+datasets: [self462, public]
+protocols: [self462_group4_125051, public_group5_1357]
+model_selection: explicit_registry_ids_required
+runtime: configs/runtime/server.yaml
+pool_datasets: false
+execution: plan_only_until_models_and_private_data_are_explicitly_selected
+performance_claims: no_historical_self_metrics_reused
+

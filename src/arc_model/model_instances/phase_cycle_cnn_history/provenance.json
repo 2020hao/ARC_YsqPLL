@@ -1,0 +1,17 @@
+{
+  "model_id": "phase_cycle_cnn_history",
+  "source": "arc_model.implementations.sp_cycle_net.network",
+  "class": "SPCycleNet",
+  "fixed_kwargs": {
+    "use_history": true
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/sp_cycle_net/network.py",
+      "sha256": "710c3c85b4e35068fddaed1d5cf75c3d4a0b2905adea133ea08ecde0f3b8d59d",
+      "local_copy": "_source_sp_cycle_net_network.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

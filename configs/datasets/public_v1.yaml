@@ -1,0 +1,27 @@
+schema_version: 2
+dataset_id: zenodo5501527
+display_name: Zenodo5501527公共连续电流
+protocol_id: public_group5_1357
+source:
+  doi: 10.5281/zenodo.5501527
+  native_sample_rate_hz: 1000000
+  current_channel: C3
+  annotation_only_channel: C2
+  annotation: reviewed_intervals_with_current_support_boundary_protection
+prepared:
+  root: ${ARC_PUBLIC_PREPARED}
+  metadata: cycles.csv
+  keep: keep.npy
+  splits:
+    kind: npz_roles
+    pattern: roles_f{fold}.npz
+    train_key: outer_train
+    test_key: test
+  arrays:
+    phase_native_1mhz:
+      file: realtime_raw.npy
+      source_sample_rate_hz: 1000000
+      select_channels: [0, 1, 2, 3, 4]
+    history_mask:
+      file: realtime_mask.npy
+

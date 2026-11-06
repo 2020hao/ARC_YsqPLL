@@ -1,0 +1,43 @@
+name: rcr_peak_dynamic_cnn_snn_candidate_v1
+status: completed_grouped_development_candidate
+model_class: arc_model.implementations.dynamic_state_net.network.DynamicStateNet
+model_kwargs: {arm: maxpool_dynamic}
+input:
+  measurements: single_trunk_current_only
+  reference: rcr_cycle_v2
+  native_sample_rate_hz: {self_collected: 2000000, public: 1000000}
+  physical_cycles: 9
+  channels: [LF_mean, log_power_10_100k, log_power_100_400k, distribution_delta_10_100k, distribution_delta_100_400k]
+  phase_bins: 64
+  dynamics: lag_1_2_4_8_two_bands_cos_MAD_JS_symmetric_peak_change_plus_availability
+  standardization: checkpoint_training_only_buffers
+classifier:
+  single_output: true
+  threshold: 0.5
+  group_OOF_affine_folded_into_final_layer: true
+  external_baseline_scores: false
+  distillation: false
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  current_gain_augmentation_range: [0.7079458, 1.4125375]
+  shared_phase_shift_bins: [-2, 2]
+  augmentation_shared_across_all_history: true
+  inference_augmentation: false
+  inner_group_folds_for_calibration: 2
+inference_cost:
+  network_parameters: 8249
+  matrix_MAC_per_output: 684960
+  LIF_scalar_updates: 1152
+  additional_training_only_calibration_scalars: 2
+  excludes: [raw_filtering, RCR, dynamic_summary_scalar_operations, normalization, activations, pooling, data_movement]
+evaluation:
+  independent_datasets: true
+  grouped_folds: {self462: 4, public: 5}
+  whole_network_seeds: [0, 1, 2]
+  independent_SOTA_confirmation: false

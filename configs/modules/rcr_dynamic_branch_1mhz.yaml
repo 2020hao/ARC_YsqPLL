@@ -1,0 +1,54 @@
+schema_version: 2
+module_id: rcr_dynamic_branch_1mhz_v1
+package: arc_model.modules.rcr_dynamic_branch_1mhz
+status: implemented_unvalidated_on_current462_correction
+input:
+  accepted_source_rates_hz: [1000000, 2000000]
+  analysis_rate_hz: 1000000
+  source: single_trunk_current_only
+  target_rate_is_not_a_backbone_override: true
+sampling:
+  version: causal_aa_1mhz_v1
+  taps: 103
+  passband_hz: 400000
+  stopband_hz: 500000
+  attenuation_db: 80
+  downsample_factor_from_2mhz: 2
+  group_delay_seconds_from_2mhz: 0.0000255
+  native_1mhz: exact_identity
+reference:
+  version: rcr_cycle_v2_20261104
+  internal_reference_rate_hz: 5000
+  update_seconds: 0.002
+  nominal_fallback_is_not_an_observed_phase: true
+features:
+  version: native_dynamic36_v1
+  phase_bins: 64
+  history_cycles: 9
+  bands_hz: [[10000, 100000], [100000, 400000]]
+  lags: [1, 2, 4, 8]
+  statistics: [cosine, MAD, JS_nats, symmetric_peak_share_change]
+  continuous_dimensions: 32
+  availability_dimensions: 4
+  reset: record_or_reference_epoch_or_noncontiguous_cycle
+  native_and_nominal_histories: separate
+fusion:
+  state_schema: phase_dynamic_v2
+  modes: [old_residual, whole_path]
+  default_enabled: false
+  threshold: use_parent_native_convention
+  disabled: preserve_scores_dtype_and_decisions_exactly
+fit:
+  explicit_offline_only: true
+  parent_scores: honest_training_group_OOF
+  learned_state_scope: model_dataset_split_seed_parent_checkpoint
+  device: cpu
+  epochs: 80
+  columns: all_36
+  calibration_and_gate: training_only
+legacy_compatibility:
+  alpha_state: legacy_dynamic_correction_v1
+  separate_from_new_fusion_state: true
+performance:
+  historical_metrics_transferred: false
+  current462_three_baseline_validation: pending

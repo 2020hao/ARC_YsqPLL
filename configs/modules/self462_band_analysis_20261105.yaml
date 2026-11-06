@@ -1,0 +1,18 @@
+specialized_study: self462_band_analysis_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_band_analysis_20261105
+parent: outputs/self462_feature_study_20261105
+analysis: fixed_C_L2_logistic_grouped_4fold; exploratory signal complementarity only
+reference: rcr
+arms: [LF_statistics, band_10_100k, band_100_400k, both_bands]
+threshold: 0.5
+C: 1.0
+max_iterations: 2000
+bootstrap_conditions: 5000
+permutation_conditions: 10000
+execution:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  threads: 2
+scope: cached native2MHz derived features on462records; no new CNN-SNN fit or band-boundary optimization

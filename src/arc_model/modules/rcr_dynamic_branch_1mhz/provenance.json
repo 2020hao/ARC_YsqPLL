@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "status": "implemented_unvalidated_on_current462_correction",
+  "feature_source": "native_dynamic_summary_v1",
+  "reference_version": "rcr_cycle_v2_20261104",
+  "fusion_source": "phase_dynamic_v2",
+  "sources": [
+    {
+      "source": "src/arc_model/preprocessing/rcr_cycle_v2.py",
+      "sha256": "8c0b2ef0da21fb31445d7264257107f14baccc8b1eaff83a93d70cf250e18359",
+      "destination": "reference.py"
+    },
+    {
+      "source": "src/arc_model/implementations/dynamic_state_net/summary.py",
+      "sha256": "a4894754951ba1f4be9d9b3eac21aacff1a278ca5d21fda81705bf786cc72772",
+      "destination": "features.py"
+    },
+    {
+      "source": "src/arc_model/implementations/phase_event_snn/streaming.py",
+      "sha256": "4b21dfe9fb1802323b44dc60e4552fb90d8d3fc4c32136b439f45d07bea80053",
+      "destination": "activity.py"
+    },
+    {
+      "source": "src/arc_model/implementations/dual_hydra/phase_dynamic_v2.py",
+      "sha256": "4fbbed9ba850b0c8c3c5ee7fc0eb8f491a1eb74271427b0f80bf43e8547c7789",
+      "destination": "fitting.py"
+    },
+    {
+      "source": "src/arc_model/implementations/dual_arc_fenet/enhancement.py",
+      "sha256": "09a1578555773bef8d4cd47dce30bebf97ad8b16bc8329459100af79d82ff538",
+      "destination": "legacy_correction.py"
+    },
+    {
+      "source": "src/arc_model/implementations/dual_arc_fenet/dynamic_correction.py",
+      "sha256": "a29b473f756f7fbf9c600003f30789b3efac76dddad0d5177b60effa73fb8bc5",
+      "destination": "legacy_dynamic_correction.py"
+    },
+    {
+      "source": "scripts/prepare_self462_1m_signals_20261105.py",
+      "sha256": "a5295aca19d8b37599b05cc974fea1df4d7f0d96debcd44d03e09373f386c361",
+      "destination": "sampling.py"
+    }
+  ],
+  "historical_metrics_transferred": false
+}

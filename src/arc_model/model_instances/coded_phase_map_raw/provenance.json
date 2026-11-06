@@ -1,0 +1,22 @@
+{
+  "model_id": "coded_phase_map_raw",
+  "source": "arc_model.implementations.map_input_calibration.network",
+  "class": "InputCodedPhaseMap",
+  "fixed_kwargs": {
+    "coding": "raw"
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/map_input_calibration/network.py",
+      "sha256": "3e6d0b4d9d64c98132b7e4d723363eb1cd60cf0f8ceb2b997f179b2fb8d96f91",
+      "local_copy": "_source_map_input_calibration_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/direct_efficiency/phase_map_hybrid.py",
+      "sha256": "7fcc2c77722b1b9283c81bb760be75d2c5560b2aea430958c62797b86017a198",
+      "local_copy": "_source_direct_efficiency_phase_map_hybrid.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

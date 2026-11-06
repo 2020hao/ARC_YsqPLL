@@ -1,0 +1,54 @@
+specialized_study: protected_dynamic_encoder_20261103
+output: outputs/protected_dynamic_encoder_20261103
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+pool_datasets: false
+outer_folds: 5
+backbone_seed: 0
+head_seeds: [0, 1, 2]
+reference: frozen_existing_B1_matched_whole_path_dynamic_fusion
+feature_definition: unchanged_RCR36_2bands_4lags_4statistics_plus4flags
+architectures:
+  linear: {parameters: 37, purpose: extra_refitting_control}
+  dense: {parameters: 115, purpose: equal_capacity_generic_MLP_control}
+  lag_shared: {parameters: 115, purpose: shared_band_lag_statistics_encoder}
+head:
+  steps: 160
+  batch: full_training_partition
+  optimizer: AdamW
+  learning_rate: 0.002
+  weight_decay: 0.01
+  residual_L2: 0.01
+  delta_bound: 2
+  initialization: zero_output_exact_strong_reference
+  objective: BCE_calibrated_honest_backbone_OOF_plus_frozen_linear_dynamic_plus_new_residual
+  precision: FP32_no_TF32
+selection:
+  train: existing_B_groups_only
+  validation: existing_C_groups_only
+  final_fit: frozen_outertrain_honest_backbone_OOF
+  beta_grid: [0, 0.25, 0.5, 1]
+  inherited_B1_parameters: unchanged_prior_train_selected_lambda_quantile_PCA_calibration
+  constraints:
+    max_condition_FPR_increase_over_strong_reference: 0.005
+    max_condition_Recall_decrease_over_strong_reference: 0.01
+  rank: [max_condition_BAcc, min_condition_FPR, min_beta]
+  beta0_identity: exact_existing_enhanced_B1_not_naked_backbone
+  outer_test_selection: forbidden
+evaluation:
+  unit: cycle_window
+  primary: condition_equal_BAcc
+  primary_pair: [lag_shared, strong_reference]
+  Holm_primary_family: 6_dataset_backbone_comparisons
+  secondary_pair: [lag_shared, dense]
+  bootstrap_unit: condition_or_appliance_file
+  bootstrap_repeats: 10000
+  head_seed_SD: not_backbone_seed_SD
+  historical_outer_exposure: exploratory
+execution:
+  physical_gpus: [1, 2, 3]
+  excluded_gpu: 0
+  CPU_threads_per_worker: 2
+  timeout_seconds: 3600
+  new_backbone_fits: 0
+  new_residual_head_fits: 540

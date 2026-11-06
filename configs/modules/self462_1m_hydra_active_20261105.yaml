@@ -1,0 +1,14 @@
+specialized_study: self462_1m_hydra_active_20261105
+datasets: [self462]
+pool_datasets: false
+output: outputs/self462_1m_baselines_20261105
+purpose: exact_same_objective_working_set_acceleration_after_f2_1800s_timeout
+fold: 2
+original_features_scaler_all_training_examples_lambda_classifier_threshold: unchanged
+warmstart: training_only_SGD_hinge_L1_same_objective_30passes_not_final_classifier
+solver: equivalent_dual_working_set_HiGHS_dual_simplex; fixed_variables_enter_full_constraints_and_objective
+acceptance: original_primal_objective_replay; all_training_examples_primal_dual_gap_lt1e-6; all_dual_constraints_lt1e-7
+selection_rule: numerical_optimality_only_no_test_score_selection
+execution:
+  CPU_solver_jobs: 1
+  physical_gpus: []

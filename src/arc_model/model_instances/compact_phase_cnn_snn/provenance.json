@@ -1,0 +1,15 @@
+{
+  "model_id": "compact_phase_cnn_snn",
+  "source": "arc_model.implementations.direct_efficiency.compact_hybrid",
+  "class": "CompactHybrid",
+  "fixed_kwargs": {},
+  "files": [
+    {
+      "path": "src/arc_model/implementations/direct_efficiency/compact_hybrid.py",
+      "sha256": "b06afd6b6214fbd83a47500ddacdaf7cc311730b53cfa35b17912eb39d22f8c0",
+      "local_copy": "_source_direct_efficiency_compact_hybrid.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

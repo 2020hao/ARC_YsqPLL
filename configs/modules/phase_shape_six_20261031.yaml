@@ -1,0 +1,77 @@
+specialized_study: phase_shape_six_20261031
+output: outputs/phase_shape_six_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+outer_folds: 5
+frozen_backbone_seed: 0
+correction_head_seeds: [0, 1, 2]
+features:
+  names: [low_shift_abs, low_shape_MAD, low_half_L1, high_shift_abs, high_shape_MAD, high_half_L1]
+  base: unchanged_RCR32_with_4_arithmetic_availability_masks
+  added_trainable_weights: 6
+  phase_bins: 20
+  lags: [1]
+  shift_objective: minimum_mean_absolute_difference
+  shift_value: shortest_absolute_angle_divided_by_pi
+  shift_uniqueness_tolerance: 1.0e-12
+  ambiguous_shift: invalid_with_separate_mask
+  shape_value: minimum_mean_absolute_difference_over_20_rolls
+  half_value: half_sum_absolute_difference_between_separately_normalized_half_profiles
+  energy_floor: 1.0e-20
+  valid_previous: same_record_anchorordinal_adjacent_kind_segment_epoch_and_contiguous_end_start
+  adjacency_tolerance: 1.5_native_samples
+  labels_or_guard_flags_used_for_feature_validity: false
+  RCR_nominal_fallback: exact_fixed_six
+  native_missing_history: neutralize_only_missing_new_columns
+  waveform_interpolation: false
+arms: [fixed6, rcr6, cycle_roll6, record_roll6]
+ablations: [drop_low_shift, drop_low_shape, drop_low_half, drop_high_shift, drop_high_shape, drop_high_half]
+controls: [base32, parent, current36]
+rotation:
+  hash: sha256_phase-shape-v6_dataset_kind_record_anchor
+  cycle: independent_per_anchor_mod20
+  record: one_nonzero_shift_per_record
+  expected_record_invariance_columns: [0, 1, 3, 4]
+  expected_cycle_invariance_columns: [1, 4]
+training:
+  epochs: 80
+  learning_rate: 0.002
+  weight_decay: 0.002
+  L1_mean_base_plus_extra: 0.0002
+  batch_size: 256
+  initial_fit: B_with_unseen_A_backbone_scores
+  final_fit: outertrain_honest_two_innerfold_backbone_OOF
+  standardization: train_valid_rows_only_missing_standardized_zero
+  optimization: joint_32_base_weights_plus_6_targeted_weights
+  fusion: raw_plus_h_base_times_calibration_and_base_dynamic_plus_valid_new_dynamic
+selection:
+  base_control: original_C_on_or_raw_off
+  candidates: [new_full_pipeline, matched_base32_pipeline]
+  C_FPR_limit_vs_matched_base: 0.02
+  rank: [max_condition_BAcc, min_condition_FPR, prefer_base_tie]
+  descriptor_set: six_predeclared_candidates_no_outer_test_pruning
+  no_outer_test_selection: true
+  always_on: diagnostic_only
+evaluation:
+  primary_pairs: [[rcr6, fixed6], [rcr6, cycle_roll6]]
+  primary_Holm: all_12
+  secondary_pairs: [[rcr6, base32], [rcr6, record_roll6]]
+  secondary_Holm: all_12
+  reference_pair: [rcr6, current36]
+  reference_Holm: all_6
+  retention: full_rcr_minus_each_retrained_drop
+  retention_Holm: all_36
+  resampling_unit: condition_or_appliance_file
+  seed_aggregation: paired_condition_difference_averaged_over_three_head_seeds
+  seed_SD: correction_head_only_not_backbone_seed_variability
+  bootstrap_repeats: 10000
+  existing_exposed_outer_folds: true
+execution:
+  new_linear_head_fits: 1920
+  reused_base_states: 60
+  new_backbone_fits: 0
+  CPU_workers: 3
+  CPU_threads: 2
+  GPU_reserved: [0]
+  GPU_allowed: [1, 2, 3]
+  timeout_s: 3600

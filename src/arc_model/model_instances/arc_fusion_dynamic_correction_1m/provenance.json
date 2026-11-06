@@ -1,0 +1,39 @@
+{
+  "model_id": "arc_fusion_dynamic_correction_1m",
+  "source": "arc_model.implementations.dual_arc_fusion.model",
+  "class": "Model",
+  "fixed_kwargs": {
+    "extra": 0,
+    "d_model": 64,
+    "n_heads": 4,
+    "feedforward_dim": 128,
+    "dropout": 0.1,
+    "n_encoder_layers": 2,
+    "spectral_pool_stride": 2
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/dual_arc_fusion/model.py",
+      "sha256": "de314126b9ce48be93365ecdc4db8e9472ffe87a9b4e639410164cf0da43463d",
+      "local_copy": "_source_dual_arc_fusion_model.py"
+    },
+    {
+      "path": "src/arc_model/implementations/dual_arc_fusion/enhancement.py",
+      "sha256": "09a1578555773bef8d4cd47dce30bebf97ad8b16bc8329459100af79d82ff538",
+      "local_copy": "_source_dual_arc_fusion_enhancement.py"
+    },
+    {
+      "path": "src/arc_model/implementations/dual_arc_fusion/dynamic_correction.py",
+      "sha256": "a29b473f756f7fbf9c600003f30789b3efac76dddad0d5177b60effa73fb8bc5",
+      "local_copy": "dynamic_correction.py",
+      "shared_module": "arc_model.modules.rcr_dynamic_branch_1mhz.legacy_dynamic_correction"
+    },
+    {
+      "path": "src/arc_model/implementations/dual_arc_fusion/network.py",
+      "sha256": "3fce953700a946617766aaaea3e582e83a79e60ed9686e7dc913aecb3acc985b",
+      "local_copy": "_source_dual_arc_fusion_network.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

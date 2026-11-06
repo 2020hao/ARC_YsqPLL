@@ -1,0 +1,80 @@
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+specialized_study: midband_competition_20261105
+output: outputs/midband_competition_20261105
+model: MidbandPhaseMap
+input_coding: raw_fixed
+distillation: false
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+references:
+- rcr
+- sogi
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+  singleton_policy: merge singleton remainder into preceding batch, no dropped samples
+arms:
+- base
+- mid
+- competition
+- both
+features:
+  original5: bit-exact unchanged native LF/HF phase profiles
+  middle_band_hz:
+  - 1000
+  - 10000
+  sampling: existing causal1/2MHz FIR to50kHz
+  mid_channels:
+  - log_mean_power
+  - consecutive_cycle_phase_distribution_delta
+  competition:
+    groups: 2
+    kernels_per_group: 2
+    kernel_length: 5
+    dilations:
+    - 1
+    - 4
+    seed: 1729
+    normalization: zero mean and unitL1
+    count: fraction samples won by kernel0 per phase bin, causal lfilter
+    channels: 2
+    fixed_weights: 20
+  phase_bins: 64
+  history_cycles: 9
+evaluation:
+  primary: condition_equal_BAcc
+  threshold: 0.5
+  primary_family: three candidates minus base, two datasets and two references
+  primary_Holm_tests: 12
+  mechanism_family: both minus mid and competition
+  mechanism_Holm_tests: 8
+  bootstrap: 10000
+  unit: condition_or_appliance_file
+  scope: exploratory after historical external-fold exposure
+  no_outer_selection: true
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  new_fits: 180
+  reused_fits: 60
+  timeout_seconds: 7200

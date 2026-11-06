@@ -1,0 +1,36 @@
+{
+  "model_id": "hydra_phase_aligned_input",
+  "source": "arc_model.implementations.plugin_hydra.model",
+  "class": "Model",
+  "fixed_kwargs": {
+    "k": 8,
+    "g": 8,
+    "kernel_length": 5,
+    "stride": 1,
+    "transform_seed": 0
+  },
+  "files": [
+    {
+      "path": "src/arc_model/implementations/plugin_hydra/model.py",
+      "sha256": "395d03fa98ffcdeb7fb7a4725f45bb3f08c7f9f70db6360290674512bcb07ccd",
+      "local_copy": "_source_plugin_hydra_model.py"
+    },
+    {
+      "path": "src/arc_model/implementations/plugin_hydra/network.py",
+      "sha256": "27a5c388caa9853df94d56fe729dcc320f7e716cbfa1fd0468c8aa927d146049",
+      "local_copy": "_source_plugin_hydra_network.py"
+    },
+    {
+      "path": "src/arc_model/implementations/plugin_hydra/features.py",
+      "sha256": "8159b9b6e33370f3925fa6a3af6239207c3d4288586f93ae1b6490478d33d024",
+      "local_copy": "_source_plugin_hydra_features.py"
+    },
+    {
+      "path": "src/arc_model/implementations/plugin_hydra/transform.py",
+      "sha256": "b8b1c79ea2b44ab21a67f03f4f24bd5b0ce226fb1589189b7620563e58687a3b",
+      "local_copy": "_source_plugin_hydra_transform.py"
+    }
+  ],
+  "metrics_transferred": false,
+  "weights_transferred": false
+}

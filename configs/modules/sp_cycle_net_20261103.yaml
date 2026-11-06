@@ -1,0 +1,47 @@
+specialized_study: sp_cycle_net_20261103
+output: outputs/sp_cycle_net_20261103
+datasets: [continuous5m, zenodo5501527]
+pool_datasets: false
+seeds: [0]
+outer_folds: 5
+arms:
+  rcr_history: {coordinate: rcr, history: true}
+  rcr_single: {coordinate: rcr, history: false}
+  fixed_history: {coordinate: fixed20, history: true}
+  sogi_history: {coordinate: sogi, history: true}
+input:
+  history_cycles: 9
+  phase_bins: 64
+  lowpass_hz: 1000
+  native_bands_hz: [[10000, 100000], [100000, 400000]]
+  power_log_floor: 1.0e-20
+  histories: same_record_same_reference_segment_epoch_and_contiguous_only
+  reset_using_ground_truth_labels: false
+  preserve_current_frozen_38374_1361_cohort: true
+training:
+  epochs: 70
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 0.00001
+  weight_decay: 0.001
+  loss: condition_and_class_equal_weighted_BCE
+  gradient_clip: 1.0
+  checkpoint: final_epoch_no_outer_test_selection
+  standardization: training_current_cycles_only_per_channel
+  precision: BF16_autocast_FP32_parameters_and_loss
+evaluation:
+  primary: condition_equal_cycle_BAcc
+  threshold: 0.5
+  pooled: [Accuracy, Precision, Recall, F1, FPR, ROC_AUC, AP, MCC, TP, FP, TN, FN]
+  primary_pairs: [[rcr_history, fixed_history], [rcr_history, sogi_history], [rcr_history, rcr_single]]
+  bootstrap_unit: condition_or_appliance_file
+  bootstrap_repeats: 10000
+  seed_status: single_seed_exploratory_not_final_multi_seed_confirmation
+  alarm_level: not_evaluated_user_current_scope_is_cycle_level
+execution:
+  physical_gpus: [1, 2, 3]
+  excluded_gpu: 0
+  cpu_preparation_workers: 4
+  cpu_threads_per_gpu_worker: 2
+  timeout_hours: 6

@@ -1,0 +1,22 @@
+name: project-layout-v2
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  independent-models-and-contracts:
+    runs-on: ubuntu-latest
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m pip install -e '.[dev]'
+      - run: python scripts/check_baseline_release.py
+      - run: arc-project validate
+      - run: arc-project list --recommended
+      - run: python -m pytest tests/contracts tests/modules tests/model_instances tests/orchestration tests/data_io tests/parity -q

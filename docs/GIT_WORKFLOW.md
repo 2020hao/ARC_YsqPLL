@@ -1,7 +1,8 @@
 # Git / GitHub workflow
 
 Remote: https://github.com/2020hao/ARC_YsqPLL . The repository was public when
-initialized. Git manages local changes; GitHub hosts the portable code snapshot.
+initialized; the connected repository is private as verified on2026-11-06.
+The portable-code-only publication policy still applies. Git manages local changes; GitHub hosts the portable code snapshot.
 
 Raw data, labels, weights, manuscripts and metrics remain outside versioned code.
 Use `scripts/export_code_snapshot.py` to inspect/export an allowlisted code tree

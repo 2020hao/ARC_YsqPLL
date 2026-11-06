@@ -1,0 +1,34 @@
+study: rcr_frequency_tracking_20261031
+output: outputs/rcr_frequency_tracking_20261031
+scope: known_phase_reference_tracking_diagnosis_not_real_arc_classification
+methods: [RCR_original, RCR_fast, RCR_selective, robust_SOGI]
+original_frequency_gain: 0.06
+fast_frequency_gain: 0.12
+selective_trigger:
+  source: FUNDAMENTAL_only_with_fundamental_origin
+  consecutive_observations: 3
+  same_sign: true
+  minimum_absolute_innovation_deg: 0.10
+  maximum_innovation_range_deg: 0.50
+  maximum_absolute_innovation_deg: original_10deg_validity_limit
+all_other_observations_validity_lifecycle: unchanged
+original_native_source_cases: outputs/coordinate_evidence_20261031/synthetic/cases
+old_scenarios: [steady,slow_frequency_ramp,low_frequency_harmonic_change,impulsive_contamination,periodic_weak_fundamental,reference_dropout]
+old_seeds: [73101,73102,73103]
+new_scenarios: [reverse_ramp,rise_fall_ramp,ramp_with_impulses]
+new_seeds: [74101,74102,74103]
+native_sample_rates_hz: [1000000,2000000]
+duration_s: 4
+evaluation_s: [0.8,3.8]
+error_truth: identically_causal_filtered_known_complex_fundamental_no_fitted_offset
+primary: ramp_phase_MAE_reduction_with_unchanged_coverage
+tradeoff_screen:
+  ordinary_MAE_increase_deg_max: 0.02
+  fundamental_coverage_decrease_fraction_max: 0.01
+  dropout_false_validity: must_not_increase
+new_seed_status: synthetic_source_robustness_not_independent_physical_validation
+classification_fits: 0
+GPU_used: false
+workers: 3
+threads_per_worker: 2
+no_default_promotion: true

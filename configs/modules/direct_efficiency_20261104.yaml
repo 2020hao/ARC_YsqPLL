@@ -1,0 +1,130 @@
+specialized_study: direct_efficiency_20261104
+output: outputs/direct_efficiency_20261104
+datasets:
+- continuous5m
+- zenodo5501527
+pool_datasets: false
+model: direct_accuracy_cost_comparison
+correction_branch: false
+seeds:
+- 0
+- 1
+- 2
+outer_folds: 5
+arms:
+  rcr_raw_ttfs:
+    coordinate: realtime
+    encoding: ttfs
+    spiking: true
+    decomposition: false
+    architecture: event
+  compact_cnn:
+    coordinate: realtime
+    encoding: continuous
+    spiking: false
+    decomposition: false
+    architecture: cnn
+  compact_hybrid:
+    coordinate: realtime
+    encoding: continuous
+    spiking: true
+    decomposition: false
+    architecture: hybrid
+input:
+  source_profiles: native_rate_LF_mean_and_HF_10_100k_100_400k_power
+  sample_rates_retained_hz:
+  - 2000000
+  - 1000000
+  channels:
+  - LF_mean
+  - log_HF_low
+  - log_HF_high
+  - delta_distribution_low
+  - delta_distribution_high
+  - unused_zero
+  - unused_zero
+  - unused_zero
+  decomposition_is_reversible_above_numerical_floor: false
+  phase_bins: 64
+  history_cycles: 9
+  encoded_steps_per_cycle: 4
+  simulation_steps: 36
+  signed_ON_OFF_channels: 16
+  deadzone_standard_deviations: 0.25
+  saturation_standard_deviations: 3.0
+  standardization: outer_training_current_cycles_only
+  masks_reset_neurons: true
+  no_test_labels_in_encoding: true
+architecture:
+  spike_conv1:
+  - 16
+  - 16
+  - 5
+  binary_maxpool1: 2
+  spike_conv2:
+  - 16
+  - 24
+  - 3
+  binary_maxpool2: 2
+  spike_dense:
+  - 384
+  - 16
+  readout:
+  - 16
+  - 1
+  output: mean_last_current_cycle4steps_linear_of_spikes
+  learned_leak_initial: 0.8
+  threshold_initial: 0.5
+  batchnorm_training_only_running_statistics_at_inference: true
+  all_weighted_hidden_inputs_binary_except_direct_and_analog_controls: true
+training:
+  epochs: 50
+  batch_size: 512
+  optimizer: AdamW
+  learning_rate: 0.001
+  min_learning_rate: 1.0e-05
+  weight_decay: 0.001
+  loss: condition_and_class_equal_BCE
+  spike_activity_penalty: 0.001
+  checkpoint: fixed_final_epoch
+  threshold: 0.5
+  precision: FP32_all_layers_and_membranes
+  gradient_clip: 1.0
+  TF32: false
+evaluation:
+  primary: condition_equal_BAcc
+  primary_pairs:
+  - - compact_hybrid
+    - compact_cnn
+  primary_Holm_family: 2
+  secondary_pairs:
+  - - compact_cnn
+    - rcr_raw_ttfs
+  - - compact_hybrid
+    - rcr_raw_ttfs
+  secondary_Holm_family: 4
+  uncertainty_unit: condition_or_appliance_file
+  cluster_bootstrap_repeats: 10000
+  complexity:
+  - parameters
+  - parameter_and_buffer_bytes
+  - input_events
+  - per_layer_spike_rate
+  - Dense_MAC
+  - effective_MAC
+  - effective_AC
+  - neuron_updates
+  energy_scope: no_hardware_energy_claim_from_operation_counts
+  runtime_scope: full_cycle_input_then_direct_prediction_CPU_FIFO
+  historical_outer_exposure: exploratory_development
+execution:
+  physical_gpus:
+  - 1
+  - 2
+  - 3
+  exclude_gpu: 0
+  timeout_seconds: 5400
+  neural_fits: 60
+  reused_reference_fits: 30
+development_scope: second exploratory followup explicitly broadens accuracy-cost objective;
+  continuous ANN and hybrid retain real amplitudes; not same event-input control

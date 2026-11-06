@@ -1,0 +1,40 @@
+specialized_study: phase_start_fixed20_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+parent_registry: outputs/grouped_baseline_standard_20261029/baseline_registry.json
+parent_release: releases/baselines_v1_20261030
+protocol:
+  folds: 5
+  seeds: [0]
+  stage: matched_seed0_exploratory_input_ablation
+  cohort: exact_reviewed_38374_and_1361
+  split: frozen_condition_source_record_disjoint
+  reference: causal_RCR_phase_start
+  physical_window_seconds: 0.02
+  waveform_phase_interpolation: false
+  time_stretching: false
+  invalid_reference: fixed20_input_fallback_without_dropping_windows
+  train_budget: unchanged_original_seed_epochs_loss_optimizer_precision
+  auxiliary_feature_branch: false
+  model_architecture: unchanged
+arms:
+  baseline: frozen_parent_weights_fixed20_input
+  start_direct: frozen_parent_weights_phase_start_fixed20_input
+  start_retrained: budget_matched_retrain_phase_start_fixed20_input
+historical_matched_controls:
+  single_direct: outputs/locked_routes_20261030/plugin
+  single_retrained: outputs/locked_routes_20261030/plugin
+evaluation:
+  primary: condition_equally_weighted_cycle_BAcc
+  secondary: [Accuracy, Precision, Recall, Specificity, F1, Macro_F1, FPR, FNR, ROC_AUC, AP, MCC, TP, FP, TN, FN]
+  paired_bootstrap_unit: condition_or_public_appliance_group
+  bootstrap_repetitions: 10000
+  comparisons: [start_direct_vs_baseline, start_retrained_vs_baseline, start_direct_vs_single_direct, start_retrained_vs_single_retrained]
+  multiplicity: Holm_per_comparison_family_across_six_cells
+  unavailable_alarm_metrics: null_not_current_endpoint
+execution:
+  physical_gpu_ids: [1, 2, 3]
+  reserved_gpu_ids: [0]
+  preserve_frozen_baselines: true
+  reuse_original_training_and_inference_batching: true
+output: outputs/phase_start_fixed20_20261031

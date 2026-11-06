@@ -1,0 +1,55 @@
+specialized_study: fusion_frontier_20261031
+output: outputs/fusion_frontier_20261031
+datasets: [continuous5m, zenodo5501527]
+models: [ArcFENet, HYDRA, ArcFusionNet]
+outer_folds: 5
+backbone_seeds: [0]
+features: unchanged_RCR36_native_HF_dynamics_and_history_masks
+new_backbone_fits: 0
+new_linear_head_fits: 120
+parent_release: baselines_v1_20261030
+matched:
+  strengths: [0, 0.1, 0.25, 0.5, 0.75, 1]
+  quantiles: [0.75, 0.9, 0.95, 0.975]
+  softness: [0.15]
+  regularization_multipliers: [1]
+  include_no_gate: false
+expanded:
+  common_strengths: [0, 0.1, 0.25, 0.5, 0.75, 1]
+  residual_extra_strengths: [1.5, 2, 3]
+  quantiles: [0.5, 0.75, 0.9, 0.95, 0.975, 0.995]
+  softness: [0.05, 0.15, 0.3, 0.6]
+  regularization_multipliers: [0.1, 1, 10]
+  include_no_gate: true
+head:
+  epochs: 80
+  lr: 0.002
+  batch_size: 256
+  base_weight_decay: 0.002
+  base_l1_mean_penalty: 0.0002
+  apply_multiplier_to: [weight_decay, l1_mean_penalty]
+selection:
+  fit: existing_B_groups_only
+  validation: existing_C_groups_only
+  final_fit: existing_honest_two_inner_fold_outertrain_OOF
+  constraints: raw_parent_condition_FPR_increase_at_most_0.02
+  rank: [max_condition_BAcc, min_condition_FPR, min_strength, closest_reg_to_1, gate_before_no_gate, closest_softness_to_0.15, min_quantile]
+  include_raw_off_for_both: true
+  original_R2_and_B1_preserved_as_separate_arms: true
+  outer_test_selection: forbidden
+evaluation:
+  primary: condition_equal_cycle_BAcc
+  secondary: [Accuracy, Precision, Recall, Specificity, F1, FPR, ROC_AUC, AP, MCC, TP, FP, TN, FN]
+  primary_pairs: [[B1_matched, R2_matched], [B1_expanded, R2_expanded]]
+  Holm_primary_family: all_12_tests
+  bootstrap_unit: condition_or_appliance_file
+  bootstrap_repeats: 10000
+  interpretation: exploratory_finite_search_frontier_on_exposed_folds_not_global_upper_bound
+execution:
+  max_parallel: 3
+  cpu_threads_per_worker: 2
+  head_device: cpu
+  allowed_physical_GPUs: [1, 2, 3]
+  reserved_physical_GPU: 0
+  timeout_seconds: 3600
+  overwrite_existing_results: false
