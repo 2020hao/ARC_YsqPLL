@@ -16,8 +16,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 53145,
-    "sha256": "38a04540834bec320c259e0c55ee9ab8d56ff1cd526ad6b523f7651b1881eb7e"
+    "bytes": 7755,
+    "sha256": "6a65ae3ab4c4694413409d8c5432f318d96bd4a9e7a88599e38f3e92df297083"
   },
   {
     "path": "configs/datasets.yaml",
@@ -136,8 +136,13 @@
   },
   {
     "path": "docs/DATASETS.md",
-    "bytes": 9256,
-    "sha256": "145420c030ae407d82f397a4181a1e8ddf13fbebfbe9d00eb340d75ba4d33be5"
+    "bytes": 2226,
+    "sha256": "39cf7da86a8c9c378efa5452247447fdfa730e1f1766fc79c99f7f0f82f0157b"
+  },
+  {
+    "path": "docs/DATASET_SCOPE_20261106.md",
+    "bytes": 2134,
+    "sha256": "4ea0e9f698826c54c26fd92e7bf188dd9eef2c477b82cfadc0e1863832c25040"
   },
   {
     "path": "docs/DATA_SPLIT_PROTOCOL_20261030.md",
@@ -148,6 +153,11 @@
     "path": "docs/DYNAMIC_CORRECTION_RESTORE.md",
     "bytes": 4575,
     "sha256": "d626b7a489384e6444a9e6cdf7ccf4fc5701a33bac66a90b9982aefc3067b204"
+  },
+  {
+    "path": "docs/EXPERIMENT_RESULTS.md",
+    "bytes": 14318,
+    "sha256": "29a8dc03121ca5f0212dd2701b0c1c30580bfe9bf78a23e85185708f515bbfc7"
   },
   {
     "path": "docs/GIT_WORKFLOW.md",
