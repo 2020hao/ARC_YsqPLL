@@ -20,7 +20,7 @@ import _bootstrap as boot
 ROOT=boot.ROOT
 OUT=ROOT/'outputs/phase_hierarchy_20261105'
 CFG=ROOT/'configs/modules/phase_hierarchy_20261105.yaml'
-PYTHON='/data/hzy/conda/envs/NILMFormer/bin/python'
+PYTHON=__import__("sys").executable
 SELF=ROOT/'outputs/self462_1m_baselines_20261105'
 PUBLIC=ROOT/'outputs/map_input_calibration_20261105/data/zenodo5501527'
 
@@ -223,7 +223,7 @@ def audit_replay(gpu):
  torch.backends.cudnn.deterministic=True;torch.backends.cudnn.benchmark=False
  jobs=json.loads((OUT/'protocol.json').read_text())['jobs'];rows=[]
  for idx,j in enumerate(jobs):
-  if idx%3!=gpu-1:continue
+  if not os.environ.get("ARC_AUDIT_ALL") and idx%3!=gpu-1:continue
   d=destination(j);receipt=json.loads((d/'COMPLETE.json').read_text())
   for n,h in receipt['hashes'].items():assert sha(d/n)==h
   table,keep,x,mask=host_data(j['dataset']);tr,te=roles(j['dataset'],j['fold']);ids=np.load(d/'indices.npz')

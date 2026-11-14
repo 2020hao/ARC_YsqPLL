@@ -12,10 +12,10 @@ def antialias():
 def one(job):
  row,outdir=job;d=Path(outdir)/row['id'];d.mkdir(parents=True,exist_ok=True)
  if (d/'COMPLETE.json').exists():return json.loads((d/'COMPLETE.json').read_text())
- start=time.time();p=Path(row['bin_114'].replace('/data/hzy/test-manager','/data/nvme0/test-manager',1))
+ start=time.time();p=Path(row['bin_114'])
  with p.open('rb') as f:h=f.read(56)
  dev,ts,ch,fs,n=struct.unpack('<32sQIIQ',h);assert dev.rstrip(b'\0')==b'NET9770_114' and fs==2000000 and ch==8 and p.stat().st_size==56+n*ch*8
- raw=np.memmap(p,dtype='<f8',offset=56,shape=(n,ch))[:,0].copy();assert np.isfinite(raw).all();source_hash=hashlib.sha256(raw.tobytes()).hexdigest();y=upfirdn(antialias(),raw,down=2)[:(n+1)//2];assert np.isfinite(y).all();np.save(d/'current1m.npy',y)
+ raw=np.memmap(p,dtype='<f8',mode='r',offset=56,shape=(n,ch))[:,0].copy();assert np.isfinite(raw).all();source_hash=hashlib.sha256(raw.tobytes()).hexdigest();y=upfirdn(antialias(),raw,down=2)[:(n+1)//2];assert np.isfinite(y).all();np.save(d/'current1m.npy',y)
  receipt=dict(id=row['id'],source_CH0_sha256=source_hash,source_header_sha256=hashlib.sha256(h).hexdigest(),source_size=p.stat().st_size,source_samples=n,samples1m=len(y),fs=1000000,signal_sha256=hashlib.sha256(y.tobytes()).hexdigest(),seconds=time.time()-start)
  (d/'COMPLETE.json').write_text(json.dumps(receipt));return receipt
 

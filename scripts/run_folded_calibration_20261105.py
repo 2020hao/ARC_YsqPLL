@@ -20,7 +20,7 @@ OUT=ROOT/'outputs/folded_calibration_20261105'
 PARENT=ROOT/'outputs/phase_hierarchy_20261105'
 DYNAMIC=ROOT/'outputs/dynamic_state_20261105'
 CFG=ROOT/'configs/modules/folded_calibration_20261105.yaml'
-PYTHON='/data/hzy/conda/envs/NILMFormer/bin/python'
+PYTHON=__import__("sys").executable
 
 def destination(j):return OUT/'runs'/j['dataset']/f'f{j["fold"]}_s{j["seed"]}'
 def parent_folder(j):return PARENT/'runs'/j['dataset']/'gain_phase'/f'f{j["fold"]}_s{j["seed"]}'
@@ -173,7 +173,7 @@ def audit_replay(gpu):
  torch.backends.cudnn.deterministic=True;torch.backends.cudnn.benchmark=False
  protocol=json.loads((OUT/'protocol.json').read_text());rows=[]
  for k,j in enumerate(protocol['jobs']):
-  if k%3!=gpu-1:continue
+  if not os.environ.get("ARC_AUDIT_ALL") and k%3!=gpu-1:continue
   d=destination(j);table,keep,x,mask=host_data(j['dataset']);summary=np.load(DYNAMIC/f'{j["dataset"]}_dynamic36.npy',mmap_mode='r')
   sets=[(d/f'inner{i}','model.pt','predictions.npz') for i in (0,1)]+[(d,f'{arm}_model.pt',f'{arm}_predictions.npz') for arm in protocol['config']['arms']]
   for folder,state_name,pred_name in sets:

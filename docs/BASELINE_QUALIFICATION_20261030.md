@@ -54,7 +54,7 @@ FP64 CUDA Graph执行与CPU相同公式在500/2,000步训练样本上对照，�
 
 本轮使用`configs/models.yaml`中的冻结网络参数，两个研究YAML只声明实验范围。
 需要已有审核元数据、索引与两个数据集的当前输入准备产物；不能仅提供任意原始文件
-而省略标签与划分。参见[数据划分协议](DATA_SPLIT_PROTOCOL_20261030.md)。
+而省略标签与划分。参见[数据划分协议](DATASETS.md)。
 
 ```bash
 python scripts/run_experiment_suite.py --suite configs/modules/fenet_qualification_20261030.yaml

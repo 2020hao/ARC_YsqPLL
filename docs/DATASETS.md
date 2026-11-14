@@ -120,6 +120,16 @@
 
 各电器/录波组整体分配；同一文件的窗口在同一外折中不跨训练和测试。来源：当前公共缓存 `roles_f0.npz`至 `roles_f4.npz`，分别使用其中 `outer_train`与 `test`索引。
 
+公共 C3 测试文件如下。每个外折的训练文件为其余所有录波。文件与对应标签锚点随数据包发放，`public_data.py` 根据此表重建窗口索引。
+
+| 测试折 | 原始文件 |
+|---:|---|
+| 0 | `C3_foodprocessor_carbonizedpath.dat`、`C3_kettle_carbonizedpath.dat` |
+| 1 | `C3_computer_carbonizedpath.dat`、`C3_drill550_carbonizedpath.dat`、`C3_vacuumcleaner1200W_carbonizedpath.dat` |
+| 2 | `C3_drill710_carbonizedpath.dat`、`C3_heater_carbonizedpath.dat` |
+| 3 | `C3_dolcegusto_carbonizedpath.dat`、`C3_pump_carbonizedpath.dat`、`C3_vacuumcleaner1250_carbonizedpath.dat` |
+| 4 | `C3_halogen_carbonizedpath.dat`、`C3_jigsaw135_carnonizedpath.dat`、`C3_printer_carbonizedpath.dat` |
+
 ## 4. 窗口、特征与训练内处理
 
 基准模型使用自己的固定20 ms输入适配；相位方法按参考坐标组织完整周波。共同输出锚点不代表两种方法的原始支持完全相同，必须共同检查标签边界。

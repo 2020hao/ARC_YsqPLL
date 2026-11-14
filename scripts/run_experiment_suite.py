@@ -12,7 +12,7 @@ from arc_model.evaluation.multilevel import evaluate
 
 def main():
  p=argparse.ArgumentParser(description=__doc__)
- p.add_argument('--suite',default='configs/experiment_suite.yaml')
+ p.add_argument('--suite',required=True)
  p.add_argument('--execute',action='store_true',help='Default preflight only; never partial single-dataset execution')
  p.add_argument('--device',default='cpu')
  p.add_argument('--model',help='One model config; still runs BOTH datasets')
@@ -29,139 +29,8 @@ def main():
   if suite['specialized_study']=='dynamic_state_20261105':
    from run_dynamic_state_20261105 import run_study
    run_study(suite,execute=a.execute);return
-  if suite['specialized_study']=='self462_1m_hydra_native_20261105':
-   from native_lp_hydra_self462_1m_20261105 import run_study
-   run_study(suite,execute=a.execute);return
-  if suite['specialized_study']=='self462_1m_hydra_active_20261105':
-   from active_lp_hydra_self462_1m_20261105 import run_study
-   run_study(suite,execute=a.execute);return
-  if suite['specialized_study']=='self462_1m_hydra_scaled_20261105':
-   from scaled_lp_hydra_self462_1m_20261105 import run_study
-   run_study(suite,execute=a.execute);return
-  if suite['specialized_study']=='self462_1m_hydra_parallel_20261105':
-   from parallel_hydra_self462_1m_20261105 import run_study
-   run_study(suite,execute=a.execute);return
-  if suite['specialized_study']=='self462_1m_hydra_dual_ds_20261105':
-   from dual_ds_hydra_self462_1m_20261105 import run_study
-   run_study(suite,execute=a.execute);return
-  if suite['specialized_study']=='self462_1m_hydra_dual_20261105':
-   from dual_hydra_self462_1m_20261105 import run_study
-   run_study(suite,execute=a.execute);return
-  if suite['specialized_study']=='self462_1m_hydra_solver_20261105':
-   from retry_hydra_self462_1m_20261105 import run_study
-   run_study(suite,execute=a.execute);return
   if suite['specialized_study']=='self462_1m_baselines_20261105':
    from run_self462_1m_baselines_20261105 import run_study
-  elif suite['specialized_study']=='self462_12800_20261105':
-   from run_self462_12800_20261105 import run_study
-  elif suite['specialized_study']=='self462_band_analysis_20261105':
-   from run_self462_band_analysis_20261105 import run_study
-  elif suite['specialized_study']=='self462_feature_study_20261105':
-   from run_self462_feature_study_20261105 import run_study
-  elif suite['specialized_study']=='detail_performance_20261105':
-   from run_detail_performance_20261105 import run_study
-  elif suite['specialized_study']=='detail_features_20261105':
-   from validate_detail_features_20261105 import run_study
-  elif suite['specialized_study']=='midband_competition_20261105':
-   from run_midband_competition_20261105 import run_study
-  elif suite['specialized_study']=='scale_calibration_20261105':
-   from run_scale_calibration_20261105 import run_study
-  elif suite['specialized_study']=='scale_robust_20261105':
-   from run_scale_robust_20261105 import run_study
-  elif suite['specialized_study']=='raw_bn_stability_20261105':
-   from run_raw_bn_stability_20261105 import run_study
-  elif suite['specialized_study']=='map_input_calibration_20261105':
-   from run_map_input_calibration_20261105 import run_study
-  elif suite['specialized_study']=='phase_map_hybrid_20261104':
-   from run_phase_map_hybrid_20261104 import run_study
-  elif suite['specialized_study']=='compact_attention_20261104':
-   from run_compact_attention_20261104 import run_study
-  elif suite['specialized_study']=='direct_efficiency_20261104':
-   from run_direct_efficiency_20261104 import run_study
-  elif suite['specialized_study']=='phase_event_raw_20261104':
-   from run_phase_event_raw_20261104 import run_study
-  elif suite['specialized_study']=='phase_event_snn_20261104':
-   from run_phase_event_snn_20261104 import run_study
-  elif suite['specialized_study']=='cycle_phase_snn_v2_multistate_20261104':
-   from run_cycle_phase_snn_v2_multistate_20261104 import run_study
-  elif suite['specialized_study']=='cycle_phase_snn_v2_20261104':
-   from run_cycle_phase_snn_v2_20261104 import run_study
-  elif suite['specialized_study']=='realtime_rcr_snn_20261104':
-   from run_realtime_rcr_snn_20261104 import run_study
-  elif suite['specialized_study']=='protected_dynamic_encoder_20261103':
-   from run_protected_dynamic_encoder_20261103 import run_study
-  elif suite['specialized_study']=='sp_cycle_net_20261103':
-   from run_sp_cycle_net_20261103 import run_study
-  elif suite['specialized_study']=='real_arc_reference_evidence_20261031':
-   from real_arc_reference_evidence_20261031 import run_study
-  elif suite['specialized_study']=='coordinate_necessity_20261031':
-   from validate_coordinate_necessity_20261031 import run_study
-  elif suite['specialized_study']=='phase_shape_six_20261031':
-   from validate_phase_shape_six_20261031 import run_study
-  elif suite['specialized_study']=='coordinate_utility_20261031':
-   from validate_coordinate_utility_20261031 import run_study
-  elif suite['specialized_study']=='gate_factor_20261031':
-   from validate_gate_factor_20261031 import run_study
-  elif suite['specialized_study']=='quality_consistent_20261031':
-   from validate_quality_consistent_20261031 import run_study
-  elif suite['specialized_study']=='coordinate_evidence_20261031':
-   from validate_coordinate_evidence_20261031 import run_study
-  elif suite['specialized_study']=='fusion_frontier_20261031':
-   from validate_fusion_frontier_20261031 import run_study
-  elif suite['specialized_study']=='phase_start_fixed20_20261031':
-   from validate_phase_start_fixed20_20261031 import run_study
-  elif suite['specialized_study']=='phase_dynamic_evidence_20261030':
-   from run_phase_dynamic_evidence_20261030 import run_study
-  elif suite['specialized_study']=='locked_routes_20261030':
-   from run_locked_routes_20261030 import run_study
-  elif suite['specialized_study']=='fenet_qualification_20261030':
-   from qualify_fenet_20261030 import run_study
-  elif suite['specialized_study']=='fusion_qualification_20261030':
-   from qualify_fusion_current_20261030 import run_study
-  elif suite['specialized_study']=='grouped_baseline_standard_20261029':
-   from freeze_grouped_baselines import run_study
-  elif suite['specialized_study']=='hydra_alternating_protocol_20261029':
-   from validate_hydra_alternating import run_study
-  elif suite['specialized_study']=='paper_baseline_completion_20261029':
-   from complete_paper_baselines import run_study
-  elif suite['specialized_study']=='dynamic_restore_20261029':
-   from validate_dynamic_restore import run_study
-  elif suite['specialized_study']=='shared_eight_e2e_20261029':
-   from train_shared_eight_e2e import run_study
-  elif suite['specialized_study']=='shared_eight_study_20261029':
-   from validate_shared_eight import run_study
-  elif suite['specialized_study']=='input_frontend_pilot_20261029':
-   from validate_input_frontend import run_study
-  elif suite['specialized_study']=='rcr_cft_detector_20261028':
-   from run_rcr_cft_study import run_study
-  elif suite['specialized_study']=='rcr_state_phase_adapter_20261028':
-   from run_state_phase_adapter_study import run_study
-  elif suite['specialized_study']=='rcr_three_backbones_20261028':
-   from run_tcv_study import run_study
-  elif suite['specialized_study']=='reference_recovery_20261026':
-   from run_reference_recovery_study import run_study
-  elif suite['specialized_study']=='reference_native_full_20261026':
-   from run_reference_native_full_study import run_study
-  elif suite['specialized_study']=='head_fusion_validation_20261028':
-   from run_head_fusion_validation_study import run_study
-  elif suite['specialized_study']=='continuous_pll_validation_20261027_v2':
-   from run_continuous_pll_validation_study_v2 import run_study
-  elif suite['specialized_study']=='continuous_pll_validation_20261027':
-   from run_continuous_pll_validation_study import run_study
-  elif suite['specialized_study']=='dynamic_mask_ablation_20261027':
-   from run_dynamic_mask_ablation_study import run_study
-  elif suite['specialized_study']=='local_phase_balanced_20261027':
-   from run_local_phase_balanced_study import run_study
-  elif suite['specialized_study']=='protected_phase_branch_20261027':
-   from run_protected_phase_branch_study import run_study
-  elif suite['specialized_study']=='selective24_harmonic_20261027':
-   from run_selective_harmonic_study import run_study
-  elif suite['specialized_study']=='shared_clock_held_20261026':
-   from run_shared_clock_held_study import run_study
-  elif suite['specialized_study']=='shared_clock_original_control_20261026':
-   from run_shared_clock_original_control_study import run_study
-  elif suite['specialized_study']=='shared_clock_fusion_20261026':
-   from run_shared_clock_fusion_study import run_study
   else:raise ValueError('Unregistered specialized study')
   run_study(suite,execute=a.execute)
   return

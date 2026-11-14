@@ -22,7 +22,7 @@ CUDA_VISIBLE_DEVICES='' arc-project data-audit public
 CUDA_VISIBLE_DEVICES='' arc-project plan
 ```
 
-审计命令检查纳入数量、采集/工况隔离及外折覆盖，不训练。计划命令只显示比较计划。原始数据准备及完整研究训练目前仍有阶段依赖；配置文件或CPU构建通过不代表数据、权重或完整研究已经复现。
+审计命令检查纳入数量、采集/工况隔离及外折覆盖，不训练。计划命令只显示比较计划。从原始录波开始的命令及所需标注文件见[论文复现](REPRODUCE.md)。
 
 ## 核验源码迁移
 
