@@ -21,8 +21,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 16983,
-    "sha256": "b3beb0e174d423fd6b5a62646778ce1b677a0b9235808f8fc86a7335d2683b4e"
+    "bytes": 16189,
+    "sha256": "47dafc126404fbbcd4c0b0bac31e3907a65f893b0e2586cee2cf8aa015113dfe"
   },
   {
     "path": "configs/datasets/public_v1.yaml",
@@ -486,8 +486,8 @@
   },
   {
     "path": "docs/REPRODUCE.md",
-    "bytes": 4669,
-    "sha256": "403c9b209730c85e9a313e5e8a4c1346790c9a3aff2c287b6fbb1c07feb38d1c"
+    "bytes": 4355,
+    "sha256": "452b8b459c8ba74d9350ee214c9f09002c5c688a98379bcc1522980a92037059"
   },
   {
     "path": "docs/SELF462_1MHZ_BASELINES.md",
