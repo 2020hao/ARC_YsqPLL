@@ -1,5 +1,6 @@
 """Rebuild the frozen 462-recording input cohort from reviewed CH0 BINs."""
 import argparse
+import json
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 import sys
@@ -9,7 +10,8 @@ import yaml
 
 SCRIPTS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS))
-from self462_extract_20261105 import one as extract  # noqa: E402
+from self462_extract_20261105 import FEATURE_NAMES, one as extract  # noqa: E402
+from self462_recording import read_recording  # noqa: E402
 import prepare_self462_1m_baselines_20261105 as one_mhz  # noqa: E402
 import prepare_self462_12800_20261105 as low_rate  # noqa: E402
 import run_self462_feature_study_20261105 as native  # noqa: E402
@@ -40,13 +42,18 @@ def resolve_recordings(manifest, recordings_root):
 
 def extract_record(job):
     row, native_dir, low_dir, one_mhz_dir = job
-    receipt = extract((row, native_dir/"records"))
-    signal = extract_one_mhz((row, one_mhz_dir/"records"))
-    if receipt['CH0_sha256'] != signal['source_CH0_sha256']:
-        raise ValueError(f"Different raw source for {row['id']}")
-    # These are the original two-stage causal low-rate inputs.
     from prepare_self462_12800_signals_20261105 import one as extract_low
-    extract_low((row, low_dir/"records"))
+
+    destinations = (native_dir/'records', one_mhz_dir/'records', low_dir/'records')
+    if all((folder/row['id']/'COMPLETE.json').is_file() for folder in destinations):
+        recording = None
+    else:
+        recording = read_recording(Path(row['bin_114']))
+    receipt = extract((row, destinations[0]), recording=recording)
+    signal = extract_one_mhz((row, destinations[1]), recording=recording)
+    low = extract_low((row, destinations[2]), recording=recording)
+    if receipt['CH0_sha256'] != signal['source_CH0_sha256'] or receipt['CH0_sha256'] != low['CH0_sha256']:
+        raise ValueError(f"Different raw source for {row['id']}")
     return row['id']
 
 
@@ -71,6 +78,7 @@ def main():
     with ProcessPoolExecutor(args.workers) as pool:
         for index, record_id in enumerate(pool.map(extract_record, jobs), 1):
             print(f'{index}/462 {record_id}', flush=True)
+    (native.OUT/'data'/'feature_names.json').write_text(json.dumps(FEATURE_NAMES))
     native.prepare()
     for stage, cfgname in ((low_rate, 'self462_12800'), (one_mhz, 'self462_1m_baselines')):
         config = yaml.safe_load((SCRIPTS.parent/'configs/modules'/f'{cfgname}_20261105.yaml').read_text())

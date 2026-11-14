@@ -1,7 +1,8 @@
 """Read-only data-host conversion to contiguous1MHz CH0; originals unchanged."""
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor,as_completed
-import argparse,csv,json,time,struct,hashlib
+import argparse,csv,json,time,hashlib
+from self462_recording import read_recording
 import numpy as np
 from scipy.signal import firwin,kaiserord,freqz,upfirdn
 
@@ -9,13 +10,13 @@ def antialias():
  n,beta=kaiserord(80,(500000-400000)/1000000);n+=1-n%2
  return firwin(n,450000,fs=2000000,window=('kaiser',beta))
 
-def one(job):
+def one(job, *, recording=None):
  row,outdir=job;d=Path(outdir)/row['id'];d.mkdir(parents=True,exist_ok=True)
  if (d/'COMPLETE.json').exists():return json.loads((d/'COMPLETE.json').read_text())
  start=time.time();p=Path(row['bin_114'])
- with p.open('rb') as f:h=f.read(56)
- dev,ts,ch,fs,n=struct.unpack('<32sQIIQ',h);assert dev.rstrip(b'\0')==b'NET9770_114' and fs==2000000 and ch==8 and p.stat().st_size==56+n*ch*8
- raw=np.memmap(p,dtype='<f8',mode='r',offset=56,shape=(n,ch))[:,0].copy();assert np.isfinite(raw).all();source_hash=hashlib.sha256(raw.tobytes()).hexdigest();y=upfirdn(antialias(),raw,down=2)[:(n+1)//2];assert np.isfinite(y).all();np.save(d/'current1m.npy',y)
+ recording = read_recording(p) if recording is None else recording
+ h, n, raw, source_hash = recording
+ y=upfirdn(antialias(),raw,down=2)[:(n+1)//2];assert np.isfinite(y).all();np.save(d/'current1m.npy',y)
  receipt=dict(id=row['id'],source_CH0_sha256=source_hash,source_header_sha256=hashlib.sha256(h).hexdigest(),source_size=p.stat().st_size,source_samples=n,samples1m=len(y),fs=1000000,signal_sha256=hashlib.sha256(y.tobytes()).hexdigest(),seconds=time.time()-start)
  (d/'COMPLETE.json').write_text(json.dumps(receipt));return receipt
 

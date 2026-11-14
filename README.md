@@ -81,7 +81,7 @@
 - 当前自有模型：自采使用**原生2 MHz**表征，公共使用**原生1 MHz**表征。
 - 已完成的自采1 MHz比较：2 MHz原始电流经因果抗混叠下采样得到1 MHz，是同一数据的数字采样率适配。
 - PLL内部5 kHz参考只用于相位估计；10–100 kHz、100–400 kHz高频活动从对应高采样率电流计算。
-- 1 MHz可插拔旁路已实现工程接口，当前462条三骨干的检测收益仍需验证；其规格不改变已完成原生2 MHz研究的身份。
+- 1 MHz可插拔旁路已在462条队列的三个基准上完成校正评价。该结果对应数字降采样后的旁路口径，自有模型采用原生采样率。
 
 ## 模型与验证状态
 
@@ -90,7 +90,7 @@
 | ArcFENet本地论文重建 | `implementations/baseline_arc_fenet/` | 冻结，保留原路径 |
 | HYDRA原文FD配置 | `implementations/baseline_hydra/` | 冻结，保留原路径 |
 | ArcFusionNet仅电流适配 | `implementations/baseline_arc_fusion/` | 冻结，保留原路径 |
-| 三基准动态输出校正 | `model_instances/*_dynamic_correction_1m/` | 每骨干独立，共享旁路；当前462性能待验证 |
+| 三基准动态输出校正 | `model_instances/*_dynamic_correction_1m/` | 每骨干独立，共享旁路；两库已有校正结果 |
 | 三基准相位对齐输入 | `model_instances/*_phase_aligned_input/` | 每骨干独立的输入对照 |
 | 当前完整自有CNN–SNN | `model_instances/rcr_cnn_snn_peak_dynamic_affine_calibrated/` | 双库三种子开发验证，迁移核验通过 |
 | 原模型、动态、容量、峰值及校准对照 | `model_instances/`中各自独立目录 | 当前9种方案分别保存，不靠一个arm参数切换 |

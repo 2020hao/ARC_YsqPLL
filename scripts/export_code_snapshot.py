@@ -14,6 +14,7 @@ PATTERNS = [
     "scripts/real_arc_reference_evidence_20261031.py",
     "scripts/validate_locked_dual_20261030.py",
     "scripts/self462_extract_20261105.py",
+    "scripts/self462_recording.py",
     "scripts/prepare_self462_12800_20261105.py",
     "scripts/prepare_self462_12800_signals_20261105.py",
     "scripts/prepare_self462_1m_baselines_20261105.py",

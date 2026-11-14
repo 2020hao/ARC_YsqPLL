@@ -1,7 +1,8 @@
 """Data-host read-only native CH0 -> causal50k and12.8k caches."""
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor,as_completed
-import argparse,csv,json,time,struct,hashlib
+import argparse,csv,json,time,hashlib
+from self462_recording import read_recording
 import numpy as np
 from scipy.signal import upfirdn,firwin,kaiserord,freqz
 
@@ -9,14 +10,14 @@ def filters():
  n,beta=kaiserord(80,(6400-5000)/(50000*32/2));n+=1-n%2
  return firwin(801,20000,fs=2000000,window=('kaiser',7.5)),firwin(n,5700,fs=1600000,window=('kaiser',beta))*32
 
-def one(job):
+def one(job, *, recording=None):
  row,outdir=job;dest=Path(outdir)/row['id'];dest.mkdir(parents=True,exist_ok=True);done=dest/'COMPLETE.json'
  if done.exists():return json.loads(done.read_text())
  path=Path(row['bin_114']);start=time.time()
- with path.open('rb') as f:header=f.read(56)
- dev,ts,ch,fs,n=struct.unpack('<32sQIIQ',header);assert dev.rstrip(b'\0')==b'NET9770_114' and ch==8 and fs==2000000
- assert path.stat().st_size==56+n*ch*8
- raw=np.memmap(path,dtype='<f8',mode='r',offset=56,shape=(n,ch))[:,0].copy();assert np.isfinite(raw).all();h=hashlib.sha256(raw.tobytes()).hexdigest();f1,f2=filters()
+ recording = read_recording(path) if recording is None else recording
+ header, n, raw, h = recording
+ fs=2000000
+ f1,f2=filters()
  low50=upfirdn(f1,raw,down=40)[:(n+39)//40];low128=upfirdn(f2,low50,up=32,down=125)[:(len(low50)*32+124)//125]
  assert np.isfinite(low50).all() and np.isfinite(low128).all()
  np.savez_compressed(dest/'signals.npz',low50=low50,low128=low128)

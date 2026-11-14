@@ -21,8 +21,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 16786,
-    "sha256": "57f90032aef5716c8d1b980d698cf98000552d333f6c1cd74d892cbf667a304d"
+    "bytes": 16799,
+    "sha256": "28f985137afe225b6d510e9f81fdf9126c81e2d50607d3538318a1321848f50d"
   },
   {
     "path": "configs/datasets/public_v1.yaml",
@@ -606,8 +606,8 @@
   },
   {
     "path": "scripts/export_code_snapshot.py",
-    "bytes": 7111,
-    "sha256": "76722716ef53da275acd6537ffb9bba68e56a9ae7585deef3e04e350d43ab599"
+    "bytes": 7147,
+    "sha256": "eb2f8244de141c2f72442857e6d986f421f72c913cf178dcfda748c9bd050740"
   },
   {
     "path": "scripts/export_dynamic_modules.py",
@@ -651,8 +651,8 @@
   },
   {
     "path": "scripts/prepare_self462_12800_signals_20261105.py",
-    "bytes": 2968,
-    "sha256": "1727e09493b8611dc6be84f0354dfc6e93f820d717456b7facde1e147d2ab00d"
+    "bytes": 2788,
+    "sha256": "f32a0438a06787910b8e0f5e8590d2e4219dfa25eaa5deb68ea5ca2f4dcbb630"
   },
   {
     "path": "scripts/prepare_self462_1m_baselines_20261105.py",
@@ -661,8 +661,8 @@
   },
   {
     "path": "scripts/prepare_self462_1m_signals_20261105.py",
-    "bytes": 2572,
-    "sha256": "4eaabe91297f65aef124b9aa76bd48a6fa8f164cda699c84e3895ef7c15121b4"
+    "bytes": 2395,
+    "sha256": "12b6fb3c7234f04105bbe1ceb6871f33c9cfae6b3e93ef627b73ca40ec7239e0"
   },
   {
     "path": "scripts/project.py",
@@ -746,8 +746,8 @@
   },
   {
     "path": "scripts/reproduction/self_data.py",
-    "bytes": 3913,
-    "sha256": "f025f6e6cd89d138517d893aa1073ff157d2465d56783ad6c074b4440d4a379e"
+    "bytes": 4383,
+    "sha256": "26f03f54add3353ad4b7b1ff1f2e8f0cc3e3f8f41cf904f8c3bdca9a5f4ea974"
   },
   {
     "path": "scripts/run_dynamic_state_20261105.py",
@@ -791,8 +791,13 @@
   },
   {
     "path": "scripts/self462_extract_20261105.py",
-    "bytes": 11145,
-    "sha256": "2e40b796680ca04de531f17bd0b1037a999a61976443f990e33c1f3914d01f43"
+    "bytes": 10961,
+    "sha256": "bb81fa3f740b5ee4f1ccbca171468bd59f569dff38e03c642a00994b2b84cccb"
+  },
+  {
+    "path": "scripts/self462_recording.py",
+    "bytes": 880,
+    "sha256": "c4d1d0c039439e487a244199f69f98de3d1718b8845559987821eb5dc02873cd"
   },
   {
     "path": "scripts/summarize_dynamic_restore.py",

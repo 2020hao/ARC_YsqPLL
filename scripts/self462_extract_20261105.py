@@ -1,7 +1,8 @@
 """Read-only native CH0 feature extraction; run beside copied RCR/SOGI code on data host."""
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor,as_completed
-import os,json,csv,struct,time,hashlib,argparse
+import os,json,csv,time,hashlib,argparse
+from self462_recording import read_recording
 import numpy as np
 from scipy.signal import butter,sosfilt,firwin,upfirdn
 import _bootstrap  # noqa: F401
@@ -64,15 +65,13 @@ def describe(shape,power,burst,low,a,b,previous=None):
  maps=np.stack([prob*64,abs(delta)*64,np.log10(np.maximum(burst/np.maximum(power[1:],eps)**2,1)),np.stack([power[1]/np.maximum(power[1:].sum(0),eps),power[2]/np.maximum(power[1:].sum(0),eps)])])
  return np.asarray(features,'float32'),base.astype('float32'),maps.astype('float32'),(prob,rms)
 
-def one(job):
+def one(job, *, recording=None):
  row,outdir=job;dest=Path(outdir)/row['id'];receipt=dest/'COMPLETE.json'
  if receipt.exists():return json.loads(receipt.read_text())
  dest.mkdir(parents=True,exist_ok=True);tick=time.time();fs=2000000
  path=Path(row['bin_114'])
- with path.open('rb') as f:h=f.read(56)
- dev,ts,ch,rate,n=struct.unpack('<32sQIIQ',h);assert dev.rstrip(b'\0')==b'NET9770_114' and ch==8 and rate==fs and path.stat().st_size==56+n*ch*8
- raw=np.memmap(path,dtype='<f8',mode='r',offset=56,shape=(n,ch))[:,0].copy();assert np.isfinite(raw).all()
- rawsha=hashlib.sha256(raw.tobytes()).hexdigest()
+ recording = read_recording(path) if recording is None else recording
+ h, n, raw, rawsha = recording
  low=upfirdn(firwin(801,20000,fs=fs,window=('kaiser',7.5)),raw,down=40)[:(n+39)//40]
  shape=sosfilt(butter(4,1000,fs=50000,output='sos'),low);shprefix=np.r_[0.,np.cumsum(shape)]/50000; sht=np.arange(len(shprefix))/50000
  reference=sosfilt(butter(2,800,fs=50000,output='sos'),low)[::10]
